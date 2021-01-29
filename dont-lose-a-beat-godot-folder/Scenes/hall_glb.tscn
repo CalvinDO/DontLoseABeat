@@ -4,5 +4,11 @@
 
 [node name="hall" instance=ExtResource( 1 )]
 
+[node name="Cube" parent="." index="0"]
+use_in_baked_light = true
+
 [node name="Plane003" parent="." index="3"]
 transform = Transform( 0.609059, 0, 0, 0, 1, 0, 0, 0, 1, -0.482456, 2.89248, -29.0611 )
+
+[node name="Plane005" parent="." index="4"]
+use_in_baked_light = true
