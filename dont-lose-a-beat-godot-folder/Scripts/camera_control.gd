@@ -17,7 +17,7 @@ export var distance = 5.0 setget set_distance
 export var rotate_privot = false
 export var collisions = true setget set_collisions
 export (int, 0, 360) var yaw_limit = 360
-export (int, 0, 360) var pitch_limit = 360
+export (int, 0, 360) var pitch_limit = 60
 
 # Movement settings
 export var movement = true
