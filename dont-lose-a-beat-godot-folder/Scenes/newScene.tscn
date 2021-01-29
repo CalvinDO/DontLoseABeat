@@ -1,0 +1,34 @@
+[gd_scene load_steps=7 format=2]
+
+[ext_resource path="res://Scripts/PlayerSection.cs" type="Script" id=1]
+[ext_resource path="res://Scripts/PlayerSectionAudioPlayer.cs" type="Script" id=2]
+[ext_resource path="res://lv1_full.ogg" type="AudioStream" id=3]
+[ext_resource path="res://Scripts/camera_control.gd" type="Script" id=4]
+
+[sub_resource type="CapsuleMesh" id=2]
+
+[sub_resource type="SphereMesh" id=3]
+
+[node name="NewRoot" type="Spatial"]
+
+[node name="Camera" type="Camera" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.29319, 10.8926 )
+script = ExtResource( 4 )
+
+[node name="PlayerSection" type="Spatial" parent="."]
+script = ExtResource( 1 )
+
+[node name="PlayerSectionSound" type="AudioStreamPlayer" parent="PlayerSection"]
+stream = ExtResource( 3 )
+autoplay = true
+script = ExtResource( 2 )
+
+[node name="Body" type="MeshInstance" parent="PlayerSection"]
+transform = Transform( 0.522, 0, 0, 0, 0.0345748, -1.3294, 0, 0.808, 0.021, 0, 2.01323, 0 )
+mesh = SubResource( 2 )
+material/0 = null
+
+[node name="Head" type="MeshInstance" parent="PlayerSection/Body"]
+transform = Transform( 1.91571, 0, 0, 0, 0.019537, 1.23679, 0, -0.75171, 0.0321661, 0, 0.0582906, -2.2428 )
+mesh = SubResource( 3 )
+material/0 = null
