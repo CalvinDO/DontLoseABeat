@@ -2,7 +2,7 @@
 
 [ext_resource path="res://Scripts/camera_control.gd" type="Script" id=1]
 [ext_resource path="res://lv1_full.ogg" type="AudioStream" id=2]
-[ext_resource path="res://Scripts/PlayerSectionAudioPlayer.cs" type="Script" id=3]
+[ext_resource path="res://Scripts/PlayerSectionAudioPlayerFake.cs" type="Script" id=3]
 [ext_resource path="res://Scenes/newScene.tscn" type="PackedScene" id=4]
 
 [sub_resource type="PlaneMesh" id=1]

@@ -1,7 +1,7 @@
 using Godot;
 using System;
 
-public class PlayerSectionAudioPlayer : AudioStreamPlayer
+public class PlayerSectionAudioPlayerFake : AudioStreamPlayer
 {
     private AudioEffectPitchShift pianoPitch = (AudioEffectPitchShift)AudioServer.GetBusEffect(0, 0);
 

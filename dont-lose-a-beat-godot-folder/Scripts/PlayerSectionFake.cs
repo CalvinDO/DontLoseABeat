@@ -8,11 +8,11 @@ public class PlayerSectionFake : Spatial
 
 
     [Export]
-    private PlayerSectionAudioPlayer playerSectionSoundNode;
+    private PlayerSectionAudioPlayerFake playerSectionSoundNode;
 
     public override void _Ready()
     {
-        this.playerSectionSoundNode = GetNode<PlayerSectionAudioPlayer>("PlayerSectionSound");
+        this.playerSectionSoundNode = GetNode<PlayerSectionAudioPlayerFake>("PlayerSectionSound");
         GD.Print(playerSectionSoundNode);
     }
 
