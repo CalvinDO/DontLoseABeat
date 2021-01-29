@@ -1,7 +1,7 @@
 using Godot;
 using System;
 
-public class PlayerSection : Spatial
+public class PlayerSectionFake : Spatial
 {
     private float timeSinceStart;
     private float bpm = 130;
