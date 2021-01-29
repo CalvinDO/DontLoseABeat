@@ -6,7 +6,7 @@ public class OrchestraPlayers : Node
     [Export]
     public Instruments instruments;
     [Export]
-    public AudioStream audioStream;
+    public PlayerSectionAudioPlayerFake audioStream;
     [Export]
     public float bpmTempo;
     [Export]
@@ -15,6 +15,6 @@ public class OrchestraPlayers : Node
 
     public override void _Ready()
     {
-        GD.Print("Started - OrchestraPlayers");
+        audioStream = GetNode<PlayerSectionAudioPlayerFake>("/root/testOrchestraScene/Root/AudioStreamPlayer");
     }
 }
