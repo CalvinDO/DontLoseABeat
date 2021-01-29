@@ -6,6 +6,8 @@ public class OrchestraLevelSystem : Node
     public OrchestraPlayers[] orchestraPlayers;
     [Export]
     public float difficulty;
+    [Export]
+    public float audioTempo;
     private bool isThresholdChecking;
     public override void _Ready()
     {
