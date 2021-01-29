@@ -1,19 +1,20 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://Scripts/PlayerSectionAudioPlayerFake.cs" type="Script" id=1]
 [ext_resource path="res://Scripts/PlayerSectionFake.cs" type="Script" id=2]
 [ext_resource path="res://lv1_full.ogg" type="AudioStream" id=3]
-[ext_resource path="res://Scripts/camera_control.gd" type="Script" id=4]
+[ext_resource path="res://Scenes/Camera.tscn" type="PackedScene" id=4]
 
 [sub_resource type="CapsuleMesh" id=1]
 
 [sub_resource type="SphereMesh" id=2]
 
+[sub_resource type="BoxShape" id=3]
+
 [node name="NewRoot" type="Spatial"]
 
-[node name="Camera" type="Camera" parent="."]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.29319, 10.8926 )
-script = ExtResource( 4 )
+[node name="Spatial" parent="." instance=ExtResource( 4 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 9.60717 )
 
 [node name="PlayerSection" type="Spatial" parent="."]
 script = ExtResource( 2 )
@@ -32,3 +33,19 @@ material/0 = null
 transform = Transform( 1.91571, 0, 0, 0, 0.019537, 1.23679, 0, -0.75171, 0.0321661, 0, 0.0582906, -2.2428 )
 mesh = SubResource( 2 )
 material/0 = null
+
+[node name="RightShape" type="Area" parent="PlayerSection/Body"]
+transform = Transform( 1.91571, 0, 0, 0, 0.019537, 1.23679, 0, -0.751711, 0.0321662, 0, -0.0393326, 1.51337 )
+
+[node name="collisionShape" type="CollisionShape" parent="PlayerSection/Body/RightShape"]
+transform = Transform( 3.7403, 0, 0, 0, -1.96645e-06, -12.07, 0, 1, -1.62921e-07, -3.71516, 0, 0 )
+shape = SubResource( 3 )
+
+[node name="LeftShape" type="Area" parent="PlayerSection/Body"]
+transform = Transform( 1.91571, 0, 0, 0, 0.019537, 1.23679, 0, -0.751711, 0.0321662, -15.3257, -0.0393326, 1.51337 )
+
+[node name="CollisionShape" type="CollisionShape" parent="PlayerSection/Body/LeftShape"]
+transform = Transform( 3.7403, 0, 0, 0, -1.96645e-06, -12.07, 0, 1, -1.62921e-07, 4.28484, 0, 0 )
+shape = SubResource( 3 )
+[connection signal="area_entered" from="PlayerSection/Body/LeftShape" to="PlayerSection" method="MouseEnteredLeft"]
+[connection signal="mouse_entered" from="PlayerSection/Body/LeftShape" to="PlayerSection" method="MouseEnteredLeft"]
