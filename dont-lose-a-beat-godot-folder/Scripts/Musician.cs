@@ -5,23 +5,29 @@ public class Musician : Node
 {
     [Export]
     public Instrument instrument;
-    [Export]
+
     public AudioStreamPlayer audioStream;
+    public MusicianAudioStreamController audioStreamController;
     [Export]
     public float bpmTempo;
     [Export]
     public float pitch;
+
+    public int index;
 
     public override void _Ready()
     {
 
     }
 
-    public void LoadAudio()
+    public void LoadAudio(int index)
     {
+        this.index = index;
         if (this.GetChildCount() > 0)
         {
-            audioStream = (AudioStreamPlayer)GetChild(0);
+            this.audioStream = (AudioStreamPlayer)GetChild(0);
+            this.audioStreamController = (MusicianAudioStreamController)GetChild(0);
+            this.audioStreamController.Init(index);
 
             string level = this.GetParent().Name.ToLower();
             string instrumentForPath = this.instrument.ToString().ToLower();

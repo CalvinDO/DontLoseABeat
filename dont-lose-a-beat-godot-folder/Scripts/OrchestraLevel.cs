@@ -16,8 +16,8 @@ public class OrchestraLevel : Node
         {
             Musician currentMusician = playerSections[index];
             currentMusician = (Musician)this.GetChild(index);
-            
-            currentMusician.LoadAudio();
+
+            currentMusician.LoadAudio(index);
             currentMusician.Play();
         }
     }
