@@ -2,7 +2,9 @@ using Godot;
 using System;
 public class OrchestraLevelSystem : Node
 {
+    [Export]
     public OrchestraPlayers[] orchestraPlayers;
+    [Export]
     public float difficulty;
     private bool isThresholdChecking;
     public override void _Ready()
