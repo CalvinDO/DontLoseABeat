@@ -8,14 +8,14 @@ public class PlayerSectionFake : Spatial
 
 
     [Export]
-    private PlayerSectionAudioPlayerFake playerSectionSoundNode;
+    private MusicianController playerSectionSoundNode;
 
     public override void _Ready()
     {
         CollisionShape colsh = new CollisionShape();
 
         GD.Print("start ready erad");
-        this.playerSectionSoundNode = GetNode<PlayerSectionAudioPlayerFake>("PlayerSectionSound");
+        this.playerSectionSoundNode = GetNode<MusicianController>("PlayerSectionSound");
         GD.Print(playerSectionSoundNode);
     }
 

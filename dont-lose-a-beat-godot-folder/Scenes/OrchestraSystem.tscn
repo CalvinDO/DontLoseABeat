@@ -1,0 +1,69 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://Scripts/Musician.cs" type="Script" id=2]
+[ext_resource path="res://Scripts/OrchestraLevel.cs" type="Script" id=5]
+
+[node name="OrchestraScene" type="Spatial"]
+
+[node name="OrchestraManager" type="Node" parent="."]
+script = ExtResource( 5 )
+
+[node name="Levels" type="Node" parent="OrchestraManager"]
+
+[node name="Lvl1" type="Node" parent="OrchestraManager/Levels"]
+script = ExtResource( 5 )
+bpmTempo = 65.0
+
+[node name="Musician" type="Node" parent="OrchestraManager/Levels/Lvl1"]
+script = ExtResource( 2 )
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="OrchestraManager/Levels/Lvl1/Musician"]
+autoplay = true
+
+[node name="Musician2" type="Node" parent="OrchestraManager/Levels/Lvl1"]
+script = ExtResource( 2 )
+instrument = 10
+
+[node name="AudioStreamPlayer2" type="AudioStreamPlayer" parent="OrchestraManager/Levels/Lvl1/Musician2"]
+autoplay = true
+
+[node name="Musician3" type="Node" parent="OrchestraManager/Levels/Lvl1"]
+script = ExtResource( 2 )
+instrument = 2
+
+[node name="AudioStreamPlayer3" type="AudioStreamPlayer" parent="OrchestraManager/Levels/Lvl1/Musician3"]
+autoplay = true
+
+[node name="Musician4" type="Node" parent="OrchestraManager/Levels/Lvl1"]
+script = ExtResource( 2 )
+instrument = 11
+
+[node name="AudioStreamPlayer4" type="AudioStreamPlayer" parent="OrchestraManager/Levels/Lvl1/Musician4"]
+autoplay = true
+
+[node name="Musician5" type="Node" parent="OrchestraManager/Levels/Lvl1"]
+script = ExtResource( 2 )
+instrument = 12
+
+[node name="AudioStreamPlayer5" type="AudioStreamPlayer" parent="OrchestraManager/Levels/Lvl1/Musician5"]
+autoplay = true
+
+[node name="Musician6" type="Node" parent="OrchestraManager/Levels/Lvl1"]
+script = ExtResource( 2 )
+instrument = 7
+
+[node name="AudioStreamPlayer6" type="AudioStreamPlayer" parent="OrchestraManager/Levels/Lvl1/Musician6"]
+autoplay = true
+
+[node name="Lvl2" type="Node" parent="OrchestraManager/Levels"]
+script = ExtResource( 5 )
+
+[node name="Lvl3" type="Node" parent="OrchestraManager/Levels"]
+script = ExtResource( 5 )
+bpmTempo = 130.0
+
+[node name="Level4" type="Node" parent="OrchestraManager/Levels"]
+script = ExtResource( 5 )
+
+[node name="Level5" type="Node" parent="OrchestraManager/Levels"]
+script = ExtResource( 5 )

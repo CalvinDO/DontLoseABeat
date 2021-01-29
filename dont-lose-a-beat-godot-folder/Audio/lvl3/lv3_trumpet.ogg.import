@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/lv3_trumpet.ogg-5bcdfaab16bcb2c62dfcc7d673b22b04.oggstr"
+
+[deps]
+
+source_file="res://Audio/lvl3/lv3_trumpet.ogg"
+dest_files=[ "res://.import/lv3_trumpet.ogg-5bcdfaab16bcb2c62dfcc7d673b22b04.oggstr" ]
+
+[params]
+
+loop=true
+loop_offset=0

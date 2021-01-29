@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/lvl1_horns.ogg-0380f5ca2d0b1b9dd974e4eeb08d4724.oggstr"
+
+[deps]
+
+source_file="res://Audio/lvl1/lvl1_horns.ogg"
+dest_files=[ "res://.import/lvl1_horns.ogg-0380f5ca2d0b1b9dd974e4eeb08d4724.oggstr" ]
+
+[params]
+
+loop=true
+loop_offset=0

@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/lv3_violin.ogg-03fb8dc31dfea2b4c986762a9300e455.oggstr"
+
+[deps]
+
+source_file="res://Audio/lvl3/lv3_violin.ogg"
+dest_files=[ "res://.import/lv3_violin.ogg-03fb8dc31dfea2b4c986762a9300e455.oggstr" ]
+
+[params]
+
+loop=true
+loop_offset=0
