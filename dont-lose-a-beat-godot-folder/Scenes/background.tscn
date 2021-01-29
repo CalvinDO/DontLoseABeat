@@ -8,7 +8,7 @@ cell_space_transform = Transform( 4, 0, 0, 0, 4, 0, 0, 0, 4, 174.994, 93.9935, 2
 cell_subdiv = 11
 octree = PoolByteArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255 )
 
-[node name="Spatial" type="Spatial"]
+[node name="Hall" type="Spatial"]
 
 [node name="hall2" parent="." instance=ExtResource( 1 )]
 
