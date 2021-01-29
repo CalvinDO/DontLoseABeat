@@ -1,1 +1,5 @@
+<<<<<<< HEAD
 {"res://Scenes/SoundTest.cs":{"modified_time":"1611919577","class":{"namespace":"","class_name":"SoundTest","nested":false}},"res://Scenes/AudioTest.cs":{"modified_time":"1611922765","class":{"namespace":"","class_name":"AudioTest","nested":false}},"res://Scripts/PlayerSectionAudioPlayer.cs":{"modified_time":"1611938618","class":{"namespace":"","class_name":"PlayerSectionAudioPlayer","nested":false}},"res://Scripts/PlayerSection.cs":{"modified_time":"1611940947","class":{"namespace":"","class_name":"PlayerSection","nested":false}}}
+=======
+{"res://Scenes/SoundTest.cs":{"modified_time":"1611919577","class":{"namespace":"","class_name":"SoundTest","nested":false}},"res://Scenes/AudioTest.cs":{"modified_time":"1611922765","class":{"namespace":"","class_name":"AudioTest","nested":false}},"res://Scripts/AudioTest.cs":{"modified_time":"1611932785","class":{"namespace":"","class_name":"AudioTest","nested":false}}}
+>>>>>>> 862a95c665851c6426bd45503947472c8d39fe74
