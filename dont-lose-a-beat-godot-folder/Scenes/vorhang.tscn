@@ -5,6 +5,9 @@
 
 [node name="vorhang" instance=ExtResource( 1 )]
 
+[node name="Plane004" parent="." index="0"]
+use_in_baked_light = true
+
 [node name="vorhang_l" parent="." index="1"]
 transform = Transform( 0.502206, 0, 0, 0, 1.82, 0, 0, 0, 1.44, -38.3316, -4.29318, 5.08113 )
 
