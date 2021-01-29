@@ -12,6 +12,11 @@ public class AudioTest : AudioStreamPlayer
     [Export]
     public float currentPitch = 1.0f;
 
+    private float speedToSet = 1.0f;
+    private float pitchToSet = 1.0f;
+
+    private float increment = 1f;
+
     private void SetSpeed(float speed)
     {
         this.pianoPitch.PitchScale = this.currentSpeed / speed;
@@ -41,5 +46,23 @@ public class AudioTest : AudioStreamPlayer
     public override void _Process(float delta)
     {
 
+        if (Input.IsActionPressed("IncreasePitch"))
+        {
+            this.pitchToSet += this.increment * delta;
+        }
+        if (Input.IsActionPressed("DecreasePitch"))
+        {
+            this.pitchToSet -= this.increment * delta;
+        }
+        if (Input.IsActionPressed("IncreaseSpeed"))
+        {
+            this.speedToSet += this.increment * delta;
+        }
+        if (Input.IsActionPressed("DecreaseSpeed"))
+        {
+            this.speedToSet -= this.increment * delta;
+        }
+        
+        this.SetPitchAndSpeed(this.pitchToSet, this.speedToSet);
     }
 }
