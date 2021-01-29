@@ -12,6 +12,9 @@ public class PlayerSectionFake : Spatial
 
     public override void _Ready()
     {
+        CollisionShape colsh = new CollisionShape();
+
+        GD.Print("start ready erad");
         this.playerSectionSoundNode = GetNode<PlayerSectionAudioPlayerFake>("PlayerSectionSound");
         GD.Print(playerSectionSoundNode);
     }
@@ -25,5 +28,15 @@ public class PlayerSectionFake : Spatial
         this.Rotation = new Vector3(0, 0, (float)Math.Cos(this.timeSinceStart * Math.PI * bps));
 
         //float tempo = playerSectionSoundNode.currentTempo;
+    }
+
+    public void MouseEnteredRight()
+    {
+
+    }
+
+    public void MouseEnteredLeft(Area area)
+    {
+        GD.Print(timeSinceStart);
     }
 }
