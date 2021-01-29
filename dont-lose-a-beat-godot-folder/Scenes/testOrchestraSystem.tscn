@@ -1,36 +1,27 @@
-[gd_scene load_steps=10 format=2]
+[gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://Scripts/OrchestraPlayers.cs" type="Script" id=1]
-[ext_resource path="res://Scripts/Level2.cs" type="Script" id=2]
 [ext_resource path="res://Scripts/OrchestraLevelSystem.cs" type="Script" id=3]
-[ext_resource path="res://Scripts/Level3.cs" type="Script" id=4]
-[ext_resource path="res://Scripts/Level1.cs" type="Script" id=5]
 [ext_resource path="res://Scenes/MainScene.tscn" type="PackedScene" id=6]
 [ext_resource path="res://Scripts/Instruments.cs" type="Script" id=7]
-[ext_resource path="res://Scripts/Level4.cs" type="Script" id=8]
-[ext_resource path="res://Scripts/Level5.cs" type="Script" id=9]
 
 [node name="testOrchestraScene" type="Spatial"]
 
 [node name="OrchestraManager" type="Node" parent="."]
 script = ExtResource( 3 )
+Levels = [  ]
 
 [node name="Levels" type="Node" parent="OrchestraManager"]
 
 [node name="Level1" type="Node" parent="OrchestraManager/Levels"]
-script = ExtResource( 5 )
 
 [node name="Level2" type="Node" parent="OrchestraManager/Levels"]
-script = ExtResource( 2 )
 
 [node name="Level3" type="Node" parent="OrchestraManager/Levels"]
-script = ExtResource( 4 )
 
 [node name="Level4" type="Node" parent="OrchestraManager/Levels"]
-script = ExtResource( 8 )
 
 [node name="Level5" type="Node" parent="OrchestraManager/Levels"]
-script = ExtResource( 9 )
 
 [node name="Players" type="Node" parent="OrchestraManager"]
 script = ExtResource( 1 )
@@ -39,14 +30,3 @@ script = ExtResource( 1 )
 script = ExtResource( 7 )
 
 [node name="Root" parent="." instance=ExtResource( 6 )]
-[connection signal="ready" from="OrchestraManager" to="OrchestraManager/Levels/Level2" method="_on_OrchestraManager_ready"]
-[connection signal="ready" from="OrchestraManager" to="OrchestraManager/Levels/Level1" method="_on_OrchestraManager_ready"]
-[connection signal="ready" from="OrchestraManager" to="OrchestraManager/Levels/Level4" method="_on_OrchestraManager_ready"]
-[connection signal="ready" from="OrchestraManager" to="OrchestraManager/Levels/Level3" method="_on_OrchestraManager_ready"]
-[connection signal="ready" from="OrchestraManager" to="OrchestraManager/Players" method="_on_OrchestraManager_ready"]
-[connection signal="ready" from="OrchestraManager" to="OrchestraManager/Levels/Level5" method="_on_OrchestraManager_ready"]
-[connection signal="ready" from="OrchestraManager/Players" to="OrchestraManager/Levels/Level2" method="_on_Players_ready"]
-[connection signal="ready" from="OrchestraManager/Players" to="OrchestraManager/Levels/Level1" method="_on_Players_ready"]
-[connection signal="ready" from="OrchestraManager/Players" to="OrchestraManager/Levels/Level4" method="_on_Players_ready"]
-[connection signal="ready" from="OrchestraManager/Players" to="OrchestraManager/Levels/Level3" method="_on_Players_ready"]
-[connection signal="ready" from="OrchestraManager/Players" to="OrchestraManager/Levels/Level5" method="_on_Players_ready"]
