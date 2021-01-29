@@ -30,4 +30,8 @@ material = SubResource( 2 )
 
 [node name="OrchestraScene" parent="." instance=ExtResource( 2 )]
 
+[node name="AudioStreamPlayer" parent="OrchestraScene/OrchestraManager/Levels/Lvl1/Musician" index="0"]
+tempoToSet = 1.0
+pitchToSet = 1.0
+
 [editable path="OrchestraScene"]
