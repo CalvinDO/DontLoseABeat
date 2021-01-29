@@ -5,9 +5,9 @@
 [ext_resource path="res://lv1_full.ogg" type="AudioStream" id=3]
 [ext_resource path="res://Scripts/camera_control.gd" type="Script" id=4]
 
-[sub_resource type="CapsuleMesh" id=2]
+[sub_resource type="CapsuleMesh" id=1]
 
-[sub_resource type="SphereMesh" id=3]
+[sub_resource type="SphereMesh" id=2]
 
 [node name="NewRoot" type="Spatial"]
 
@@ -25,10 +25,10 @@ script = ExtResource( 2 )
 
 [node name="Body" type="MeshInstance" parent="PlayerSection"]
 transform = Transform( 0.522, 0, 0, 0, 0.0345748, -1.3294, 0, 0.808, 0.021, 0, 2.01323, 0 )
-mesh = SubResource( 2 )
+mesh = SubResource( 1 )
 material/0 = null
 
 [node name="Head" type="MeshInstance" parent="PlayerSection/Body"]
 transform = Transform( 1.91571, 0, 0, 0, 0.019537, 1.23679, 0, -0.75171, 0.0321661, 0, 0.0582906, -2.2428 )
-mesh = SubResource( 3 )
+mesh = SubResource( 2 )
 material/0 = null
