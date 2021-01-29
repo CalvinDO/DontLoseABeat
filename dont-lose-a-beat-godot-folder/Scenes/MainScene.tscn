@@ -1,4 +1,6 @@
-[gd_scene load_steps=2 format=2]
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://Scenes/SoundTest.cs" type="Script" id=1]
 
 [sub_resource type="SphereMesh" id=1]
 
@@ -10,3 +12,4 @@
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.49747, -8.66255 )
 mesh = SubResource( 1 )
 material/0 = null
+script = ExtResource( 1 )
