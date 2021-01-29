@@ -1,6 +1,7 @@
-[gd_scene load_steps=3 format=2]
+[gd_scene load_steps=4 format=2]
 
 [ext_resource path="res://Scenes/hall_glb.tscn" type="PackedScene" id=1]
+[ext_resource path="res://models/vorhang.glb" type="PackedScene" id=2]
 
 [sub_resource type="BakedLightmapData" id=1]
 bounds = AABB( -43.7484, -23.4984, -73.0422, 87.4969, 46.9968, 146.084 )
@@ -9,6 +10,8 @@ cell_subdiv = 11
 octree = PoolByteArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255 )
 
 [node name="Hall" type="Spatial"]
+
+[node name="vorhang" parent="." instance=ExtResource( 2 )]
 
 [node name="hall2" parent="." instance=ExtResource( 1 )]
 
