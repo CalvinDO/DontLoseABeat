@@ -57,7 +57,7 @@ public class Section : Spatial
     private TempoChangerScriptTransmitter tempoChanger;
 
     [Export]
-    public float maxRotationAngle;
+    public float maxRotationAngle = 35f;
 
     public enum Axis
     {

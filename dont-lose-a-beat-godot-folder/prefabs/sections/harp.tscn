@@ -9,6 +9,7 @@
 [node name="SectionHarp" type="Spatial"]
 script = ExtResource( 1 )
 instrument = 11
+axis = 2
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 
@@ -22,6 +23,6 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -7.74806, 0, -3.40954 )
 transform = Transform( 0.707107, 0, 0.707107, 0, 1, 0, -0.707107, 0, 0.707107, -6.17986, 0, -2.2573 )
 
 [node name="harp" parent="TempoChanger" instance=ExtResource( 3 )]
-transform = Transform( -2.38419e-07, 0, -2.37046, 0, 2.37046, 0, 2.37046, 0, -2.38419e-07, 0.0122547, 0, 0.0281992 )
+transform = Transform( -3.57628e-07, 0, -2.37046, 0, 2.37046, 0, 2.37046, 0, -3.57628e-07, 0.012255, 0, 0.0281987 )
 
 [editable path="TempoChanger"]
