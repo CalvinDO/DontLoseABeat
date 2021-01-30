@@ -35,6 +35,9 @@ public class SimonsOrchestraManager : Spatial
     [Export]
     public float checkingDuration = 30;
     float thresholdTime;
+
+    public Section[] cleanSections;
+
     ///------
 
     public override void _Ready()
@@ -50,6 +53,7 @@ public class SimonsOrchestraManager : Spatial
         Directory dir = new Directory();
         dir.Open($"res://Audio/lvl{currentLevel}");
         dir.ListDirBegin();
+
         while (true)
         {
             string fileName = dir.GetNext();
@@ -59,6 +63,7 @@ public class SimonsOrchestraManager : Spatial
                 files.Add(fileName);
                 fileName = fileName.Remove(fileName.Length - 4);
                 Section cSection = (Section)sections[fileName].Instance();
+
                 AddChild(cSection);
             }
             else if (!fileName.EndsWith(".ogg.import"))
@@ -68,9 +73,15 @@ public class SimonsOrchestraManager : Spatial
         }
         dir.ListDirEnd();
 
+
+        int index = 0;
+        this.cleanSections = new Section[this.GetChildCount()];
         foreach (Section cSection in this.GetChildren())
         {
             cSection.Play();
+
+            this.cleanSections[index] = cSection;
+            index++;
         }
 
         this.thresholdTime = this.checkingDuration;
@@ -106,6 +117,7 @@ public class SimonsOrchestraManager : Spatial
                 }
                 else
                 {
+                    isInThreshold = false;
                     thresholdTime = this.checkingDuration;
                 }
             }
@@ -117,14 +129,17 @@ public class SimonsOrchestraManager : Spatial
 
     public bool IsInThreshold()
     {
-        foreach (Section cSection in this.GetChildren())
+        foreach (Section cSection in this.cleanSections)
         {
-            if (cSection.currentTempo >= min || cSection.currentPitch >= min && cSection.currentTempo <= max || cSection.currentPitch <= max)
+            Pitcher pitcher = cSection.GetNode<Pitcher>("Pitcher");
+            GD.Print(pitcher.currentPitch, "    " + pitcher.currentTempo);
+            if (!(pitcher.currentTempo >= min && pitcher.currentPitch >= min && pitcher.currentTempo <= max && pitcher.currentPitch <= max))
             {
-                return true;
+                GD.Print(pitcher.currentPitch, "    " + pitcher.currentTempo);
+                return false;
             }
         }
-        return false;
+        return true;
     }
 
     void LoadPrefabs()

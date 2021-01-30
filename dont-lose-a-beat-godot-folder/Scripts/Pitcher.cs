@@ -11,8 +11,8 @@ public class Pitcher : Node
     minTempo = .5f, maxTempo = 5,
     minPitch = .5f, maxPitch = 2;
 
-    float currentSpeed = 1;
-    float currentPitch = 1;
+    public float currentTempo = 1;
+    public float currentPitch = 1;
 
     AudioEffectPitchShift pitchEffect;
     AudioStreamPlayer AP;
@@ -28,12 +28,12 @@ public class Pitcher : Node
         speed = Mathf.Clamp(speed, minTempo, maxTempo);
         pitchEffect.PitchScale = currentPitch / speed;
         AP.PitchScale = speed;
-        currentSpeed = speed;
+        currentTempo = speed;
     }
 
     public void SetPitch(float pitch) {
         pitch = Mathf.Clamp(pitch, minPitch, maxPitch);
-        pitchEffect.PitchScale = pitch / currentSpeed;
+        pitchEffect.PitchScale = pitch / currentTempo;
         currentPitch = pitch;
     }
 
@@ -41,7 +41,7 @@ public class Pitcher : Node
     {
         pitchEffect.PitchScale = pitch / speed;
 	    AP.PitchScale = speed;
-	    currentSpeed = speed;
+	    currentTempo = speed;
 	    currentPitch = pitch;
     }
 }

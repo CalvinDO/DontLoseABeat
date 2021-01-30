@@ -15,14 +15,16 @@ max_speed = Vector3( 10, 10, 10 )
 
 [node name="OrchestraManager" parent="." instance=ExtResource( 2 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.565662, -3.80327 )
-currentLevel = 20
+currentLevel = 3
 timeBeforeStartingChecking = 20.0
 checkingDuration = 5.0
 
 [node name="Hall" parent="." instance=ExtResource( 4 )]
 
-[node name="CollisionShape" type="CollisionShape" parent="."]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.751793, -11.4276 )
+[node name="StaticBody" type="StaticBody" parent="."]
+
+[node name="CollisionShape" type="CollisionShape" parent="StaticBody"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.329439, -11.4276 )
 shape = SubResource( 1 )
 
 [editable path="OrchestraManager"]

@@ -11,21 +11,28 @@
 
 [node name="OrchestraManager" parent="." instance=ExtResource( 4 )]
 loadDynamically = false
+max = 1.05
+min = 0.95
+timeBeforeStartingChecking = 2.0
+checkingDuration = 3.0
 
 [node name="SectionClarinet" parent="OrchestraManager" instance=ExtResource( 2 )]
-tempoToSet = 1.4
-pitchToSet = 1.072
+tempoToSet = 1.0
+pitchToSet = 1.0
 
 [node name="SectionStrings" parent="OrchestraManager" instance=ExtResource( 5 )]
+tempoToSet = 1.0
 
 [node name="SectionPiano" parent="OrchestraManager" instance=ExtResource( 6 )]
-tempoToSet = 1.115
-pitchToSet = 1.122
+tempoToSet = 1.0
+pitchToSet = 1.0
 
 [node name="SectionHorn" parent="OrchestraManager" instance=ExtResource( 1 )]
-tempoToSet = 1.246
-pitchToSet = 1.152
+tempoToSet = 1.0
+pitchToSet = 1.0
 
 [node name="SectionHarp" parent="OrchestraManager" instance=ExtResource( 3 )]
+tempoToSet = 1.0
+pitchToSet = 1.0
 
 [editable path="OrchestraManager/SectionHarp"]

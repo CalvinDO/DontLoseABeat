@@ -180,9 +180,9 @@ public class Section : Spatial
             }
         }
 
-        tempoToSet = this.bpm / this.OM.currentBPM;
+        //tempoToSet = this.bpm / this.OM.currentBPM;
 
-        //pitcher.SetPitchAndTempo(pitchToSet, tempoToSet);
+        pitcher.SetPitchAndTempo(pitchToSet, tempoToSet);
         if (this.chair != null)
         {
             this.chair.SetPitchScale(pitchToSet);
@@ -196,11 +196,11 @@ public class Section : Spatial
         {
             case "Left":
                // GD.Print("Entered Left: " + timeSinceStart);
-                this.mouseInsideLeft = true;
+               // this.mouseInsideLeft = true;
                 break;
             case "Right":
                 //GD.Print("Entered Right: " + timeSinceStart);
-                this.mouseInsideRight = true;
+                //this.mouseInsideRight = true;
                 break;
             default:
                 break;
@@ -212,12 +212,12 @@ public class Section : Spatial
         switch (name)
         {
             case "Left":
-                this.mouseInsideLeft = false;
+               // this.mouseInsideLeft = false;
                 //GD.Print("Exited Left " + timeSinceStart);
                 break;
             case "Right":
                 //GD.Print("Exited Right " + timeSinceStart);
-                this.mouseInsideRight = false;
+               // this.mouseInsideRight = false;
                 break;
             default:
                 break;
