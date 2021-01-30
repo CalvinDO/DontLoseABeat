@@ -18,6 +18,11 @@ script = ExtResource( 1 )
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -28.6447, 12.124, 0 )
 shape = SubResource( 1 )
 
+[node name="PlaneMesh" type="MeshInstance" parent="AreaLeft/CollisionShapeLeft"]
+transform = Transform( 10, 0, 0, 0, -1.62921e-07, -10, 0, 1, -1.62921e-06, 5, 0, 0 )
+mesh = SubResource( 2 )
+material/0 = ExtResource( 3 )
+
 [node name="AreaRight" type="Area" parent="."]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 28.3597, 0, 0 )
 collision_layer = 2
@@ -27,3 +32,8 @@ script = ExtResource( 1 )
 [node name="CollisionShapeRight" type="CollisionShape" parent="AreaRight"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.239025, 12.124, 0 )
 shape = SubResource( 1 )
+
+[node name="PlaneMesh" type="MeshInstance" parent="AreaRight/CollisionShapeRight"]
+transform = Transform( 10, 0, 0, 0, -1.62921e-07, -10, 0, 1, -1.62921e-06, -5, 0, 0 )
+mesh = SubResource( 3 )
+material/0 = ExtResource( 3 )
