@@ -21,9 +21,9 @@ public class SimonsOrchestraManager : Spatial
     //Valentins
     //------
     [Export]
-    public float max = 1.1f;
+    public float maxPitchOrTempo = 1.1f;
     [Export]
-    public float min = 0.9f;
+    public float minPitchOrTempo = 0.9f;
     bool isInThreshold;
     bool checkNow;
     [Export]
@@ -35,6 +35,11 @@ public class SimonsOrchestraManager : Spatial
     private float timeIntervallForUpSetSections;
     public Section[] cleanSections;
     private bool isUpSetting;
+
+    [Export]
+    public int minLoseIntervall = 5;
+    [Export]
+    public int maxLoseIntervall = 20;
 
     ///------
 
@@ -98,7 +103,7 @@ public class SimonsOrchestraManager : Spatial
     public void RandomIncrementSections()
     {
         randomFloatNumber.Randomize();
-        timeIntervallForUpSetSections = randomFloatNumber.RandfRange(5f, 30f);
+        timeIntervallForUpSetSections = randomFloatNumber.RandfRange(this.minLoseIntervall, this.maxLoseIntervall);
         isUpSetting = true;
         randomFloatNumber.Randomize();
         int randomSection = (int)randomFloatNumber.Randfn(0, cleanSections.Length - 1);
@@ -107,18 +112,21 @@ public class SimonsOrchestraManager : Spatial
         randomFloatNumber.Randomize();
         float pitcherOrTempo = randomFloatNumber.RandfRange(0f, 1f);
         Pitcher pitcher = cleanSections[randomSection].GetNode<Pitcher>("Pitcher");
+
         if (pitcherOrTempo < 0.5f)
         {
             GD.Print(cleanSections[randomSection].Name + "--pitchchange: " + upSetFactor);
-            pitcher.currentPitch = upSetFactor;
+            pitcher.SetPitchAndTempo(upSetFactor, pitcher.currentPitch);
             cleanSections[randomSection].currentPitch = upSetFactor;
         }
         else
         {
             GD.Print(cleanSections[randomSection].Name + "--tempochange: " + upSetFactor);
-            pitcher.currentTempo = upSetFactor;
+            pitcher.SetPitchAndTempo(pitcher.currentTempo, upSetFactor);
             cleanSections[randomSection].currentTempo = upSetFactor;
         }
+
+
         isUpSetting = false;
     }
     public void CheckThreshholdAndPitch()
@@ -158,7 +166,7 @@ public class SimonsOrchestraManager : Spatial
         foreach (Section cSection in this.cleanSections)
         {
             Pitcher pitcher = cSection.GetNode<Pitcher>("Pitcher");
-            if (!(pitcher.currentTempo >= min && pitcher.currentPitch >= min && pitcher.currentTempo <= max && pitcher.currentPitch <= max))
+            if (!(pitcher.currentTempo >= minPitchOrTempo && pitcher.currentPitch >= minPitchOrTempo && pitcher.currentTempo <= maxPitchOrTempo && pitcher.currentPitch <= maxPitchOrTempo))
             {
                 return false;
             }

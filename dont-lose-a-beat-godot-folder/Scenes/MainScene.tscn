@@ -23,14 +23,10 @@ chairVelocity = 30.0
 [node name="OrchestraManager" parent="." instance=ExtResource( 2 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.565662, -3.80327 )
 checkingDuration = 5.0
+minLoseIntervall = 2
+maxLoseIntervall = 10
 
 [node name="Hall" parent="." instance=ExtResource( 4 )]
-
-[node name="vorhang_l" parent="Hall/vorhang" index="1"]
-transform = Transform( 0.474615, 0, 0, 0, 1.81993, 0, 0, 0, 1.4398, -38.3316, -4.29318, 5.08113 )
-
-[node name="Vorhang_r" parent="Hall/vorhang" index="2"]
-transform = Transform( 0.509799, 0, 0, 0, 1.81993, 0, 0, 0, 1.4398, 38.8864, -4.29318, 6.34098 )
 
 [node name="StaticBody" type="StaticBody" parent="."]
 
@@ -43,7 +39,3 @@ shape = SubResource( 1 )
 [editable path="MainCamera/ChairThrower"]
 
 [editable path="OrchestraManager"]
-
-[editable path="Hall"]
-
-[editable path="Hall/vorhang"]
