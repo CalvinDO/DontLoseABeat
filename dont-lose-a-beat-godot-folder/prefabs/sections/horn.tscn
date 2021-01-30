@@ -1,9 +1,11 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://Scripts/Section.cs" type="Script" id=1]
 [ext_resource path="res://Scripts/Pitcher.cs" type="Script" id=2]
 [ext_resource path="res://models/instruments/horn.glb" type="PackedScene" id=3]
 [ext_resource path="res://prefabs/chair_sections.tscn" type="PackedScene" id=4]
+[ext_resource path="res://Scenes/InstrumentCollider.tscn" type="PackedScene" id=5]
+[ext_resource path="res://Scenes/TempoChanger.tscn" type="PackedScene" id=6]
 
 [node name="SectionHorn" type="Spatial"]
 script = ExtResource( 1 )
@@ -14,14 +16,30 @@ instrument = 2
 [node name="Pitcher" type="Node" parent="."]
 script = ExtResource( 2 )
 
-[node name="horn" parent="." instance=ExtResource( 3 )]
-transform = Transform( 0.608868, 2.46981, -0.401366, -1.7836, 0.138671, -1.85238, -1.75494, 0.715954, 1.74337, 8.54472, 1.66167, -10.2153 )
-
-[node name="horn2" parent="." instance=ExtResource( 3 )]
-transform = Transform( 0.771759, 2.39122, -0.564094, -1.7836, 0.138671, -1.85238, -1.68965, 0.945825, 1.69772, 10.4887, 1.66167, -8.64997 )
-
-[node name="horn3" parent="." instance=ExtResource( 3 )]
-transform = Transform( 0.259194, 2.56149, -0.0578142, -1.7836, 0.138671, -1.85238, -1.83939, 0.226483, 1.78805, 5.96756, 1.66167, -11.1386 )
-
 [node name="chair_sections" parent="." instance=ExtResource( 4 )]
 transform = Transform( 0.795516, 0, 0.605933, 0, 1, 0, -0.605933, 0, 0.795516, 9.47589, -0.608495, -11.6347 )
+
+[node name="TempoChanger" parent="." instance=ExtResource( 6 )]
+transform = Transform( 0.286332, 0, -0.135011, 0, 0.327122, 0, 0.133233, 0, 0.290153, 9.02727, 1.44585, -10.8899 )
+
+[node name="Horns" type="Spatial" parent="TempoChanger"]
+transform = Transform( 2.87087, 0, 1.33584, 0, 3.05696, 0, -1.31825, 0, 2.83306, -11.3689, -4.41992, 42.7519 )
+
+[node name="horn" parent="TempoChanger/Horns" instance=ExtResource( 3 )]
+transform = Transform( 0.608868, 2.46981, -0.401366, -1.7836, 0.138671, -1.85238, -1.75494, 0.715954, 1.74337, 8.54472, 1.66167, -10.2153 )
+
+[node name="horn2" parent="TempoChanger/Horns" instance=ExtResource( 3 )]
+transform = Transform( 0.771759, 2.39122, -0.564094, -1.7836, 0.138671, -1.85238, -1.68965, 0.945825, 1.69772, 10.4887, 1.66167, -8.64997 )
+
+[node name="horn3" parent="TempoChanger/Horns" instance=ExtResource( 3 )]
+transform = Transform( 0.259194, 2.56149, -0.0578142, -1.7836, 0.138671, -1.85238, -1.83939, 0.226483, 1.78805, 5.96756, 1.66167, -11.1386 )
+
+[node name="InstrumentCollider" parent="TempoChanger" instance=ExtResource( 5 )]
+transform = Transform( 1, 0, -5.96046e-08, 0, 1, 0, 0, 0, 1, 0, 0.18281, 0 )
+
+[node name="CollisionShape" parent="TempoChanger/InstrumentCollider" index="0"]
+transform = Transform( 1, 0, -5.96046e-08, 0, 0.999999, 0, 0, 0, 1, -2.86102e-06, 0.733404, 4.02339 )
+
+[editable path="TempoChanger"]
+
+[editable path="TempoChanger/InstrumentCollider"]

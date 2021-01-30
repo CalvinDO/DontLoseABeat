@@ -34,18 +34,23 @@ public class SimonsOrchestraManager : Spatial
     RandomNumberGenerator randomFloatNumber = new RandomNumberGenerator();
     private float timeIntervallForUpSetSections;
     public Section[] cleanSections;
-    private bool isUpSetting;
+    private bool isLosing;
 
     [Export]
     public int minLoseIntervall = 5;
     [Export]
     public int maxLoseIntervall = 20;
 
+    [Export]
+    public int minLoseStartIntervall = 10;
+    [Export]
+    public int maxLoseStartIntervall = 15;
+
     ///------
 
     public override void _Ready()
     {
-        timeIntervallForUpSetSections = randomFloatNumber.RandfRange(5f, 15f);
+        timeIntervallForUpSetSections = randomFloatNumber.RandfRange(this.minLoseIntervall, this.maxLoseStartIntervall);
         LoadPrefabs();
         LoadLevel();
     }
@@ -96,38 +101,47 @@ public class SimonsOrchestraManager : Spatial
         this.delta = delta;
         timeIntervallForUpSetSections -= delta;
         if (timeIntervallForUpSetSections <= 0f)
-            if (!isUpSetting)
-                this.RandomIncrementSections();
+            if (!isLosing)
+                this.RandomLoseSections();
         this.CheckThreshholdAndPitch();
     }
-    public void RandomIncrementSections()
+    public void RandomLoseSections()
     {
+
         randomFloatNumber.Randomize();
         timeIntervallForUpSetSections = randomFloatNumber.RandfRange(this.minLoseIntervall, this.maxLoseIntervall);
-        isUpSetting = true;
+
+        isLosing = true;
+
         randomFloatNumber.Randomize();
-        int randomSection = (int)randomFloatNumber.Randfn(0, cleanSections.Length - 1);
+        int randomSection = (int)randomFloatNumber.RandfRange(0, cleanSections.Length - 1);
+
         randomFloatNumber.Randomize();
         float upSetFactor = randomFloatNumber.RandfRange(0.5f, 2f);
+
         randomFloatNumber.Randomize();
         float pitcherOrTempo = randomFloatNumber.RandfRange(0f, 1f);
+
+
         Pitcher pitcher = cleanSections[randomSection].GetNode<Pitcher>("Pitcher");
+
 
         if (pitcherOrTempo < 0.5f)
         {
             GD.Print(cleanSections[randomSection].Name + "--pitchchange: " + upSetFactor);
-            pitcher.SetPitchAndTempo(upSetFactor, pitcher.currentPitch);
-            cleanSections[randomSection].currentPitch = upSetFactor;
+
+            cleanSections[randomSection].pitchToSet = upSetFactor;
         }
         else
         {
             GD.Print(cleanSections[randomSection].Name + "--tempochange: " + upSetFactor);
             pitcher.SetPitchAndTempo(pitcher.currentTempo, upSetFactor);
-            cleanSections[randomSection].currentTempo = upSetFactor;
+            cleanSections[randomSection].tempoToSet = upSetFactor;
         }
 
 
-        isUpSetting = false;
+        isLosing = false;
+
     }
     public void CheckThreshholdAndPitch()
     {

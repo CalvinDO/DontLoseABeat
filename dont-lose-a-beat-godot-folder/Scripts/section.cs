@@ -20,11 +20,12 @@ public class Section : Spatial
     AudioStreamPlayer AP;
     AudioEffectPitchShift pitchEffect;
     Pitcher pitcher;
-    public float currentTempo = 1;
-    public float currentPitch = 1;
+
 
     [Export]
     public float tempoToSet = 1.0f, pitchToSet = 1.0f;
+
+
     #endregion
 
     //------------------------------------------------------------------------
@@ -234,7 +235,7 @@ public class Section : Spatial
                 break;
             case "ThrownChair":
                 this.IsChairInCollider = false;
-                 GD.Print("ChairExited");
+                GD.Print("ChairExited");
                 break;
             default:
                 break;

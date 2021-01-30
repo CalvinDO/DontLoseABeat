@@ -5,9 +5,7 @@
 [ext_resource path="res://models/instruments/harp.glb" type="PackedScene" id=3]
 [ext_resource path="res://Scenes/TempoChanger.tscn" type="PackedScene" id=4]
 [ext_resource path="res://prefabs/chair_sections.tscn" type="PackedScene" id=5]
-
-[sub_resource type="BoxShape" id=1]
-extents = Vector3( 0.659235, 0.73487, 1 )
+[ext_resource path="res://Scenes/InstrumentCollider.tscn" type="PackedScene" id=6]
 
 [node name="SectionHarp" type="Spatial"]
 script = ExtResource( 1 )
@@ -28,10 +26,9 @@ transform = Transform( 0.156788, 0, 0.36936, 0, 0.593335, 0, -0.156788, 0, 0.369
 [node name="harp" parent="TempoChanger" instance=ExtResource( 3 )]
 transform = Transform( -1.43051e-06, 0, -10.6907, 0, 3.99514, 0, 4.53804, 0, -7.15256e-07, 0.0951338, 0, 0.0262146 )
 
-[node name="StaticBody" type="Area" parent="TempoChanger"]
+[node name="InstrumentCollider" parent="TempoChanger" instance=ExtResource( 6 )]
 
-[node name="CollisionShape" type="CollisionShape" parent="TempoChanger/StaticBody"]
-transform = Transform( 7.92651, 0, 0, 0, 5.36699, 0, 0, 0, 1, -1.80302, 3.9482, 0 )
-shape = SubResource( 1 )
+[node name="CollisionShape" parent="TempoChanger/InstrumentCollider" index="0"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -1.8618, 3.96626, -9.53674e-07 )
 
-[editable path="TempoChanger"]
+[editable path="TempoChanger/InstrumentCollider"]
