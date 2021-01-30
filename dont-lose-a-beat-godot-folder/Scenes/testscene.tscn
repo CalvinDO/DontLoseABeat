@@ -13,20 +13,26 @@
 loadDynamically = false
 
 [node name="SectionClarinet" parent="OrchestraManager" instance=ExtResource( 2 )]
+<<<<<<< HEAD
 tempoToSet = 1.4
 pitchToSet = 1.072
+=======
+>>>>>>> 7e6604388e089b71fe04880782ba710887c42eed
 
 [node name="SectionStrings" parent="OrchestraManager" instance=ExtResource( 5 )]
-tempoToSet = 1.0
-pitchToSet = 1.0
 
 [node name="SectionPiano" parent="OrchestraManager" instance=ExtResource( 6 )]
+<<<<<<< HEAD
 tempoToSet = 1.115
 pitchToSet = 1.122
+=======
+>>>>>>> 7e6604388e089b71fe04880782ba710887c42eed
 
 [node name="SectionHarp" parent="OrchestraManager" instance=ExtResource( 3 )]
-pitchToSet = 1.0
 
 [node name="SectionHorn" parent="OrchestraManager" instance=ExtResource( 1 )]
+<<<<<<< HEAD
 tempoToSet = 1.246
 pitchToSet = 1.152
+=======
+>>>>>>> 7e6604388e089b71fe04880782ba710887c42eed
