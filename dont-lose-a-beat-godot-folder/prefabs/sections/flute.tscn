@@ -15,12 +15,13 @@ instrument = 12
 script = ExtResource( 2 )
 
 [node name="chair_sections" parent="." instance=ExtResource( 3 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.947943, 0, -8.32533 )
 
 [node name="flute" parent="." instance=ExtResource( 4 )]
-transform = Transform( 1.51595, 0, 0, 0, 1.51595, 0, 0, 0, 1.51595, 0, 2.60029, -0.408812 )
+transform = Transform( 1.37482, 0, -0.638725, 0, 1.51595, 0, 0.638725, 0, 1.37482, 0.947943, 2.60029, -7.21195 )
 
 [node name="flute2" parent="." instance=ExtResource( 4 )]
-transform = Transform( 1.40278, 0, 0.574722, 0, 1.51595, 0, -0.574722, 0, 1.40278, 2.7422, 2.60029, -1.09924 )
+transform = Transform( 1.34574, 0, -0.69792, 0, 1.51595, 0, 0.69792, 0, 1.34574, 3.41832, 2.60029, -7.23441 )
 
 [node name="flute3" parent="." instance=ExtResource( 4 )]
-transform = Transform( 1.42783, 0, -0.509325, 0, 1.51595, 0, 0.509325, 0, 1.42783, -2.62555, 2.60029, -0.908112 )
+transform = Transform( 1.42783, 0, -0.509325, 0, 1.51595, 0, 0.509325, 0, 1.42783, -1.67761, 2.60029, -7.71125 )

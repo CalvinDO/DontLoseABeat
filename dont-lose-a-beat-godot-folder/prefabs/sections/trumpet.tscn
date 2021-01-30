@@ -16,6 +16,13 @@ instrument = 4
 script = ExtResource( 2 )
 
 [node name="trumpet" parent="." instance=ExtResource( 3 )]
-transform = Transform( -1.61104e-07, -0.807707, -3.68563, -3.53061e-08, 3.68563, -0.807707, 3.7731, 0, -1.64927e-07, 1.57012, 2.66028, 0 )
+transform = Transform( -3.00447, -0.173118, -2.27584, -1.25096e-08, 3.76223, -0.286184, 2.28242, -0.227884, -2.99581, -10.6532, 5.03742, -13.8318 )
+
+[node name="trumpet2" parent="." instance=ExtResource( 3 )]
+transform = Transform( -2.16055, -0.23462, -3.08436, -1.25096e-08, 3.76223, -0.286184, 3.09327, -0.163874, -2.15432, -12.2856, 3.34976, -12.5986 )
+
+[node name="trumpet3" parent="." instance=ExtResource( 3 )]
+transform = Transform( -3.4433, -0.117012, -1.53827, -1.25096e-08, 3.76223, -0.286184, 1.54271, -0.261169, -3.43338, -8.9065, 4.54671, -15.1656 )
 
 [node name="chair_sections" parent="." instance=ExtResource( 4 )]
+transform = Transform( 0.604919, 0, -0.796287, 0, 1, 0, 0.796287, 0, 0.604919, -11.603, 2.174, -15.0821 )
