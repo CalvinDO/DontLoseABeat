@@ -9,9 +9,11 @@ public class ChairThrower : Spatial
 
     private bool IschairThrown = false;
 
+    private Camera camera;
     public override void _Ready()
     {
         this.thrownChairScene = ResourceLoader.Load<PackedScene>("res://prefabs/ThrownChair.tscn");
+        this.camera = GetParent<Camera>();
     }
 
     public override void _Process(float delta)
@@ -29,6 +31,7 @@ public class ChairThrower : Spatial
             this.thrownChair = (ThrownChair)this.thrownChairScene.Instance();
             AddChild(this.thrownChair);
             this.IschairThrown = true;
+       
         }
     }
 }
