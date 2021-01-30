@@ -15,11 +15,6 @@ public class SimonsOrchestraManager : Spatial
     Dictionary<string, PackedScene> sections;
 
 
-    private PackedScene thrownChairScene;
-    private ThrownChair thrownChair;
-
-    private bool chairThrown = false;
-
     private float delta;
 
     //Valentins
@@ -91,7 +86,6 @@ public class SimonsOrchestraManager : Spatial
     {
         this.delta = delta;
 
-        this.CheckKeyboardInput();
         this.CheckThreshholdAndPitch();
     }
 
@@ -158,20 +152,7 @@ public class SimonsOrchestraManager : Spatial
         sections.Add("piano", ResourceLoader.Load<PackedScene>("res://prefabs/sections/piano.tscn"));
         sections.Add("harp", ResourceLoader.Load<PackedScene>("res://prefabs/sections/harp.tscn"));
         sections.Add("flute", ResourceLoader.Load<PackedScene>("res://prefabs/sections/flute.tscn"));
-
-        this.thrownChairScene = ResourceLoader.Load<PackedScene>("res://prefabs/ThrownChair.tscn");
     }
 
-    public void CheckKeyboardInput()
-    {
-
-        if (Input.IsActionJustPressed("ThrowChair"))
-        {
-            GD.Print("Hello");
-            this.thrownChair = (ThrownChair)this.thrownChairScene.Instance();
-            AddChild(this.thrownChair);
-            this.chairThrown = true;
-
-        }
-    }
+   
 }

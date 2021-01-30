@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://ChairThrower.cs" type="Script" id=1]
+
+[node name="ChairThrower" type="Spatial"]
+script = ExtResource( 1 )
