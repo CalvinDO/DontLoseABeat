@@ -8,7 +8,7 @@
 [ext_resource path="res://Scenes/TempoChanger.tscn" type="PackedScene" id=6]
 
 [sub_resource type="BoxShape" id=1]
-extents = Vector3( 1.85988, 1.28189, 0.602841 )
+extents = Vector3( 1.75929, 1.5251, 0.831249 )
 
 [node name="SectionOboe" type="Spatial"]
 script = ExtResource( 1 )
@@ -36,10 +36,10 @@ transform = Transform( -0.0243215, 0, 2.50173, -1.30596, 2.13391, -0.0126964, -2
 transform = Transform( 0.515177, 0.32928, 2.42599, -1.30752, 2.13295, -0.0118443, -2.06984, -1.26544, 0.611304, -4.87097, 1.55528, -8.50298 )
 
 [node name="InstrumentCollider" type="RigidBody" parent="."]
-transform = Transform( 0.4, 0, 0, 0, 0.3, 0, 0, 0, 1, -4.0118, 3.57472, -9.65429 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -4.0118, 3.57472, -9.65429 )
 mode = 1
 script = ExtResource( 5 )
 
 [node name="CollisionShape" type="CollisionShape" parent="InstrumentCollider"]
-transform = Transform( 3.52861, 0, 0, 0, 5.2299, 0, 0, 0, 2.08032, 0.032464, -4.10281, 0.742929 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.032464, -1.31209, 0.881997 )
 shape = SubResource( 1 )

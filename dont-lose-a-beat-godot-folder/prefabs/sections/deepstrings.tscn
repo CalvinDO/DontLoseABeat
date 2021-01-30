@@ -8,7 +8,7 @@
 [ext_resource path="res://Scripts/InstrumentCollider.cs" type="Script" id=6]
 
 [sub_resource type="BoxShape" id=1]
-extents = Vector3( 0.823411, 1.23588, 0.468775 )
+extents = Vector3( 3.21863, 1.65951, 1.88015 )
 
 [node name="SectionDeepstrings" type="Spatial"]
 script = ExtResource( 1 )
@@ -44,5 +44,5 @@ mode = 1
 script = ExtResource( 6 )
 
 [node name="CollisionShape" type="CollisionShape" parent="InstrumentCollider"]
-transform = Transform( 4.35145, 0, -1.77576, 0, 0.987268, 0, 2.18732, 0, 3.53269, 12.8754, 2.09715, -4.18259 )
+transform = Transform( 0.974858, 0, -0.222825, 0, 0.999999, 0, 0.222826, 0, 0.974858, 13.181, 2.29426, -4.25109 )
 shape = SubResource( 1 )
