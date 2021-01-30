@@ -1,12 +1,16 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=5 format=2]
 
-[ext_resource path="res://Scripts/Section.cs" type="Script" id=1]
+[ext_resource path="res://Scripts/section.cs" type="Script" id=1]
 [ext_resource path="res://Scripts/Pitcher.cs" type="Script" id=2]
 [ext_resource path="res://models/instruments/harp.glb" type="PackedScene" id=3]
+[ext_resource path="res://prefabs/chair_sections.tscn" type="PackedScene" id=4]
 
 [node name="SectionHarp" type="Spatial"]
 transform = Transform( 2.47029, 0, 0, 0, 2.47029, 0, 0, 0, 2.47029, 0, 0, 0 )
 script = ExtResource( 1 )
+instrument = 11
+tempoToSet = null
+pitchToSet = null
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 
@@ -15,3 +19,6 @@ script = ExtResource( 2 )
 
 [node name="harp" parent="." instance=ExtResource( 3 )]
 transform = Transform( -0.332639, 0, -0.943055, 0, 1, 0, 0.943055, 0, -0.332639, -6.15125, 0, -2.24603 )
+
+[node name="chair_sections" parent="." instance=ExtResource( 4 )]
+transform = Transform( 0.457055, 0, 0, 0, 0.457055, 0, 0, 0, 0.457055, -6.74211, 0, -1.79212 )

@@ -2,12 +2,12 @@
 
 importer="scene"
 type="PackedScene"
-path="res://.import/chair_sections.glb-70a4e3100c388520cf3a2336fa2fb183.scn"
+path="res://.import/chair_sections.glb-76e1accfe0444045f882f9b99559ed4c.scn"
 
 [deps]
 
-source_file="res://prefabs/sections/chair_sections.glb"
-dest_files=[ "res://.import/chair_sections.glb-70a4e3100c388520cf3a2336fa2fb183.scn" ]
+source_file="res://models/chair_sections.glb"
+dest_files=[ "res://.import/chair_sections.glb-76e1accfe0444045f882f9b99559ed4c.scn" ]
 
 [params]
 

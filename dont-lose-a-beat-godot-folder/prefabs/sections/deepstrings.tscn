@@ -1,11 +1,15 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=5 format=2]
 
-[ext_resource path="res://Scripts/Section.cs" type="Script" id=1]
+[ext_resource path="res://Scripts/section.cs" type="Script" id=1]
 [ext_resource path="res://Scripts/Pitcher.cs" type="Script" id=2]
 [ext_resource path="res://models/instruments/cello.glb" type="PackedScene" id=3]
+[ext_resource path="res://prefabs/chair_sections.tscn" type="PackedScene" id=4]
 
 [node name="SectionDeepstrings" type="Spatial"]
 script = ExtResource( 1 )
+instrument = 1
+tempoToSet = null
+pitchToSet = null
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 
@@ -20,3 +24,6 @@ transform = Transform( -0.0688667, 0.715922, 0.204733, 0, 0.205606, -0.718977, -
 
 [node name="cello3" parent="." instance=ExtResource( 3 )]
 transform = Transform( 0.361797, 0.629226, 0.179941, -1.40882e-06, 0.205608, -0.718976, -0.65445, 0.347852, 0.0994773, 0.391484, 1.83349, -1.86636 )
+
+[node name="chair_sections" parent="." instance=ExtResource( 4 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.696534, 0, 0.682624 )
