@@ -6,9 +6,9 @@ public class InstrumentCollider : RigidBody
     public Section section;
     public override void _Ready()
     {
-        if (GetParent().GetParent() != null)
+        if (GetParent() != null)
         {
-            this.section = GetParent().GetParent<Section>();
+            this.section = GetParent<Section>();
         }
         else
         {
