@@ -1,0 +1,10 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://models/instruments/chair_sections.glb" type="PackedScene" id=1]
+[ext_resource path="res://Scripts/SectionChair.cs" type="Script" id=2]
+
+[node name="chair_sections" instance=ExtResource( 1 )]
+script = ExtResource( 2 )
+
+[node name="chair_base" parent="." index="0"]
+transform = Transform( 3.051, 0, 0, 0, 3.051, 0, 0, 0, 3.051, 0, 0.692177, 0 )
