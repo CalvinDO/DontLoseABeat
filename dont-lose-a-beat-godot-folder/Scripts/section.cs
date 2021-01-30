@@ -77,6 +77,15 @@ public class Section : Spatial
 
     //------------------------------------------------------------------------
 
+    #region MuteController
+    //------------------------------------------------------------------------
+    //  MUTECONTROLLER
+    //------------------------------------------------------------------------
+
+    public bool IsChairInCollider = false;
+
+    //------------------------------------------------------------------------
+    #endregion
 
     public override void _Ready()
     {
@@ -195,12 +204,16 @@ public class Section : Spatial
         switch (name)
         {
             case "Left":
-               // GD.Print("Entered Left: " + timeSinceStart);
-               // this.mouseInsideLeft = true;
+                // GD.Print("Entered Left: " + timeSinceStart);
+                // this.mouseInsideLeft = true;
                 break;
             case "Right":
                 //GD.Print("Entered Right: " + timeSinceStart);
                 //this.mouseInsideRight = true;
+                break;
+            case "ThrownChair":
+                this.IsChairInCollider = true;
+                GD.Print("ChairInside");
                 break;
             default:
                 break;
@@ -212,12 +225,16 @@ public class Section : Spatial
         switch (name)
         {
             case "Left":
-               // this.mouseInsideLeft = false;
+                // this.mouseInsideLeft = false;
                 //GD.Print("Exited Left " + timeSinceStart);
                 break;
             case "Right":
                 //GD.Print("Exited Right " + timeSinceStart);
-               // this.mouseInsideRight = false;
+                // this.mouseInsideRight = false;
+                break;
+            case "ThrownChair":
+                this.IsChairInCollider = false;
+                 GD.Print("ChairExited");
                 break;
             default:
                 break;
