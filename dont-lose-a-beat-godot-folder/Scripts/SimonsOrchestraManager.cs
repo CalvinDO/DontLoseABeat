@@ -92,10 +92,10 @@ public class SimonsOrchestraManager : Spatial
         timeIntervallForUpSetSections -= delta;
         if (timeIntervallForUpSetSections <= 0f)
             if (!isUpSetting)
-                this.RandomUpSetSections();
+                this.RandomIncrementSections();
         this.CheckThreshholdAndPitch();
     }
-    public void RandomUpSetSections()
+    public void RandomIncrementSections()
     {
         randomFloatNumber.Randomize();
         timeIntervallForUpSetSections = randomFloatNumber.RandfRange(5f, 30f);
