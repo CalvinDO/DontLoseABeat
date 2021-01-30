@@ -38,10 +38,11 @@ transform = Transform( 0.616332, -0.407161, -0.116436, 0, 0.205606, -0.718977, 0
 [node name="cello3" parent="TempoChanger/Cellos" instance=ExtResource( 3 )]
 transform = Transform( 0.54399, -0.834061, -0.23852, -1.73916e-06, 0.253819, -0.887562, 0.867496, 0.523024, 0.149569, 15.6648, 1.83349, -4.01637 )
 
-[node name="InstrumentCollider" type="RigidBody" parent="TempoChanger/Cellos"]
+[node name="InstrumentCollider" type="RigidBody" parent="."]
+transform = Transform( 0.999999, 0, -5.06639e-07, 0, 0.999999, 0, 3.8743e-07, 0, 1, -1.90735e-05, 0, 2.38419e-06 )
 mode = 1
 script = ExtResource( 6 )
 
-[node name="CollisionShape" type="CollisionShape" parent="TempoChanger/Cellos/InstrumentCollider"]
+[node name="CollisionShape" type="CollisionShape" parent="InstrumentCollider"]
 transform = Transform( 4.35145, 0, -1.77576, 0, 0.987268, 0, 2.18732, 0, 3.53269, 12.8754, 2.09715, -4.18259 )
 shape = SubResource( 1 )

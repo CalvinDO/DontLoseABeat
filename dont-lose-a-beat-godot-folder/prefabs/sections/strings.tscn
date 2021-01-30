@@ -40,10 +40,11 @@ transform = Transform( 2.1771, 0.910725, 0.535945, 0, 1.22737, -2.08566, -1.0567
 [node name="violin5" parent="TempoChanger/Violins" instance=ExtResource( 3 )]
 transform = Transform( 2.1771, 0.910725, 0.535945, 0, 1.22737, -2.08566, -1.05672, 1.87632, 1.10418, -4.63339, 1.8084, -3.1645 )
 
-[node name="InstrumentCollider" type="RigidBody" parent="TempoChanger"]
+[node name="InstrumentCollider" type="RigidBody" parent="."]
+transform = Transform( 0.248125, 0, 0.784354, 0, 0.3, 0, -0.313742, 0, 0.620313, -5.74407, 3.1746, -2.17108 )
 mode = 1
 script = ExtResource( 6 )
 
-[node name="CollisionShape" type="CollisionShape" parent="TempoChanger/InstrumentCollider"]
+[node name="CollisionShape" type="CollisionShape" parent="InstrumentCollider"]
 transform = Transform( 8.00286, 0, 2.38419e-07, 0, 2.33976, 0, -3.57628e-07, 0, 2.15272, -2.43293, -4.3814, 0.322834 )
 shape = SubResource( 1 )

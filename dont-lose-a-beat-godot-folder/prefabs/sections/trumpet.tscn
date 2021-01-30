@@ -39,10 +39,11 @@ transform = Transform( -2.16055, -0.23462, -3.08436, -1.25096e-08, 3.76223, -0.2
 [node name="trumpet3" parent="TempoChanger/Trumpets" instance=ExtResource( 3 )]
 transform = Transform( -3.4433, -0.117012, -1.53827, -1.25096e-08, 3.76223, -0.286184, 1.54271, -0.261169, -3.43338, -8.9065, 4.54671, -15.1656 )
 
-[node name="InstrumentCollider" type="RigidBody" parent="TempoChanger"]
+[node name="InstrumentCollider" type="RigidBody" parent="."]
+transform = Transform( 0.274246, 0, 0.727964, 0, 0.3, 0, -0.291186, 0, 0.685615, -11.1791, 5.4586, -14.2119 )
 mode = 1
 script = ExtResource( 5 )
 
-[node name="CollisionShape" type="CollisionShape" parent="TempoChanger/InstrumentCollider"]
+[node name="CollisionShape" type="CollisionShape" parent="InstrumentCollider"]
 transform = Transform( 7.00705, 0, -1.43051e-06, 0, 2.97352, 0, 1.3113e-06, 0, 5.0195, -1.90735e-06, -2.83939, 0.814028 )
 shape = SubResource( 1 )

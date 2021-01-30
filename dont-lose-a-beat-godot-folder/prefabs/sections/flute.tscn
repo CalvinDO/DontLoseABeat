@@ -38,10 +38,11 @@ transform = Transform( 1.34574, 0, -0.69792, 0, 1.51595, 0, 0.69792, 0, 1.34574,
 [node name="flute3" parent="TempoChanger/Flutes" instance=ExtResource( 4 )]
 transform = Transform( 1.42783, 0, -0.509325, 0, 1.51595, 0, 0.509325, 0, 1.42783, -1.67761, 2.60029, -7.71125 )
 
-[node name="InstrumentCollider" type="RigidBody" parent="TempoChanger"]
+[node name="InstrumentCollider" type="RigidBody" parent="."]
+transform = Transform( 0.399036, 0, -0.0693734, 0, 0.3, 0, 0.0277494, 0, 0.997591, 1.59628, 3.12654, -7.61231 )
 mode = 1
 script = ExtResource( 6 )
 
-[node name="CollisionShape" type="CollisionShape" parent="TempoChanger/InstrumentCollider"]
+[node name="CollisionShape" type="CollisionShape" parent="InstrumentCollider"]
 transform = Transform( 12.8312, 0, -8.9407e-08, 0, 1.11957, 0, 5.96046e-08, 0, 1.56973, -1.04556, -3.48432, 0.22097 )
 shape = SubResource( 1 )

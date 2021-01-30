@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://Scripts/Section.cs" type="Script" id=1]
 [ext_resource path="res://Scripts/Pitcher.cs" type="Script" id=2]
@@ -8,7 +8,9 @@
 [ext_resource path="res://Scenes/TempoChanger.tscn" type="PackedScene" id=6]
 
 [sub_resource type="BoxShape" id=1]
-extents = Vector3( 0.823411, 1.23588, 0.468775 )
+extents = Vector3( 4.19102, 1.39866, 1.90132 )
+
+[sub_resource type="CubeMesh" id=2]
 
 [node name="SectionHorn" type="Spatial"]
 script = ExtResource( 1 )
@@ -38,13 +40,18 @@ transform = Transform( 0.771759, 2.39122, -0.564094, -1.7836, 0.138671, -1.85238
 [node name="horn3" parent="TempoChanger/Horns" instance=ExtResource( 3 )]
 transform = Transform( 0.259194, 2.56149, -0.0578142, -1.7836, 0.138671, -1.85238, -1.83939, 0.226483, 1.78805, 5.96756, 1.66167, -11.1386 )
 
-[node name="InstrumentCollider" type="RigidBody" parent="TempoChanger"]
-transform = Transform( 0.789529, 0, -2.08616e-07, 0, 1.09041, 0, 0, 0, 0.320026, 0, -2.9447, 0 )
+[node name="InstrumentCollider" type="RigidBody" parent="."]
+transform = Transform( 0.906654, 0, -0.421875, 0, 1, 0, 0.421875, 0, 0.906654, 9.02727, 1.50565, -10.8899 )
 mode = 1
 script = ExtResource( 5 )
 
-[node name="CollisionShape" type="CollisionShape" parent="TempoChanger/InstrumentCollider"]
-transform = Transform( 12.0266, 0, -4.76837e-07, 0, 2.31003, 0, 4.76837e-07, 0, 12.4231, -0.270562, 1.2979, 5.2184 )
+[node name="CollisionShape" type="CollisionShape" parent="InstrumentCollider"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.270561, 0.193231, 1.60808 )
 shape = SubResource( 1 )
+
+[node name="MeshInstance" type="MeshInstance" parent="InstrumentCollider"]
+transform = Transform( 4.44103, 0, 0, 0, 1.1891, 0, 0, 0, 2.06099, 9.53674e-07, 0.146883, 1.57131 )
+mesh = SubResource( 2 )
+material/0 = null
 
 [editable path="TempoChanger"]

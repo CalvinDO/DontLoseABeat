@@ -38,11 +38,12 @@ transform = Transform( -1.32029, -0.788763, 2.26575, -1.40444, 2.35085, -1.22781
 [node name="clarinet3" parent="TempoChanger/Clarinets" instance=ExtResource( 3 )]
 transform = Transform( -0.601187, -0.359158, 2.64735, -1.40444, 2.35085, -1.22781e-07, -2.27268, -1.35774, -0.700302, -8.16051, 0.348843, -5.38565 )
 
-[node name="InstrumentCollider" type="RigidBody" parent="TempoChanger"]
+[node name="InstrumentCollider" type="RigidBody" parent="."]
+transform = Transform( 0.246617, 0, 0.787323, 0, 0.3, 0, -0.314929, 0, 0.616541, -8.0454, 2.88801, -6.97969 )
 mode = 1
 script = ExtResource( 5 )
 
-[node name="CollisionShape" type="CollisionShape" parent="TempoChanger/InstrumentCollider"]
+[node name="CollisionShape" type="CollisionShape" parent="InstrumentCollider"]
 transform = Transform( 5.22514, 0, -2.38419e-07, 0, 5.64774, 0, 4.76837e-07, 0, 1, -0.181772, -5.78656, 0 )
 shape = SubResource( 1 )
 
