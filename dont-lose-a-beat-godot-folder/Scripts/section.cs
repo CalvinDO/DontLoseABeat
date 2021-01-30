@@ -224,10 +224,6 @@ public class Section : Spatial
                 //GD.Print("Entered Right: " + timeSinceStart);
                 //this.mouseInsideRight = true;
                 break;
-            case "InstrumentCollider":
-                this.IsChairInCollider = true;
-                GD.Print("ChairInside");
-                break;
             default:
                 break;
         }
@@ -245,11 +241,21 @@ public class Section : Spatial
                 //GD.Print("Exited Right " + timeSinceStart);
                 // this.mouseInsideRight = false;
                 break;
+            default:
+                break;
+        }
+    }
+
+    public void BodyEntered(Node body, string name)
+    {
+        switch (name)
+        {
             case "InstrumentCollider":
-                this.IsChairInCollider = false;
-                GD.Print("ChairExited");
+                GD.Print("Body entered");
+                this.Stop();
                 break;
             default:
+                GD.Print("Other Body entered");
                 break;
         }
     }
