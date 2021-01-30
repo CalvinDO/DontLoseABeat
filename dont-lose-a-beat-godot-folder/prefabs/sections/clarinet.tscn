@@ -1,15 +1,11 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=4 format=2]
 
-[ext_resource path="res://Scripts/section.cs" type="Script" id=1]
+[ext_resource path="res://Scripts/Section.cs" type="Script" id=1]
 [ext_resource path="res://Scripts/Pitcher.cs" type="Script" id=2]
 [ext_resource path="res://models/instruments/clarinet.glb" type="PackedScene" id=3]
-[ext_resource path="res://prefabs/chair_sections.tscn" type="PackedScene" id=4]
 
 [node name="SectionClarinet" type="Spatial"]
 script = ExtResource( 1 )
-instrument = 7
-tempoToSet = null
-pitchToSet = null
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 
@@ -24,6 +20,3 @@ transform = Transform( -2.14784, -1.28316, 1.1132, -1.40444, 2.35085, -1.22781e-
 
 [node name="clarinet3" parent="." instance=ExtResource( 3 )]
 transform = Transform( -1.70984, -1.02149, 1.87934, -1.40444, 2.35085, -1.22781e-07, -1.61336, -0.963854, -1.99173, -7.44931, 1.02631, -10.6746 )
-
-[node name="chair_sections" parent="." instance=ExtResource( 4 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -8.14047, 0, -12.0242 )
