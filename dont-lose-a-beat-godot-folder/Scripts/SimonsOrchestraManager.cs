@@ -14,14 +14,22 @@ public class SimonsOrchestraManager : Spatial
 
     Dictionary<string, PackedScene> sections;
 
+
+    private PackedScene thrownChairScene;
+    private ThrownChair thrownChair;
+
+    private bool chairThrown = false;
+
     public override void _Ready()
     {
         LoadPrefabs();
         LoadLevel();
-
-        this.CheckKeyboardInput();
     }
 
+    public override void _Process(float delta)
+    {
+        this.CheckKeyboardInput();
+    }
     public void LoadLevel()
     {
 
@@ -70,13 +78,20 @@ public class SimonsOrchestraManager : Spatial
         sections.Add("piano", ResourceLoader.Load<PackedScene>("res://prefabs/sections/piano.tscn"));
         sections.Add("harp", ResourceLoader.Load<PackedScene>("res://prefabs/sections/harp.tscn"));
         sections.Add("flute", ResourceLoader.Load<PackedScene>("res://prefabs/sections/flute.tscn"));
+
+        this.thrownChairScene = ResourceLoader.Load<PackedScene>("res://prefabs/ThrownChair.tscn");
     }
 
     public void CheckKeyboardInput()
     {
-        if (Input.IsActionPressed("ThrowChair"))
+
+        if (Input.IsActionJustPressed("ThrowChair"))
         {
-            this.pitchToSet += 0.02f;
+            GD.Print("Hello");
+            this.thrownChair = (ThrownChair)this.thrownChairScene.Instance();
+            AddChild(this.thrownChair);
+            this.chairThrown = true;
+
         }
     }
 }
