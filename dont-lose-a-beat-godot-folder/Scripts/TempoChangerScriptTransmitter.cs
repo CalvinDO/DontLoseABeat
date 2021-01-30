@@ -8,8 +8,8 @@ public class TempoChangerScriptTransmitter : Spatial
     {
         this.section = GetParent<Section>();
 
-        CollisionConnector left = (CollisionConnector)this.GetChild(0).GetChild(0);
-        CollisionConnector right = (CollisionConnector)this.GetChild(1).GetChild(0);
+        CollisionConnector left = (CollisionConnector)this.GetChild(0);
+        CollisionConnector right = (CollisionConnector)this.GetChild(1);
 
         left.SetSignals(this.section);
         right.SetSignals(this.section);

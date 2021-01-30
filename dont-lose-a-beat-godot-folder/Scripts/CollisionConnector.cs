@@ -1,7 +1,7 @@
 using Godot;
 using System;
 
-public class CollisionConnector : CollisionShape
+public class CollisionConnector : Area
 {
     [Export]
     public Side side;

@@ -12,6 +12,6 @@ max_speed = Vector3( 10, 10, 10 )
 
 [node name="OrchestraManager" parent="." instance=ExtResource( 2 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.565662, -3.80327 )
+currentLevel = 3
 
 [node name="Hall" parent="." instance=ExtResource( 4 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0129976, -0.0236011, 0.00691128 )
