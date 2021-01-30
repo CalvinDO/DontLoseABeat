@@ -2,8 +2,9 @@
 
 [ext_resource path="res://Scripts/PlayerSectionAudioPlayer.cs" type="Script" id=1]
 [ext_resource path="res://Scripts/PlayerSectionFake.cs" type="Script" id=2]
-[ext_resource path="res://Audio/lv1_full.ogg" type="AudioStream" id=3]
+[ext_resource path="res://Audio/full_tracks/lv1_full.ogg" type="AudioStream" id=3]
 [ext_resource path="res://Scenes/Camera.tscn" type="PackedScene" id=4]
+
 
 
 [sub_resource type="CapsuleMesh" id=1]

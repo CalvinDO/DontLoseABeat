@@ -1,0 +1,23 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://Scripts/section.cs" type="Script" id=1]
+[ext_resource path="res://Scripts/Pitcher.cs" type="Script" id=2]
+[ext_resource path="res://models/instruments/clarinet.glb" type="PackedScene" id=3]
+
+[node name="SectionOboe" type="Spatial"]
+script = ExtResource( 1 )
+instrument = 6
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+
+[node name="Pitcher" type="Node" parent="."]
+script = ExtResource( 2 )
+
+[node name="clarinet" parent="." instance=ExtResource( 3 )]
+transform = Transform( -0.884065, -0.528161, 2.53741, -1.40444, 2.35085, -1.22781e-07, -2.17828, -1.30135, -1.02982, -2.90356, 1.02631, -11.8176 )
+
+[node name="clarinet2" parent="." instance=ExtResource( 3 )]
+transform = Transform( -0.895043, -0.534714, 2.53217, -1.40444, 2.35085, -1.22781e-07, -2.17379, -1.29867, -1.0426, -1.96618, 1.02631, -12.8008 )
+
+[node name="clarinet3" parent="." instance=ExtResource( 3 )]
+transform = Transform( -0.124179, -0.074185, 2.73459, -1.40444, 2.35085, -1.22781e-07, -2.34757, -1.40248, -0.144655, -3.66849, 1.02631, -11.0153 )

@@ -1,0 +1,23 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://Scripts/section.cs" type="Script" id=1]
+[ext_resource path="res://Scripts/Pitcher.cs" type="Script" id=2]
+[ext_resource path="res://models/instruments/horn.glb" type="PackedScene" id=3]
+
+[node name="SectionHorn" type="Spatial"]
+script = ExtResource( 1 )
+instrument = 2
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+
+[node name="Pitcher" type="Node" parent="."]
+script = ExtResource( 2 )
+
+[node name="horn" parent="." instance=ExtResource( 3 )]
+transform = Transform( 1.54774, 1.53095, -1.37566, -1.7836, 0.138671, -1.85238, -1.02715, 2.06609, 1.14368, 15.2566, 2.27016, -13.7488 )
+
+[node name="horn2" parent="." instance=ExtResource( 3 )]
+transform = Transform( 1.63776, 1.32915, -1.47745, -1.7836, 0.138671, -1.85238, -0.876508, 2.20134, 1.00876, 15.8546, 2.27016, -11.3256 )
+
+[node name="horn3" parent="." instance=ExtResource( 3 )]
+transform = Transform( 1.32074, 1.90047, -1.12943, -1.7836, 0.138671, -1.85238, -1.30621, 1.73226, 1.38739, 13.7659, 2.27016, -16.0449 )
