@@ -1,27 +1,43 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://Scripts/Section.cs" type="Script" id=1]
 [ext_resource path="res://Scripts/Pitcher.cs" type="Script" id=2]
 [ext_resource path="res://models/instruments/cello.glb" type="PackedScene" id=3]
 [ext_resource path="res://prefabs/chair_sections.tscn" type="PackedScene" id=4]
+[ext_resource path="res://Scenes/TempoChanger.tscn" type="PackedScene" id=5]
+[ext_resource path="res://Scenes/InstrumentCollider.tscn" type="PackedScene" id=6]
 
 [node name="SectionDeepstrings" type="Spatial"]
 script = ExtResource( 1 )
 instrument = 1
+axis = 2
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 
 [node name="Pitcher" type="Node" parent="."]
 script = ExtResource( 2 )
 
-[node name="cello" parent="." instance=ExtResource( 3 )]
-transform = Transform( 0.725925, -0.172621, -0.0493641, 0, 0.205606, -0.718977, 0.179541, 0.697947, 0.199592, 10.2555, 1.83361, -4.74858 )
-
-[node name="cello2" parent="." instance=ExtResource( 3 )]
-transform = Transform( 0.616332, -0.407161, -0.116436, 0, 0.205606, -0.718977, 0.423482, 0.592578, 0.16946, 11.8099, 1.83361, -3.93467 )
-
-[node name="cello3" parent="." instance=ExtResource( 3 )]
-transform = Transform( 0.54399, -0.834061, -0.23852, -1.73916e-06, 0.253819, -0.887562, 0.867496, 0.523024, 0.149569, 15.6648, 1.83349, -4.01637 )
-
 [node name="chair_sections" parent="." instance=ExtResource( 4 )]
 transform = Transform( -0.639801, 0, -0.76854, 0, 1, 0, 0.76854, 0, -0.639801, 12.7978, 0, -5.049 )
+
+[node name="TempoChanger" parent="." instance=ExtResource( 5 )]
+transform = Transform( 0.344584, 0, -0.507824, 0, 0.3, 0, 0.20313, 0, 0.861461, 13.2366, 4.21173, -4.28367 )
+
+[node name="Cellos" type="Spatial" parent="TempoChanger"]
+transform = Transform( 2.15365, 0, 1.26956, 0, 3.33333, 0, -0.507824, 0, 0.861461, -23.0687, -14.0391, 10.4121 )
+
+[node name="cello" parent="TempoChanger/Cellos" instance=ExtResource( 3 )]
+transform = Transform( 0.725925, -0.172621, -0.0493641, 0, 0.205606, -0.718977, 0.179541, 0.697947, 0.199592, 10.2555, 1.83361, -4.74858 )
+
+[node name="cello2" parent="TempoChanger/Cellos" instance=ExtResource( 3 )]
+transform = Transform( 0.616332, -0.407161, -0.116436, 0, 0.205606, -0.718977, 0.423482, 0.592578, 0.16946, 11.8099, 1.83361, -3.93467 )
+
+[node name="cello3" parent="TempoChanger/Cellos" instance=ExtResource( 3 )]
+transform = Transform( 0.54399, -0.834061, -0.23852, -1.73916e-06, 0.253819, -0.887562, 0.867496, 0.523024, 0.149569, 15.6648, 1.83349, -4.01637 )
+
+[node name="InstrumentCollider" parent="TempoChanger/Cellos" instance=ExtResource( 6 )]
+
+[node name="CollisionShape" parent="TempoChanger/Cellos/InstrumentCollider" index="0"]
+transform = Transform( 4.35145, 0, -1.77576, 0, 0.987268, 0, 2.18732, 0, 3.53269, 12.8754, 2.09715, -4.49359 )
+
+[editable path="TempoChanger/Cellos/InstrumentCollider"]

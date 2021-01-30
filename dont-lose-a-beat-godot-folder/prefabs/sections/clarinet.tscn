@@ -1,27 +1,45 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://Scripts/Section.cs" type="Script" id=1]
 [ext_resource path="res://Scripts/Pitcher.cs" type="Script" id=2]
 [ext_resource path="res://models/instruments/clarinet.glb" type="PackedScene" id=3]
 [ext_resource path="res://prefabs/chair_sections.tscn" type="PackedScene" id=4]
+[ext_resource path="res://Scenes/InstrumentCollider.tscn" type="PackedScene" id=5]
+[ext_resource path="res://Scenes/TempoChanger.tscn" type="PackedScene" id=6]
 
 [node name="SectionClarinet" type="Spatial"]
 script = ExtResource( 1 )
 instrument = 7
+axis = 2
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 
 [node name="Pitcher" type="Node" parent="."]
 script = ExtResource( 2 )
 
-[node name="clarinet" parent="." instance=ExtResource( 3 )]
-transform = Transform( -1.31046, -0.782897, 2.27348, -1.40444, 2.35085, -1.22781e-07, -1.95171, -1.16599, -1.52651, -7.57563, 0.348843, -6.32728 )
-
-[node name="clarinet2" parent="." instance=ExtResource( 3 )]
-transform = Transform( -1.32029, -0.788763, 2.26575, -1.40444, 2.35085, -1.22781e-07, -1.94508, -1.16203, -1.53795, -6.85888, 0.348843, -7.4812 )
-
-[node name="clarinet3" parent="." instance=ExtResource( 3 )]
-transform = Transform( -0.601187, -0.359158, 2.64735, -1.40444, 2.35085, -1.22781e-07, -2.27268, -1.35774, -0.700302, -8.16051, 0.348843, -5.38565 )
-
 [node name="chair_sections" parent="." instance=ExtResource( 4 )]
 transform = Transform( 0.849469, 0, -0.527638, 0, 1, 0, 0.527638, 0, 0.849469, -8.48915, -0.677467, -7.56772 )
+
+[node name="TempoChanger" parent="." instance=ExtResource( 6 )]
+transform = Transform( 0.246617, 0, 0.787323, 0, 0.3, 0, -0.314929, 0, 0.616541, -8.0454, 2.88801, -6.97969 )
+
+[node name="Clarinets" type="Spatial" parent="TempoChanger"]
+transform = Transform( 1.54135, 0, -1.96831, 0, 3.33333, 0, 0.787323, 0, 0.616541, -1.33737, -9.62668, 10.6376 )
+
+[node name="clarinet" parent="TempoChanger/Clarinets" instance=ExtResource( 3 )]
+transform = Transform( -1.31046, -0.782897, 2.27348, -1.40444, 2.35085, -1.22781e-07, -1.95171, -1.16599, -1.52651, -7.57563, 0.348843, -6.32728 )
+
+[node name="clarinet2" parent="TempoChanger/Clarinets" instance=ExtResource( 3 )]
+transform = Transform( -1.32029, -0.788763, 2.26575, -1.40444, 2.35085, -1.22781e-07, -1.94508, -1.16203, -1.53795, -6.85888, 0.348843, -7.4812 )
+
+[node name="clarinet3" parent="TempoChanger/Clarinets" instance=ExtResource( 3 )]
+transform = Transform( -0.601187, -0.359158, 2.64735, -1.40444, 2.35085, -1.22781e-07, -2.27268, -1.35774, -0.700302, -8.16051, 0.348843, -5.38565 )
+
+[node name="InstrumentCollider" parent="TempoChanger" instance=ExtResource( 5 )]
+
+[node name="CollisionShape" parent="TempoChanger/InstrumentCollider" index="0"]
+transform = Transform( 5.22514, 0, -2.38419e-07, 0, 5.64774, 0, 4.76837e-07, 0, 1, -0.181772, -5.78656, 0 )
+
+[editable path="TempoChanger"]
+
+[editable path="TempoChanger/InstrumentCollider"]

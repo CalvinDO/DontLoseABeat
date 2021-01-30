@@ -21,10 +21,10 @@ script = ExtResource( 2 )
 transform = Transform( 0.795516, 0, 0.605933, 0, 1, 0, -0.605933, 0, 0.795516, 9.47589, -0.608495, -11.6347 )
 
 [node name="TempoChanger" parent="." instance=ExtResource( 6 )]
-transform = Transform( 0.286332, 0, -0.135011, 0, 0.327122, 0, 0.133233, 0, 0.290153, 9.02727, 1.44585, -10.8899 )
+transform = Transform( 0.362662, 0, -0.421875, 0, 0.3, 0, 0.16875, 0, 0.906654, 9.02727, 2.38906, -10.8899 )
 
 [node name="Horns" type="Spatial" parent="TempoChanger"]
-transform = Transform( 2.87087, 0, 1.33584, 0, 3.05696, 0, -1.31825, 0, 2.83306, -11.3689, -4.41992, 42.7519 )
+transform = Transform( 2.26664, 0, 1.05468, 0, 3.33333, 0, -0.421874, 0, 0.906653, -8.97609, -7.96354, 13.6817 )
 
 [node name="horn" parent="TempoChanger/Horns" instance=ExtResource( 3 )]
 transform = Transform( 0.608868, 2.46981, -0.401366, -1.7836, 0.138671, -1.85238, -1.75494, 0.715954, 1.74337, 8.54472, 1.66167, -10.2153 )
@@ -36,10 +36,10 @@ transform = Transform( 0.771759, 2.39122, -0.564094, -1.7836, 0.138671, -1.85238
 transform = Transform( 0.259194, 2.56149, -0.0578142, -1.7836, 0.138671, -1.85238, -1.83939, 0.226483, 1.78805, 5.96756, 1.66167, -11.1386 )
 
 [node name="InstrumentCollider" parent="TempoChanger" instance=ExtResource( 5 )]
-transform = Transform( 1, 0, -5.96046e-08, 0, 1, 0, 0, 0, 1, 0, 0.18281, 0 )
+transform = Transform( 0.789529, 0, -2.08616e-07, 0, 1.09041, 0, 0, 0, 0.320026, 0, -2.9447, 0 )
 
 [node name="CollisionShape" parent="TempoChanger/InstrumentCollider" index="0"]
-transform = Transform( 1, 0, -5.96046e-08, 0, 0.999999, 0, 0, 0, 1, -2.86102e-06, 0.733404, 4.02339 )
+transform = Transform( 12.0266, 0, -4.76837e-07, 0, 2.31003, 0, 4.76837e-07, 0, 12.4231, -0.270562, 1.2979, 5.2184 )
 
 [editable path="TempoChanger"]
 
