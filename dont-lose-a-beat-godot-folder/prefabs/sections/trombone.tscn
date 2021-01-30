@@ -15,6 +15,13 @@ instrument = 3
 script = ExtResource( 2 )
 
 [node name="chair_sections" parent="." instance=ExtResource( 3 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.17367, -16.3601 )
 
 [node name="trombone" parent="." instance=ExtResource( 4 )]
-transform = Transform( 1.23952, 0, 0, 0, 1.23952, 0, 0, 0, 1.23952, 0, 2.39933, -0.58714 )
+transform = Transform( -1.23851, 0.00345546, 0.0499921, 0.00583437, 1.2381, 0.0589632, -0.0497705, 0.0591503, -1.23711, 0, 4.573, -15.1452 )
+
+[node name="trombone2" parent="." instance=ExtResource( 4 )]
+transform = Transform( -1.22373, 0.0151318, -0.196648, 0.00583437, 1.2381, 0.0589632, 0.197143, 0.0572864, -1.2224, -3.13058, 4.573, -15.0311 )
+
+[node name="trombone3" parent="." instance=ExtResource( 4 )]
+transform = Transform( -1.2239, -0.00357352, 0.19614, 0.00583437, 1.2381, 0.0589632, -0.196086, 0.0591433, -1.22248, 2.63334, 4.573, -14.9187 )
