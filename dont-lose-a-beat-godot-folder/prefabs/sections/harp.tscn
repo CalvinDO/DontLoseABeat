@@ -1,13 +1,10 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://Scripts/Section.cs" type="Script" id=1]
 [ext_resource path="res://Scripts/Pitcher.cs" type="Script" id=2]
 [ext_resource path="res://models/instruments/harp.glb" type="PackedScene" id=3]
-<<<<<<< HEAD
 [ext_resource path="res://Scenes/TempoChanger.tscn" type="PackedScene" id=4]
-=======
-[ext_resource path="res://prefabs/chair_sections.tscn" type="PackedScene" id=4]
->>>>>>> 01dafd86b8e8879c99a88c9c15b8960bccc5eb70
+[ext_resource path="res://prefabs/chair_sections.tscn" type="PackedScene" id=5]
 
 [node name="SectionHarp" type="Spatial"]
 script = ExtResource( 1 )
@@ -18,16 +15,13 @@ instrument = 11
 [node name="Pitcher" type="Node" parent="."]
 script = ExtResource( 2 )
 
-[node name="harp" parent="." instance=ExtResource( 3 )]
-<<<<<<< HEAD
-transform = Transform( 0.707107, 0, -0.707107, 0, 1, 0, 0.707107, 0, 0.707107, -6.15125, 0, -2.24603 )
+[node name="chair_sections" parent="." instance=ExtResource( 5 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -7.74806, 0, -3.40954 )
 
 [node name="TempoChanger" parent="." instance=ExtResource( 4 )]
+transform = Transform( 0.707107, 0, 0.707107, 0, 1, 0, -0.707107, 0, 0.707107, -6.17986, 0, -2.2573 )
+
+[node name="harp" parent="TempoChanger" instance=ExtResource( 3 )]
+transform = Transform( -2.38419e-07, 0, -2.37046, 0, 2.37046, 0, 2.37046, 0, -2.38419e-07, 0.0122547, 0, 0.0281992 )
 
 [editable path="TempoChanger"]
-=======
-transform = Transform( -0.927182, 0, -2.62863, 0, 2.78735, 0, 2.62863, 0, -0.927182, -13.427, -1.28785, -5.86076 )
-
-[node name="chair_sections" parent="." instance=ExtResource( 4 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -15.9265, 0, -5.78922 )
->>>>>>> 01dafd86b8e8879c99a88c9c15b8960bccc5eb70

@@ -13,9 +13,6 @@ public class Section : Spatial
     [Export]
     Instrument instrument;
 
-    const float minTempo = .5f, maxTempo = 5,
-    minPitch = .5f, maxPitch = 2;
-
     int BusID;
     string instrumentName;
 
@@ -52,10 +49,15 @@ public class Section : Spatial
 
     public float delta;
 
-    [Export]
-    public float angleAccelleration = 1;
+
+    public float angleAccelleration = 10;
     [Export]
     public Axis axis;
+
+    private TempoChangerScriptTransmitter tempoChanger;
+
+    [Export]
+    public float maxRotationAngle;
 
     public enum Axis
     {
@@ -64,6 +66,17 @@ public class Section : Spatial
     #endregion
 
     //------------------------------------------------------------------------
+
+    #region PitchController
+    //------------------------------------------------------------------------
+    //  PITCHCONTROLLER
+    //------------------------------------------------------------------------
+
+    private SectionChair chair;
+    #endregion
+
+    //------------------------------------------------------------------------
+
 
     public override void _Ready()
     {
@@ -76,6 +89,16 @@ public class Section : Spatial
 
         OM = GetParent<SimonsOrchestraManager>();
         if (OM == null) GD.PrintErr(instrumentName + " Section must be Child of an OrchestraManager");
+
+        if ((TempoChangerScriptTransmitter)GetNode<TempoChangerScriptTransmitter>("TempoChanger") != null)
+        {
+            this.tempoChanger = (TempoChangerScriptTransmitter)GetNode<TempoChangerScriptTransmitter>("TempoChanger");
+        }
+
+        if (GetNode<SectionChair>("chair_sections") != null)
+        {
+            this.chair = GetNode<SectionChair>("chair_sections");
+        }
 
 
         this.bpm = this.OM.currentBPM;
@@ -110,25 +133,28 @@ public class Section : Spatial
 
         float bps = bpm / 60;
 
-        this.currentAngle = (float)(Math.Sin(this.timeSinceStart * Math.PI * bps) * (Math.PI / 4));
+        this.currentAngle = (float)(Math.Sin(this.timeSinceStart * Math.PI * bps) * (Mathf.Deg2Rad(maxRotationAngle)));
         this.currentSpeed = this.currentAngle - this.angleLastFrame;
         this.angleLastFrame = this.currentAngle;
 
         this.Rotation = new Vector3();
 
-        switch (this.axis)
+        if (this.tempoChanger != null)
         {
-            case Axis.X:
-                this.Rotation = new Vector3(currentAngle, 0, 0);
-                break;
-            case Axis.Y:
-                this.Rotation = new Vector3(0, currentAngle, 0);
-                break;
-            case Axis.Z:
-                this.Rotation = new Vector3(0, 0, currentAngle);
-                break;
-            default:
-                break;
+            switch (this.axis)
+            {
+                case Axis.X:
+                    this.tempoChanger.Rotation = new Vector3(currentAngle, 0, 0);
+                    break;
+                case Axis.Y:
+                    this.tempoChanger.Rotation = new Vector3(0, currentAngle, 0);
+                    break;
+                case Axis.Z:
+                    this.tempoChanger.Rotation = new Vector3(0, 0, currentAngle);
+                    break;
+                default:
+                    break;
+            }
         }
 
         if (this.mouseInsideLeft)
@@ -159,6 +185,10 @@ public class Section : Spatial
         tempoToSet = this.bpm / this.OM.currentBPM;
 
         pitcher.SetPitchAndTempo(pitchToSet, tempoToSet);
+        if (this.chair != null)
+        {
+            this.chair.SetPitchScale(pitchToSet);
+        }
     }
 
     public void AreaEntered(Area area, string name)

@@ -16,18 +16,19 @@ public class SectionChair : Spatial
         top = GetNode<Spatial>("chair_base/chair_top");
     }
 
-    public void SetScale(float scale)
+    public void SetPitchScale(float scale)
     {   //1.5 7.1
+        scale = RemapRange(scale, 0.5f, 2, 0, 1);
         currentScale = scale;
         float s = RemapRange(scale, 0, 1, 1, 7.1f);
         float t = scale * 1.5f;
         stick.Scale = new Vector3(1, s, 1);
-        top.Translation = new Vector3(0, t,0);
+        top.Translation = new Vector3(0, t, 0);
     }
 
     //Maybe extract to util class
-    public float RemapRange(float value, float InputA, float InputB, float OutputA, float OutputB) 
+    public float RemapRange(float value, float InputA, float InputB, float OutputA, float OutputB)
     {
-        return(value - InputA) / (InputB - InputA) * (OutputB - OutputA) + OutputA;
+        return (value - InputA) / (InputB - InputA) * (OutputB - OutputA) + OutputA;
     }
 }

@@ -6,9 +6,9 @@ public class Pitcher : Node
     [Export]
     int audioBusIndex = 1;
 
-    [Export]
-    float startSpeed = 1, startPitch = 1,
-    minSpeed = .5f, maxSpeed = 5,
+
+    public static float startTempo = 1, startPitch = 1,
+    minTempo = .5f, maxTempo = 5,
     minPitch = .5f, maxPitch = 2;
 
     float currentSpeed = 1;
@@ -25,7 +25,7 @@ public class Pitcher : Node
     }
 
     public void SetSpeed(float speed) {
-        speed = Mathf.Clamp(speed, minSpeed, maxSpeed);
+        speed = Mathf.Clamp(speed, minTempo, maxTempo);
         pitchEffect.PitchScale = currentPitch / speed;
         AP.PitchScale = speed;
         currentSpeed = speed;

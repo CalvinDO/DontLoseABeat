@@ -15,3 +15,4 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.565662, -3.80327 )
 currentLevel = 3
 
 [node name="Hall" parent="." instance=ExtResource( 4 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0129976, -0.0236011, 0.00691128 )
