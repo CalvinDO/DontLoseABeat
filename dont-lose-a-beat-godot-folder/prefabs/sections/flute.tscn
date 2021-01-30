@@ -1,8 +1,9 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://Scripts/Section.cs" type="Script" id=1]
 [ext_resource path="res://Scripts/Pitcher.cs" type="Script" id=2]
 [ext_resource path="res://prefabs/chair_sections.tscn" type="PackedScene" id=3]
+[ext_resource path="res://models/instruments/flute.glb" type="PackedScene" id=4]
 
 [node name="SectionFlute" type="Spatial"]
 script = ExtResource( 1 )
@@ -14,3 +15,12 @@ instrument = 12
 script = ExtResource( 2 )
 
 [node name="chair_sections" parent="." instance=ExtResource( 3 )]
+
+[node name="flute" parent="." instance=ExtResource( 4 )]
+transform = Transform( 1.51595, 0, 0, 0, 1.51595, 0, 0, 0, 1.51595, 0, 2.60029, -0.408812 )
+
+[node name="flute2" parent="." instance=ExtResource( 4 )]
+transform = Transform( 1.40278, 0, 0.574722, 0, 1.51595, 0, -0.574722, 0, 1.40278, 2.7422, 2.60029, -1.09924 )
+
+[node name="flute3" parent="." instance=ExtResource( 4 )]
+transform = Transform( 1.42783, 0, -0.509325, 0, 1.51595, 0, 0.509325, 0, 1.42783, -2.62555, 2.60029, -0.908112 )

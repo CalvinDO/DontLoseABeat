@@ -9,10 +9,10 @@
 use_in_baked_light = true
 
 [node name="vorhang_l" parent="." index="1"]
-transform = Transform( 0.502206, 0, 0, 0, 1.82, 0, 0, 0, 1.44, -38.3316, -4.29318, 5.08113 )
+transform = Transform( 1.4398, 0, 0, 0, 1.81993, 0, 0, 0, 1.4398, -38.3316, -4.29318, 5.08113 )
 
 [node name="Vorhang_r" parent="." index="2"]
-transform = Transform( 0.501981, 0, 0, 0, 1.82, 0, 0, 0, 1.44, 38.8864, -4.29318, 6.34098 )
+transform = Transform( 1.4398, 0, 0, 0, 1.81993, 0, 0, 0, 1.4398, 38.8864, -4.29318, 6.34098 )
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." index="3"]
 anims/curtain_open = ExtResource( 2 )
