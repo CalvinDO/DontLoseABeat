@@ -53,7 +53,40 @@ public class SimonsOrchestraManager : Spatial
             cSection.Play();
         }
     }
-
+    float max = 1.1f;
+    float min = 0.9f;
+    bool isInThreshold;
+    bool checkNow;
+    [Export]
+    public float startTimeBeforeChecking = 20;
+    float thresholdTime = 100;
+    public override void _Process(float delta)
+    {
+        if (startTimeBeforeChecking >= 0f)
+            startTimeBeforeChecking -= delta;
+        if (startTimeBeforeChecking <= 0f)
+        {
+            if (!isInThreshold)
+            {
+                foreach (Section cSection in this.GetChildren())
+                {
+                    if (cSection.currentTempo >= min || cSection.currentPitch >= min && cSection.currentTempo <= max || cSection.currentPitch <= max)
+                    {
+                        thresholdTime = 100;
+                        isInThreshold = true;
+                    }
+                }
+            }
+            if (isInThreshold)
+                foreach (Section cSection in this.GetChildren())
+                    if (cSection.currentTempo >= min || cSection.currentPitch >= min && cSection.currentTempo <= max || cSection.currentPitch <= max)
+                        thresholdTime -= delta;
+                    else
+                        isInThreshold = false;
+            if (thresholdTime <= 0f)
+                GD.Print("WIN-Placeholder");
+        }
+    }
     void LoadPrefabs()
     {
         sections = new Dictionary<string, PackedScene>();
@@ -76,7 +109,7 @@ public class SimonsOrchestraManager : Spatial
     {
         if (Input.IsActionPressed("ThrowChair"))
         {
-            this.pitchToSet += 0.02f;
+            //this.pitchToSet += 0.02f;
         }
     }
 }
