@@ -1,32 +1,32 @@
 {
   "format": 1,
   "restore": {
-    "D:\\DontLoseABeat\\dont-lose-a-beat-godot-folder\\dont-lose-a-beat-godot.csproj": {}
+    "D:\\home\\HFU\\dontloseabeat\\dont-lose-a-beat-godot-folder\\dont-lose-a-beat-godot.csproj": {}
   },
   "projects": {
-    "D:\\DontLoseABeat\\dont-lose-a-beat-godot-folder\\dont-lose-a-beat-godot.csproj": {
+    "D:\\home\\HFU\\dontloseabeat\\dont-lose-a-beat-godot-folder\\dont-lose-a-beat-godot.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\DontLoseABeat\\dont-lose-a-beat-godot-folder\\dont-lose-a-beat-godot.csproj",
+        "projectUniqueName": "D:\\home\\HFU\\dontloseabeat\\dont-lose-a-beat-godot-folder\\dont-lose-a-beat-godot.csproj",
         "projectName": "dont-lose-a-beat-godot",
-        "projectPath": "D:\\DontLoseABeat\\dont-lose-a-beat-godot-folder\\dont-lose-a-beat-godot.csproj",
-        "packagesPath": "C:\\Users\\calvi\\.nuget\\packages\\",
-        "outputPath": "D:\\DontLoseABeat\\dont-lose-a-beat-godot-folder\\.mono\\temp\\obj\\",
+        "projectPath": "D:\\home\\HFU\\dontloseabeat\\dont-lose-a-beat-godot-folder\\dont-lose-a-beat-godot.csproj",
+        "packagesPath": "C:\\Users\\simon\\.nuget\\packages\\",
+        "outputPath": "D:\\home\\HFU\\dontloseabeat\\dont-lose-a-beat-godot-folder\\.mono\\temp\\obj\\",
         "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
+        ],
         "configFilePaths": [
-          "C:\\Users\\calvi\\AppData\\Roaming\\NuGet\\NuGet.Config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+          "C:\\Users\\simon\\AppData\\Roaming\\NuGet\\NuGet.Config"
         ],
         "originalTargetFrameworks": [
           "net472"
         ],
         "sources": {
-          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
           "net472": {
-            "targetAlias": "net472",
             "projectReferences": {}
           }
         },
@@ -37,10 +37,7 @@
         }
       },
       "frameworks": {
-        "net472": {
-          "targetAlias": "net472",
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.102\\RuntimeIdentifierGraph.json"
-        }
+        "net472": {}
       }
     }
   }
