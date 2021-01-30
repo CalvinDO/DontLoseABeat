@@ -8,13 +8,10 @@
 
 [node name="MainCamera" parent="." instance=ExtResource( 1 )]
 transform = Transform( 1, 0, 0, 0, 0.998978, 0.0451886, 0, -0.0451886, 0.998978, 0, 6.04692, 14.4085 )
+max_speed = Vector3( 10, 10, 10 )
 
 [node name="OrchestraManager" parent="." instance=ExtResource( 2 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.565662, -3.80327 )
 currentLevel = 3
 
 [node name="Hall" parent="." instance=ExtResource( 4 )]
-
-[editable path="OrchestraManager"]
-
-[editable path="Hall"]

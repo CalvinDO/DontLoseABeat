@@ -32,7 +32,7 @@ public class SimonsOrchestraManager : Spatial {
                 Section cSection = (Section)sections[f].Instance();
                 AddChild(cSection);
             } 
-            else {
+            else if (!f.EndsWith(".ogg.import")) {
                 GD.PrintErr($"Folder res://Audio/lvl{currentLevel} contains wrongly named file {f}. SHAME!");
             }
         }
