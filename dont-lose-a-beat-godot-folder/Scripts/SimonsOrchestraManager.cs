@@ -18,6 +18,8 @@ public class SimonsOrchestraManager : Spatial
     {
         LoadPrefabs();
         LoadLevel();
+
+        this.CheckKeyboardInput();
     }
 
     public void LoadLevel()
@@ -68,5 +70,13 @@ public class SimonsOrchestraManager : Spatial
         sections.Add("piano", ResourceLoader.Load<PackedScene>("res://prefabs/sections/piano.tscn"));
         sections.Add("harp", ResourceLoader.Load<PackedScene>("res://prefabs/sections/harp.tscn"));
         sections.Add("flute", ResourceLoader.Load<PackedScene>("res://prefabs/sections/flute.tscn"));
+    }
+
+    public void CheckKeyboardInput()
+    {
+        if (Input.IsActionPressed("ThrowChair"))
+        {
+            this.pitchToSet += 0.02f;
+        }
     }
 }
