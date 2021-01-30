@@ -16,7 +16,7 @@ public class SectionChair : Spatial
         top = GetNode<Spatial>("chair_base/chair_top");
     }
 
-    public void SetScale(float scale) 
+    public void SetScale(float scale)
     {   //1.5 7.1
         currentScale = scale;
         float s = RemapRange(scale, 0, 1, 1, 7.1f);

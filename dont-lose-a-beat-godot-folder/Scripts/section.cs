@@ -76,8 +76,11 @@ public class Section : Spatial
 
         OM = GetParent<SimonsOrchestraManager>();
         if (OM == null) GD.PrintErr(instrumentName + " Section must be Child of an OrchestraManager");
+<<<<<<< HEAD
         this.bpm = this.OM.currentBPM;
         
+=======
+>>>>>>> 01dafd86b8e8879c99a88c9c15b8960bccc5eb70
         AP.Bus = AudioServer.GetBusName(BusID);
 
         pitchEffect = (AudioEffectPitchShift)AudioServer.GetBusEffect(BusID, 0);
