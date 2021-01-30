@@ -1,13 +1,16 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://Scripts/Section.cs" type="Script" id=1]
 [ext_resource path="res://Scripts/Pitcher.cs" type="Script" id=2]
 [ext_resource path="res://models/instruments/oboe.glb" type="PackedScene" id=3]
 [ext_resource path="res://prefabs/chair_sections.tscn" type="PackedScene" id=4]
+[ext_resource path="res://Scenes/InstrumentCollider.tscn" type="PackedScene" id=5]
+[ext_resource path="res://Scenes/TempoChanger.tscn" type="PackedScene" id=6]
 
 [node name="SectionOboe" type="Spatial"]
 script = ExtResource( 1 )
 instrument = 6
+axis = 1
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 
@@ -17,8 +20,21 @@ script = ExtResource( 2 )
 [node name="chair_sections" parent="." instance=ExtResource( 4 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -4.41104, -9.53674e-07, -10.0309 )
 
-[node name="oboe" parent="." instance=ExtResource( 3 )]
+[node name="TempoChanger" parent="." instance=ExtResource( 6 )]
+transform = Transform( 0.4, 0, 0, 0, 0.3, 0, 0, 0, 1, -4.0118, 3.57472, -9.65429 )
+
+[node name="Oboes" type="Spatial" parent="TempoChanger"]
+transform = Transform( 2.5, 0, 0, 0, 3.33333, 0, 0, 0, 1, 10.0295, -11.9157, 9.65429 )
+
+[node name="oboe" parent="TempoChanger/Oboes" instance=ExtResource( 3 )]
 transform = Transform( -0.0243215, 0, 2.50173, -1.30596, 2.13391, -0.0126964, -2.13381, -1.30602, -0.0207446, -3.34683, 1.55528, -8.50298 )
 
-[node name="oboe2" parent="." instance=ExtResource( 3 )]
+[node name="oboe2" parent="TempoChanger/Oboes" instance=ExtResource( 3 )]
 transform = Transform( 0.515177, 0.32928, 2.42599, -1.30752, 2.13295, -0.0118443, -2.06984, -1.26544, 0.611304, -4.87097, 1.55528, -8.50298 )
+
+[node name="InstrumentCollider" parent="TempoChanger" instance=ExtResource( 5 )]
+
+[node name="CollisionShape" parent="TempoChanger/InstrumentCollider" index="0"]
+transform = Transform( 3.52861, 0, 0, 0, 5.2299, 0, 0, 0, 2.08032, 0.032465, -4.10281, 0.742928 )
+
+[editable path="TempoChanger/InstrumentCollider"]

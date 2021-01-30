@@ -1,13 +1,16 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://Scripts/Section.cs" type="Script" id=1]
 [ext_resource path="res://Scripts/Pitcher.cs" type="Script" id=2]
 [ext_resource path="res://prefabs/chair_sections.tscn" type="PackedScene" id=3]
 [ext_resource path="res://models/instruments/flute.glb" type="PackedScene" id=4]
+[ext_resource path="res://Scenes/TempoChanger.tscn" type="PackedScene" id=5]
+[ext_resource path="res://Scenes/InstrumentCollider.tscn" type="PackedScene" id=6]
 
 [node name="SectionFlute" type="Spatial"]
 script = ExtResource( 1 )
 instrument = 12
+axis = 2
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 
@@ -17,11 +20,24 @@ script = ExtResource( 2 )
 [node name="chair_sections" parent="." instance=ExtResource( 3 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.947943, 0, -8.32533 )
 
-[node name="flute" parent="." instance=ExtResource( 4 )]
+[node name="TempoChanger" parent="." instance=ExtResource( 5 )]
+transform = Transform( 0.399036, 0, -0.0693734, 0, 0.3, 0, 0.0277494, 0, 0.997591, 1.59628, 3.12654, -7.61231 )
+
+[node name="Flutes" type="Spatial" parent="TempoChanger"]
+transform = Transform( 2.49398, 0, 0.173434, 0, 3.33333, 0, -0.0693734, 0, 0.997591, -2.66086, -10.4218, 7.70471 )
+
+[node name="flute" parent="TempoChanger/Flutes" instance=ExtResource( 4 )]
 transform = Transform( 1.37482, 0, -0.638725, 0, 1.51595, 0, 0.638725, 0, 1.37482, 0.947943, 2.60029, -7.21195 )
 
-[node name="flute2" parent="." instance=ExtResource( 4 )]
+[node name="flute2" parent="TempoChanger/Flutes" instance=ExtResource( 4 )]
 transform = Transform( 1.34574, 0, -0.69792, 0, 1.51595, 0, 0.69792, 0, 1.34574, 3.41832, 2.60029, -7.23441 )
 
-[node name="flute3" parent="." instance=ExtResource( 4 )]
+[node name="flute3" parent="TempoChanger/Flutes" instance=ExtResource( 4 )]
 transform = Transform( 1.42783, 0, -0.509325, 0, 1.51595, 0, 0.509325, 0, 1.42783, -1.67761, 2.60029, -7.71125 )
+
+[node name="InstrumentCollider" parent="TempoChanger" instance=ExtResource( 6 )]
+
+[node name="CollisionShape" parent="TempoChanger/InstrumentCollider" index="0"]
+transform = Transform( 12.8312, 0, -2.98023e-08, 0, 1.11957, 0, 1.19209e-07, 0, 1.56973, -1.04556, -0.956053, 0.220968 )
+
+[editable path="TempoChanger/InstrumentCollider"]
