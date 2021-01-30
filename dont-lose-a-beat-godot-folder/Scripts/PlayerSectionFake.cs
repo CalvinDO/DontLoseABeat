@@ -13,7 +13,7 @@ public class PlayerSectionFake : Spatial
     private bool mouseInsideRight = false;
     private bool mouseInsideLeft = false;
 
-    private MusicianAudioStreamController playerSectionSoundNode;
+    private Pitcher pitcher;
 
     public float delta;
 
@@ -25,11 +25,6 @@ public class PlayerSectionFake : Spatial
     public enum Axis
     {
         X, Y, Z
-    }
-
-    public override void _Ready()
-    {
-
     }
 
     public override void _Process(float delta)
