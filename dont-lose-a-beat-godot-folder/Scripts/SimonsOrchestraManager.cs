@@ -30,18 +30,18 @@ public class SimonsOrchestraManager : Spatial
         dir.ListDirBegin();
         while (true)
         {
-            string f = dir.GetNext();
-            if (f == "") break;
-            else if (f.EndsWith(".ogg") && loadDynamically)
+            string fileName = dir.GetNext();
+            if (fileName == "") break;
+            else if (fileName.EndsWith(".ogg") && loadDynamically)
             {
-                files.Add(f);
-                f = f.Remove(f.Length - 4);
-                Section cSection = (Section)sections[f].Instance();
+                files.Add(fileName);
+                fileName = fileName.Remove(fileName.Length - 4);
+                Section cSection = (Section)sections[fileName].Instance();
                 AddChild(cSection);
             }
-            else if (!f.EndsWith(".ogg.import"))
+            else if (!fileName.EndsWith(".ogg.import"))
             {
-                GD.PrintErr($"Folder res://Audio/lvl{currentLevel} contains wrongly named file {f}. SHAME!");
+                GD.PrintErr($"Folder res://Audio/lvl{currentLevel} contains wrongly named file {fileName}. SHAME!");
             }
         }
         dir.ListDirEnd();
