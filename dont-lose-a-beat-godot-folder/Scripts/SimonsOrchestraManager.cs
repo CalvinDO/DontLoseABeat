@@ -1,5 +1,6 @@
 using Godot;
 using System.Collections.Generic;
+using System;
 
 public class SimonsOrchestraManager : Spatial
 {
@@ -30,13 +31,16 @@ public class SimonsOrchestraManager : Spatial
     [Export]
     public float checkingDuration = 30;
     float thresholdTime;
-
+    RandomNumberGenerator randomFloatNumber = new RandomNumberGenerator();
+    private float timeIntervallForUpSetSections;
     public Section[] cleanSections;
+    private bool isUpSetting;
 
     ///------
 
     public override void _Ready()
     {
+        timeIntervallForUpSetSections = randomFloatNumber.RandfRange(5f, 15f);
         LoadPrefabs();
         LoadLevel();
     }
@@ -85,10 +89,38 @@ public class SimonsOrchestraManager : Spatial
     public override void _Process(float delta)
     {
         this.delta = delta;
-
+        timeIntervallForUpSetSections -= delta;
+        if (timeIntervallForUpSetSections <= 0f)
+            if (!isUpSetting)
+                this.RandomUpSetSections();
         this.CheckThreshholdAndPitch();
     }
-
+    public void RandomUpSetSections()
+    {
+        randomFloatNumber.Randomize();
+        timeIntervallForUpSetSections = randomFloatNumber.RandfRange(5f, 30f);
+        isUpSetting = true;
+        randomFloatNumber.Randomize();
+        int randomSection = (int)randomFloatNumber.Randfn(0, cleanSections.Length - 1);
+        randomFloatNumber.Randomize();
+        float upSetFactor = randomFloatNumber.RandfRange(0.5f, 2f);
+        randomFloatNumber.Randomize();
+        float pitcherOrTempo = randomFloatNumber.RandfRange(0f, 1f);
+        Pitcher pitcher = cleanSections[randomSection].GetNode<Pitcher>("Pitcher");
+        if (pitcherOrTempo < 0.5f)
+        {
+            GD.Print(cleanSections[randomSection].Name + "--pitchchange: " + upSetFactor);
+            pitcher.currentPitch = upSetFactor;
+            cleanSections[randomSection].currentPitch = upSetFactor;
+        }
+        else
+        {
+            GD.Print(cleanSections[randomSection].Name + "--tempochange: " + upSetFactor);
+            pitcher.currentTempo = upSetFactor;
+            cleanSections[randomSection].currentTempo = upSetFactor;
+        }
+        isUpSetting = false;
+    }
     public void CheckThreshholdAndPitch()
     {
         if (timeBeforeStartingChecking >= 0f)
@@ -126,10 +158,8 @@ public class SimonsOrchestraManager : Spatial
         foreach (Section cSection in this.cleanSections)
         {
             Pitcher pitcher = cSection.GetNode<Pitcher>("Pitcher");
-            GD.Print(pitcher.currentPitch, "    " + pitcher.currentTempo);
             if (!(pitcher.currentTempo >= min && pitcher.currentPitch >= min && pitcher.currentTempo <= max && pitcher.currentPitch <= max))
             {
-                GD.Print(pitcher.currentPitch, "    " + pitcher.currentTempo);
                 return false;
             }
         }
@@ -154,5 +184,5 @@ public class SimonsOrchestraManager : Spatial
         sections.Add("flute", ResourceLoader.Load<PackedScene>("res://prefabs/sections/flute.tscn"));
     }
 
-   
+
 }
