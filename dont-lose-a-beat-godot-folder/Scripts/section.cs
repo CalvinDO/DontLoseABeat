@@ -7,7 +7,7 @@ public class section : Spatial
     [Export]
     Instrument instrument;
 
-    const float minSpeed = .5f, maxSpeed = 5,
+    const float minTempo = .5f, maxTempo = 5,
     minPitch = .5f, maxPitch = 2;
 
     int BusID;
@@ -17,7 +17,7 @@ public class section : Spatial
     AudioStreamPlayer AP;
     AudioEffectPitchShift pitchEffect;
     Pitcher pitcher;
-    float currentSpeed = 1;
+    float currentTempo = 1;
     float currentPitch = 1;
 
     [Export]
@@ -48,7 +48,6 @@ public class section : Spatial
     }
 
     public override void _Process (float delta) {
-        //pitcher.SetPitchAndTempo(pitchToSet, tempoToSet);
         pitcher.SetPitchAndTempo(pitchToSet, tempoToSet);
     }
 
