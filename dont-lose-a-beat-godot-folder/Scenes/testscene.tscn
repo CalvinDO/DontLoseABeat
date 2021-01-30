@@ -1,0 +1,31 @@
+[gd_scene load_steps=7 format=2]
+
+[ext_resource path="res://prefabs/sections/horn.tscn" type="PackedScene" id=1]
+[ext_resource path="res://prefabs/sections/clarinet.tscn" type="PackedScene" id=2]
+[ext_resource path="res://prefabs/sections/harp.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Scenes/SimonsOrchestraSystem.tscn" type="PackedScene" id=4]
+[ext_resource path="res://prefabs/sections/strings.tscn" type="PackedScene" id=5]
+[ext_resource path="res://prefabs/sections/piano.tscn" type="PackedScene" id=6]
+
+[node name="Spatial" type="Spatial"]
+
+[node name="OrchestraManager" parent="." instance=ExtResource( 4 )]
+loadDynamically = false
+
+[node name="SectionClarinet" parent="OrchestraManager" instance=ExtResource( 2 )]
+tempoToSet = 1.0
+pitchToSet = 1.0
+
+[node name="SectionStrings" parent="OrchestraManager" instance=ExtResource( 5 )]
+tempoToSet = 1.0
+pitchToSet = 1.0
+
+[node name="SectionPiano" parent="OrchestraManager" instance=ExtResource( 6 )]
+tempoToSet = 1.0
+pitchToSet = 1.0
+
+[node name="SectionHarp" parent="OrchestraManager" instance=ExtResource( 3 )]
+pitchToSet = 1.0
+
+[node name="SectionHorn" parent="OrchestraManager" instance=ExtResource( 1 )]
+pitchToSet = 1.0

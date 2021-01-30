@@ -1,0 +1,14 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://Scripts/section.cs" type="Script" id=1]
+[ext_resource path="res://Scripts/Pitcher.cs" type="Script" id=2]
+
+[node name="SectionPercussion" type="Spatial"]
+transform = Transform( 2.47029, 0, 0, 0, 2.47029, 0, 0, 0, 2.47029, 0, 0, 0 )
+script = ExtResource( 1 )
+instrument = 8
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+
+[node name="Pitcher" type="Node" parent="."]
+script = ExtResource( 2 )

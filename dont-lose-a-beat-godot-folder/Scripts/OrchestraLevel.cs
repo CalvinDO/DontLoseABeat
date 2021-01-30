@@ -11,7 +11,7 @@ public class OrchestraLevel : Node
     public override void _Ready()
     {
         this.playerSections = new Musician[this.GetChildCount()];
-
+        
         for (int index = 0; index < this.GetChildCount() - 1; index++)
         {
             Musician currentMusician = playerSections[index];

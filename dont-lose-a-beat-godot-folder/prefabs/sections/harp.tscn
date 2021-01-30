@@ -1,0 +1,18 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://Scripts/section.cs" type="Script" id=1]
+[ext_resource path="res://Scripts/Pitcher.cs" type="Script" id=2]
+[ext_resource path="res://models/instruments/harp.glb" type="PackedScene" id=3]
+
+[node name="SectionHarp" type="Spatial"]
+transform = Transform( 2.47029, 0, 0, 0, 2.47029, 0, 0, 0, 2.47029, 0, 0, 0 )
+script = ExtResource( 1 )
+instrument = 11
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+
+[node name="Pitcher" type="Node" parent="."]
+script = ExtResource( 2 )
+
+[node name="harp" parent="." instance=ExtResource( 3 )]
+transform = Transform( -0.332639, 0, -0.943055, 0, 1, 0, 0.943055, 0, -0.332639, -6.15125, 0, -2.24603 )

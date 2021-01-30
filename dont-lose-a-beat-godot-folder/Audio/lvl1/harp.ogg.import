@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/harp.ogg-774c93d15e3c33eb34c0062e43225204.oggstr"
+
+[deps]
+
+source_file="res://Audio/lvl1/harp.ogg"
+dest_files=[ "res://.import/harp.ogg-774c93d15e3c33eb34c0062e43225204.oggstr" ]
+
+[params]
+
+loop=true
+loop_offset=0
