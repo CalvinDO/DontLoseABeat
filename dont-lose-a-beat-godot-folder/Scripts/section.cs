@@ -90,10 +90,8 @@ public class Section : Spatial
         OM = GetParent<SimonsOrchestraManager>();
         if (OM == null) GD.PrintErr(instrumentName + " Section must be Child of an OrchestraManager");
 
-        if ((TempoChangerScriptTransmitter)GetNode<TempoChangerScriptTransmitter>("TempoChanger") != null)
-        {
-            this.tempoChanger = (TempoChangerScriptTransmitter)GetNode<TempoChangerScriptTransmitter>("TempoChanger");
-        }
+        this.tempoChanger = (TempoChangerScriptTransmitter)GetNodeOrNull<TempoChangerScriptTransmitter>("TempoChanger");
+
 
         if (GetNode<SectionChair>("chair_sections") != null)
         {
@@ -193,6 +191,7 @@ public class Section : Spatial
 
     public void AreaEntered(Area area, string name)
     {
+        GD.Print("areaEntered");
         switch (name)
         {
             case "Left":
