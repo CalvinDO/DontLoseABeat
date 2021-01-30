@@ -1,7 +1,7 @@
 using Godot;
 using System;
 
-public class section : Spatial
+public class Section : Spatial
 {
 
     [Export]

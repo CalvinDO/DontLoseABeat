@@ -3,7 +3,7 @@
 [ext_resource path="res://Scenes/Camera.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Scripts/MusicianAudioStreamController.cs" type="Script" id=2]
 [ext_resource path="res://Scripts/PlayerSectionFake.cs" type="Script" id=3]
-[ext_resource path="res://Audio/lvl1/piano.ogg" type="AudioStream" id=4]
+[ext_resource path="res://Audio/lvl1/harp.ogg" type="AudioStream" id=4]
 
 [sub_resource type="CapsuleMesh" id=1]
 
@@ -50,5 +50,6 @@ transform = Transform( 1.91571, 0, 0, 0, 0.019537, 1.23679, 0, -0.751711, 0.0321
 transform = Transform( 3.7403, 0, 0, 0, -1.96645e-06, -12.07, 0, 1, -1.62921e-07, -14.6973, 0, 0 )
 shape = SubResource( 3 )
 [connection signal="area_entered" from="PlayerSection/Body/RightShape" to="PlayerSection" method="AreaEntered" binds= [ "Right" ]]
+[connection signal="area_exited" from="PlayerSection/Body/RightShape" to="PlayerSection" method="AreaExited" binds= [ "Right" ]]
 [connection signal="area_entered" from="PlayerSection/Body/LeftShape" to="PlayerSection" method="AreaEntered" binds= [ "Left" ]]
-[connection signal="mouse_entered" from="PlayerSection/Body/LeftShape" to="PlayerSection" method="MouseEnteredLeft"]
+[connection signal="area_exited" from="PlayerSection/Body/LeftShape" to="PlayerSection" method="AreaExited" binds= [ "Left" ]]

@@ -1,12 +1,11 @@
 [gd_scene load_steps=3 format=2]
 
-[ext_resource path="res://Scripts/section.cs" type="Script" id=1]
+[ext_resource path="res://Scripts/Section.cs" type="Script" id=1]
 [ext_resource path="res://Scripts/Pitcher.cs" type="Script" id=2]
 
 [node name="SectionFlute" type="Spatial"]
 transform = Transform( 1.40207, 0, 0, 0, 1.40207, 0, 0, 0, 1.40207, 0, 0.078047, 0 )
 script = ExtResource( 1 )
-instrument = 12
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 

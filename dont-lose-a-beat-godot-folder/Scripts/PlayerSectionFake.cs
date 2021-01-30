@@ -4,7 +4,7 @@ using System;
 public class PlayerSectionFake : Spatial
 {
     private float timeSinceStart = 0;
-    private float bpm = 130;
+    private float bpm = 60;
 
     private float currentAngle;
     private float angleLastFrame = 0;
@@ -18,7 +18,7 @@ public class PlayerSectionFake : Spatial
     public float delta;
 
     [Export]
-    public float angleAccelleration = 2;
+    public float angleAccelleration = 1;
     [Export]
     public Axis axis;
 
@@ -59,6 +59,32 @@ public class PlayerSectionFake : Spatial
             default:
                 break;
         }
+
+        if (this.mouseInsideLeft)
+        {
+            // GD.Print("left: " + this.mouseInsideLeft);
+            if (this.currentSpeed > 0)
+            {
+                this.bpm += this.angleAccelleration * delta;
+            }
+            else if (this.currentSpeed < 0)
+            {
+                this.bpm -= this.angleAccelleration * delta;
+            }
+        }
+        if (this.mouseInsideRight)
+        {
+            // GD.Print("right: " + this.mouseInsideRight);
+            if (this.currentSpeed > 0)
+            {
+                this.bpm -= this.angleAccelleration * delta;
+            }
+            else if (this.currentSpeed < 0)
+            {
+                this.bpm += this.angleAccelleration * delta;
+            }
+        }
+
     }
 
     public void AreaEntered(Area area, string name)
@@ -66,15 +92,16 @@ public class PlayerSectionFake : Spatial
         switch (name)
         {
             case "Left":
-                GD.Print("Entered Right: " + timeSinceStart);
+                GD.Print("Entered Left: " + timeSinceStart);
+                this.mouseInsideLeft = true;
                 break;
             case "Right":
                 GD.Print("Entered Right: " + timeSinceStart);
+                this.mouseInsideRight = true;
                 break;
             default:
                 break;
         }
-        this.IncrementBpm();
     }
 
     public void AreaExited(Area area, string name)
@@ -82,21 +109,15 @@ public class PlayerSectionFake : Spatial
         switch (name)
         {
             case "Left":
-                GD.Print("Entered Right: " + timeSinceStart);
+                this.mouseInsideLeft = false;
+                GD.Print("Exited Left " + timeSinceStart);
                 break;
             case "Right":
-                GD.Print("Entered Right: " + timeSinceStart);
+                GD.Print("Exited Right " + timeSinceStart);
+                this.mouseInsideRight = false;
                 break;
             default:
                 break;
         }
-        this.IncrementBpm();
-    }
-
-
-    public void IncrementBpm()
-    {
-        GD.Print(this.currentSpeed);
-        this.bpm += this.angleAccelleration * -1f * Math.Sign(this.currentSpeed) * delta;
     }
 }

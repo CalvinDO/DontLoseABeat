@@ -1,12 +1,11 @@
 [gd_scene load_steps=4 format=2]
 
-[ext_resource path="res://Scripts/section.cs" type="Script" id=1]
+[ext_resource path="res://Scripts/Section.cs" type="Script" id=1]
 [ext_resource path="res://Scripts/Pitcher.cs" type="Script" id=2]
 [ext_resource path="res://models/instruments/cello.glb" type="PackedScene" id=3]
 
 [node name="SectionDeepstrings" type="Spatial"]
 script = ExtResource( 1 )
-instrument = 1
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 

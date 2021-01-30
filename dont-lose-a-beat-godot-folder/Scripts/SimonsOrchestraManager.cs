@@ -29,7 +29,7 @@ public class SimonsOrchestraManager : Spatial {
             else if (f.EndsWith(".ogg") && loadDynamically) {
                 files.Add(f);
                 f = f.Remove(f.Length - 4);
-                section cSection = (section)sections[f].Instance();
+                Section cSection = (Section)sections[f].Instance();
                 AddChild(cSection);
             } 
             else {
@@ -38,7 +38,7 @@ public class SimonsOrchestraManager : Spatial {
         }
         dir.ListDirEnd();
 
-        foreach (section cSection in this.GetChildren()) {
+        foreach (Section cSection in this.GetChildren()) {
             cSection.Play();
         } 
     }
