@@ -1,11 +1,14 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://Scripts/Section.cs" type="Script" id=1]
 [ext_resource path="res://Scripts/Pitcher.cs" type="Script" id=2]
 [ext_resource path="res://models/instruments/piano.glb" type="PackedScene" id=3]
 [ext_resource path="res://prefabs/chair_sections.tscn" type="PackedScene" id=4]
 [ext_resource path="res://Scenes/TempoChanger.tscn" type="PackedScene" id=5]
-[ext_resource path="res://Scenes/InstrumentCollider.tscn" type="PackedScene" id=6]
+[ext_resource path="res://Scripts/InstrumentCollider.cs" type="Script" id=6]
+
+[sub_resource type="BoxShape" id=1]
+extents = Vector3( 1.85988, 1.51273, 0.547503 )
 
 [node name="SectionPiano" type="Spatial"]
 script = ExtResource( 1 )
@@ -27,10 +30,11 @@ transform = Transform( 0.282843, 0, -0.707107, 0, 0.3, 0, 0.282843, 0, 0.707107,
 [node name="piano" parent="TempoChanger" instance=ExtResource( 3 )]
 transform = Transform( 4.61828, 0, 0, 0, 6.15773, 0, 0, 0, 1.84731, 0.871347, -13.418, 0.692608 )
 
-[node name="InstrumentCollider" parent="TempoChanger" instance=ExtResource( 6 )]
+[node name="InstrumentCollider" type="RigidBody" parent="TempoChanger"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -8.1994, 0 )
+mode = 1
+script = ExtResource( 6 )
 
-[node name="CollisionShape" parent="TempoChanger/InstrumentCollider" index="0"]
+[node name="CollisionShape" type="CollisionShape" parent="TempoChanger/InstrumentCollider"]
 transform = Transform( 5.22178, 0, 0, 0, 5.00311, 0, 0, 0, 6.90876, 0, 1.56148, 0 )
-
-[editable path="TempoChanger/InstrumentCollider"]
+shape = SubResource( 1 )

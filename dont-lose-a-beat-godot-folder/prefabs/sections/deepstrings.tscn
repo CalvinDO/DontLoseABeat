@@ -1,11 +1,14 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://Scripts/Section.cs" type="Script" id=1]
 [ext_resource path="res://Scripts/Pitcher.cs" type="Script" id=2]
 [ext_resource path="res://models/instruments/cello.glb" type="PackedScene" id=3]
 [ext_resource path="res://prefabs/chair_sections.tscn" type="PackedScene" id=4]
 [ext_resource path="res://Scenes/TempoChanger.tscn" type="PackedScene" id=5]
-[ext_resource path="res://Scenes/InstrumentCollider.tscn" type="PackedScene" id=6]
+[ext_resource path="res://Scripts/InstrumentCollider.cs" type="Script" id=6]
+
+[sub_resource type="BoxShape" id=1]
+extents = Vector3( 0.823411, 1.23588, 0.468775 )
 
 [node name="SectionDeepstrings" type="Spatial"]
 script = ExtResource( 1 )
@@ -35,9 +38,10 @@ transform = Transform( 0.616332, -0.407161, -0.116436, 0, 0.205606, -0.718977, 0
 [node name="cello3" parent="TempoChanger/Cellos" instance=ExtResource( 3 )]
 transform = Transform( 0.54399, -0.834061, -0.23852, -1.73916e-06, 0.253819, -0.887562, 0.867496, 0.523024, 0.149569, 15.6648, 1.83349, -4.01637 )
 
-[node name="InstrumentCollider" parent="TempoChanger/Cellos" instance=ExtResource( 6 )]
+[node name="InstrumentCollider" type="RigidBody" parent="TempoChanger/Cellos"]
+mode = 1
+script = ExtResource( 6 )
 
-[node name="CollisionShape" parent="TempoChanger/Cellos/InstrumentCollider" index="0"]
-transform = Transform( 4.35145, 0, -1.77576, 0, 0.987268, 0, 2.18732, 0, 3.53269, 12.8754, 2.09715, -4.49359 )
-
-[editable path="TempoChanger/Cellos/InstrumentCollider"]
+[node name="CollisionShape" type="CollisionShape" parent="TempoChanger/Cellos/InstrumentCollider"]
+transform = Transform( 4.35145, 0, -1.77576, 0, 0.987268, 0, 2.18732, 0, 3.53269, 12.8754, 2.09715, -4.18259 )
+shape = SubResource( 1 )
