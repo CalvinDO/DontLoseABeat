@@ -20,8 +20,8 @@ public class Section : Spatial
     AudioStreamPlayer AP;
     AudioEffectPitchShift pitchEffect;
     Pitcher pitcher;
-    float currentTempo = 1;
-    float currentPitch = 1;
+    public float currentTempo = 1;
+    public float currentPitch = 1;
 
     [Export]
     public float tempoToSet = 1.0f, pitchToSet = 1.0f;
@@ -182,7 +182,7 @@ public class Section : Spatial
 
         tempoToSet = this.bpm / this.OM.currentBPM;
 
-        pitcher.SetPitchAndTempo(pitchToSet, tempoToSet);
+        //pitcher.SetPitchAndTempo(pitchToSet, tempoToSet);
         if (this.chair != null)
         {
             this.chair.SetPitchScale(pitchToSet);
@@ -195,11 +195,11 @@ public class Section : Spatial
         switch (name)
         {
             case "Left":
-                GD.Print("Entered Left: " + timeSinceStart);
+               // GD.Print("Entered Left: " + timeSinceStart);
                 this.mouseInsideLeft = true;
                 break;
             case "Right":
-                GD.Print("Entered Right: " + timeSinceStart);
+                //GD.Print("Entered Right: " + timeSinceStart);
                 this.mouseInsideRight = true;
                 break;
             default:
@@ -213,10 +213,10 @@ public class Section : Spatial
         {
             case "Left":
                 this.mouseInsideLeft = false;
-                GD.Print("Exited Left " + timeSinceStart);
+                //GD.Print("Exited Left " + timeSinceStart);
                 break;
             case "Right":
-                GD.Print("Exited Right " + timeSinceStart);
+                //GD.Print("Exited Right " + timeSinceStart);
                 this.mouseInsideRight = false;
                 break;
             default:

@@ -20,15 +20,27 @@ public class SimonsOrchestraManager : Spatial
 
     private bool chairThrown = false;
 
+    private float delta;
+
+    //Valentins
+    //------
+    [Export]
+    public float max = 1.1f;
+    [Export]
+    public float min = 0.9f;
+    bool isInThreshold;
+    bool checkNow;
+    [Export]
+    public float timeBeforeStartingChecking = 20;
+    [Export]
+    public float checkingDuration = 30;
+    float thresholdTime;
+    ///------
+
     public override void _Ready()
     {
         LoadPrefabs();
         LoadLevel();
-    }
-
-    public override void _Process(float delta)
-    {
-        this.CheckKeyboardInput();
     }
     public void LoadLevel()
     {
@@ -60,6 +72,59 @@ public class SimonsOrchestraManager : Spatial
         {
             cSection.Play();
         }
+
+        this.thresholdTime = this.checkingDuration;
+    }
+
+    public override void _Process(float delta)
+    {
+        this.delta = delta;
+
+        this.CheckKeyboardInput();
+        this.CheckThreshholdAndPitch();
+    }
+
+    public void CheckThreshholdAndPitch()
+    {
+        if (timeBeforeStartingChecking >= 0f)
+            timeBeforeStartingChecking -= this.delta;
+        if (timeBeforeStartingChecking <= 0f)
+        {
+            if (!isInThreshold)
+            {
+                if (this.IsInThreshold())
+                {
+                    GD.Print("Start checking duration of threshhold keeping!");
+                    isInThreshold = true;
+                }
+            }
+            if (isInThreshold)
+            {
+                if (this.IsInThreshold())
+                {
+                    thresholdTime -= this.delta;
+                }
+                else
+                {
+                    thresholdTime = this.checkingDuration;
+                }
+            }
+
+            if (thresholdTime <= 0f)
+                GD.Print("-----------WIN-Placeholder-----------");
+        }
+    }
+
+    public bool IsInThreshold()
+    {
+        foreach (Section cSection in this.GetChildren())
+        {
+            if (cSection.currentTempo >= min || cSection.currentPitch >= min && cSection.currentTempo <= max || cSection.currentPitch <= max)
+            {
+                return true;
+            }
+        }
+        return false;
     }
 
     void LoadPrefabs()
