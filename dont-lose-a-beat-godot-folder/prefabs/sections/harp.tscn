@@ -20,9 +20,9 @@ script = ExtResource( 2 )
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -7.74806, 0, -3.40954 )
 
 [node name="TempoChanger" parent="." instance=ExtResource( 4 )]
-transform = Transform( 0.707107, 0, 0.707107, 0, 1, 0, -0.707107, 0, 0.707107, -6.17986, 0, -2.2573 )
+transform = Transform( 0.156788, 0, 0.36936, 0, 0.593335, 0, -0.156788, 0, 0.36936, -6.17585, 0, -2.24079 )
 
 [node name="harp" parent="TempoChanger" instance=ExtResource( 3 )]
-transform = Transform( -3.57628e-07, 0, -2.37046, 0, 2.37046, 0, 2.37046, 0, -3.57628e-07, 0.012255, 0, 0.0281987 )
+transform = Transform( -1.43051e-06, 0, -10.6907, 0, 3.99514, 0, 4.53804, 0, -7.15256e-07, 0.0951338, 0, 0.0262146 )
 
 [editable path="TempoChanger"]
