@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/trombone.ogg-002dab2a01d17c3e5c1de40415837262.oggstr"
+
+[deps]
+
+source_file="res://Audio/lvl2/trombone.ogg"
+dest_files=[ "res://.import/trombone.ogg-002dab2a01d17c3e5c1de40415837262.oggstr" ]
+
+[params]
+
+loop=true
+loop_offset=0
