@@ -60,7 +60,7 @@ public class Section : Spatial
     [Export]
     public float maxRotationAngle = 35f;
 
-    public bool playing = true;
+    public bool IsPlaying = true;
 
     public enum Axis
     {
@@ -128,12 +128,14 @@ public class Section : Spatial
 
     public void Play()
     {
+        this.IsPlaying = true;
         if (AP != null) AP.Play();
     }
 
     public void Stop()
     {
-        this.playing = false;
+        this.IsPlaying = false;
+
         if (AP != null) AP.Stop();
     }
 
@@ -142,6 +144,14 @@ public class Section : Spatial
         this.delta = delta;
         this.timeSinceStart += delta;
 
+        if (this.IsPlaying)
+        {
+            CalculateRotation();
+        }
+    }
+
+    public void CalculateRotation()
+    {
         float bps = bpm / 60;
 
         this.currentAngle = (float)(Math.Sin(this.timeSinceStart * Math.PI * bps) * (Mathf.Deg2Rad(maxRotationAngle)));
@@ -216,7 +226,6 @@ public class Section : Spatial
 
     public void AreaEntered(Area area, string name)
     {
-        GD.Print("areaEntered");
         switch (name)
         {
             case "Left":
@@ -256,7 +265,7 @@ public class Section : Spatial
         {
             case "InstrumentCollider":
                 GD.Print("Body entered");
-                if (this.playing)
+                if (this.IsPlaying)
                 {
                     this.Stop();
                 }

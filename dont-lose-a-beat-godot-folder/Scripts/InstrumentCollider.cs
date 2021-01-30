@@ -10,12 +10,7 @@ public class InstrumentCollider : RigidBody
         {
             this.section = GetParent<Section>();
         }
-        else
-        {
-            this.section = this.GetParent<Section>();
-        }
 
-        //Connect("body_entered", section, "BodyEntered", new Godot.Collections.Array() { "InstrumentCollider" });
-        //Connect("body_exited", section, "BodyExited", new Godot.Collections.Array() { "InstrumentCollider" });
+        Connect("body_entered", section, "BodyEntered", new Godot.Collections.Array() { "InstrumentCollider" });
     }
 }
