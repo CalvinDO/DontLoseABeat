@@ -130,13 +130,13 @@ public class SimonsOrchestraManager : Spatial
         {
             GD.Print(cleanSections[randomSection].Name + "--pitchchange: " + upSetFactor);
 
-            cleanSections[randomSection].pitchToSet = upSetFactor;
+            cleanSections[randomSection].ForceSetPitch(upSetFactor);
         }
         else
         {
             GD.Print(cleanSections[randomSection].Name + "--tempochange: " + upSetFactor);
-            pitcher.SetPitchAndTempo(pitcher.currentTempo, upSetFactor);
-            cleanSections[randomSection].tempoToSet = upSetFactor;
+
+            cleanSections[randomSection].ForceSetTempo(upSetFactor);
         }
 
 

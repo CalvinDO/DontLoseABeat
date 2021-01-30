@@ -15,3 +15,5 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.828814, 0 )
 shape = SubResource( 1 )
 
 [node name="chair_sections" parent="." instance=ExtResource( 1 )]
+
+[editable path="chair_sections"]

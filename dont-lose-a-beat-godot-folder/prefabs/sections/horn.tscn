@@ -10,6 +10,7 @@
 [node name="SectionHorn" type="Spatial"]
 script = ExtResource( 1 )
 instrument = 2
+axis = 2
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 

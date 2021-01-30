@@ -37,7 +37,6 @@ public class ChairThrower : Spatial
             this.thrownChair.LinearVelocity = -camBasis.z * chairVelocity;
             GetNode("/root/Root").AddChild(this.thrownChair);
 
-            GD.Print(new Random().NextDouble());
         }
     }
 }

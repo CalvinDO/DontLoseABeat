@@ -199,6 +199,18 @@ public class Section : Spatial
         }
     }
 
+    public void ForceSetPitch(float pitch)
+    {
+        this.pitchToSet = pitch;
+    }
+
+    public void ForceSetTempo(float tempo)
+    {
+        this.tempoToSet = tempo;
+
+        this.bpm = this.OM.currentBPM * tempo;
+    }
+
     public void AreaEntered(Area area, string name)
     {
         GD.Print("areaEntered");
@@ -212,7 +224,7 @@ public class Section : Spatial
                 //GD.Print("Entered Right: " + timeSinceStart);
                 //this.mouseInsideRight = true;
                 break;
-            case "ThrownChair":
+            case "InstrumentCollider":
                 this.IsChairInCollider = true;
                 GD.Print("ChairInside");
                 break;
@@ -233,7 +245,7 @@ public class Section : Spatial
                 //GD.Print("Exited Right " + timeSinceStart);
                 // this.mouseInsideRight = false;
                 break;
-            case "ThrownChair":
+            case "InstrumentCollider":
                 this.IsChairInCollider = false;
                 GD.Print("ChairExited");
                 break;
