@@ -60,6 +60,8 @@ public class Section : Spatial
     [Export]
     public float maxRotationAngle = 35f;
 
+    public bool playing = true;
+
     public enum Axis
     {
         X, Y, Z
@@ -131,6 +133,7 @@ public class Section : Spatial
 
     public void Stop()
     {
+        this.playing = false;
         if (AP != null) AP.Stop();
     }
 
@@ -248,11 +251,19 @@ public class Section : Spatial
 
     public void BodyEntered(Node body, string name)
     {
+        GD.Print(name);
         switch (name)
         {
             case "InstrumentCollider":
                 GD.Print("Body entered");
-                this.Stop();
+                if (this.playing)
+                {
+                    this.Stop();
+                }
+                else
+                {
+                    this.Play();
+                }
                 break;
             default:
                 GD.Print("Other Body entered");
