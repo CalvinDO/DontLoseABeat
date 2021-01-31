@@ -21,8 +21,16 @@ axis = 1
 [node name="Pitcher" type="Node" parent="."]
 script = ExtResource( 2 )
 
-[node name="chair_sections" parent="." instance=ExtResource( 4 )]
-transform = Transform( 0.604919, 0, -0.796287, 0, 1, 0, 0.796287, 0, 0.604919, -11.603, 2.174, -15.0821 )
+[node name="chairs" type="Spatial" parent="."]
+
+[node name="chair_sections" parent="chairs" instance=ExtResource( 4 )]
+transform = Transform( 0.604919, 0, -0.796287, 0, 1, 0, 0.796287, 0, 0.604919, -11.603, 4.01837, -15.0821 )
+
+[node name="chair_sections2" parent="chairs" instance=ExtResource( 4 )]
+transform = Transform( 0.604919, 0, -0.796287, 0, 1, 0, 0.796287, 0, 0.604919, -13.4076, 2.174, -13.4358 )
+
+[node name="chair_sections3" parent="chairs" instance=ExtResource( 4 )]
+transform = Transform( 0.604919, 0, -0.796287, 0, 1, 0, 0.796287, 0, 0.604919, -9.83008, 4.01837, -16.3485 )
 
 [node name="TempoChanger" parent="." instance=ExtResource( 6 )]
 transform = Transform( 0.274246, 0, 0.727964, 0, 0.3, 0, -0.291186, 0, 0.685615, -11.1791, 5.4586, -14.2119 )
@@ -31,13 +39,13 @@ transform = Transform( 0.274246, 0, 0.727964, 0, 0.3, 0, -0.291186, 0, 0.685615,
 transform = Transform( 1.71404, 0, -1.81991, 0, 3.33333, 0, 0.727964, 0, 0.685615, -6.70296, -18.1953, 17.8819 )
 
 [node name="trumpet" parent="TempoChanger/Trumpets" instance=ExtResource( 3 )]
-transform = Transform( -3.00447, -0.173118, -2.27584, -1.25096e-08, 3.76223, -0.286184, 2.28242, -0.227884, -2.99581, -10.6532, 5.03742, -13.8318 )
+transform = Transform( -3.00447, -0.173118, -2.27584, -1.25096e-08, 3.76223, -0.286184, 2.28242, -0.227884, -2.99581, -10.6532, 6.47419, -13.8318 )
 
 [node name="trumpet2" parent="TempoChanger/Trumpets" instance=ExtResource( 3 )]
-transform = Transform( -2.16055, -0.23462, -3.08436, -1.25096e-08, 3.76223, -0.286184, 3.09327, -0.163874, -2.15432, -12.2856, 3.34976, -12.5986 )
+transform = Transform( -2.16055, -0.23462, -3.08436, -1.25096e-08, 3.76223, -0.286184, 3.09327, -0.163874, -2.15432, -12.2856, 4.78653, -12.5986 )
 
 [node name="trumpet3" parent="TempoChanger/Trumpets" instance=ExtResource( 3 )]
-transform = Transform( -3.4433, -0.117012, -1.53827, -1.25096e-08, 3.76223, -0.286184, 1.54271, -0.261169, -3.43338, -8.9065, 4.54671, -15.1656 )
+transform = Transform( -3.4433, -0.117012, -1.53827, -1.25096e-08, 3.76223, -0.286184, 1.54271, -0.261169, -3.43338, -8.9065, 5.98348, -15.1656 )
 
 [node name="InstrumentCollider" type="RigidBody" parent="."]
 transform = Transform( 0.685615, 0, 0.727965, 0, 1, 0, -0.727965, 0, 0.685615, -11.1791, 5.4586, -14.2119 )
@@ -47,12 +55,12 @@ contact_monitor = true
 script = ExtResource( 5 )
 
 [node name="CollisionShape" type="CollisionShape" parent="InstrumentCollider"]
-transform = Transform( 1, 0, -1.49012e-07, 0, 1, 0, 1.49012e-07, 0, 1, -4.76837e-07, -1.54149, 0.81403 )
+transform = Transform( 1, 0, -1.49012e-07, 0, 1, 0, 1.49012e-07, 0, 1, -4.76837e-07, -0.554557, 0.814022 )
 shape = SubResource( 1 )
 
 [node name="Area" type="Area" parent="InstrumentCollider"]
 
 [node name="CollisionShape2" type="CollisionShape" parent="InstrumentCollider/Area"]
-transform = Transform( 1, 0, -1.49012e-07, 0, 1, 0, 1.49012e-07, 0, 1, -9.53674e-07, -1.54149, 0.814028 )
+transform = Transform( 1, 0, -1.49012e-07, 0, 1, 0, 1.49012e-07, 0, 1, -9.53674e-07, -0.559972, 0.81402 )
 shape = SubResource( 1 )
 [connection signal="area_entered" from="InstrumentCollider/Area" to="." method="AreaEntered" binds= [ "Body" ]]

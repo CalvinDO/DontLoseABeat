@@ -19,8 +19,19 @@ axis = 2
 [node name="Pitcher" type="Node" parent="."]
 script = ExtResource( 2 )
 
-[node name="chair_sections" parent="." instance=ExtResource( 4 )]
-transform = Transform( 0.601536, 0, 0.798846, 0, 1, 0, -0.798846, 0, 0.601536, -7.1335, 0, -2.25506 )
+[node name="chairs" type="Spatial" parent="."]
+
+[node name="chair_sections" parent="chairs" instance=ExtResource( 4 )]
+transform = Transform( 0.601536, 0, 0.798846, 0, 1, 0, -0.798846, 0, 0.601536, -8.23846, 0, 0.420466 )
+
+[node name="chair_sections2" parent="chairs" instance=ExtResource( 4 )]
+transform = Transform( 0.601536, 0, 0.798846, 0, 1, 0, -0.798846, 0, 0.601536, -7.82928, 0, -1.23779 )
+
+[node name="chair_sections3" parent="chairs" instance=ExtResource( 4 )]
+transform = Transform( 0.601536, 0, 0.798846, 0, 1, 0, -0.798846, 0, 0.601536, -6.60173, 0, -3.08987 )
+
+[node name="chair_sections4" parent="chairs" instance=ExtResource( 4 )]
+transform = Transform( 0.601536, 0, 0.798846, 0, 1, 0, -0.798846, 0, 0.601536, -5.52494, 0, -4.05898 )
 
 [node name="TempoChanger" parent="." instance=ExtResource( 5 )]
 transform = Transform( 0.248125, 0, 0.784354, 0, 0.3, 0, -0.313742, 0, 0.620313, -5.74407, 3.1746, -2.17108 )
@@ -29,16 +40,16 @@ transform = Transform( 0.248125, 0, 0.784354, 0, 0.3, 0, -0.313742, 0, 0.620313,
 transform = Transform( 1.55078, 0, -1.96089, 0, 3.33333, 0, 0.784354, 0, 0.620313, 4.65056, -10.582, 5.85214 )
 
 [node name="violin2" parent="TempoChanger/Violins" instance=ExtResource( 3 )]
-transform = Transform( -0.0481488, 2.08525, 1.22713, 0, 1.22737, -2.08566, -2.41953, -0.0414951, -0.0244204, -6.98227, 1.8084, -0.785445 )
+transform = Transform( -0.0481488, 2.08525, 1.22713, 0, 1.22737, -2.08566, -2.41953, -0.0414951, -0.0244204, -6.98227, 2.48896, -0.785445 )
 
 [node name="violin4" parent="TempoChanger/Violins" instance=ExtResource( 3 )]
-transform = Transform( -0.0481488, 2.08525, 1.22713, 0, 1.22737, -2.08566, -2.41953, -0.0414951, -0.0244204, -7.12992, 1.8084, 0.469572 )
+transform = Transform( -0.0481488, 2.08525, 1.22713, 0, 1.22737, -2.08566, -2.41953, -0.0414951, -0.0244204, -7.12992, 2.48896, 0.469572 )
 
 [node name="violin3" parent="TempoChanger/Violins" instance=ExtResource( 3 )]
-transform = Transform( 2.1771, 0.910725, 0.535945, 0, 1.22737, -2.08566, -1.05672, 1.87632, 1.10418, -5.64905, 1.8084, -2.61171 )
+transform = Transform( 2.1771, 0.910725, 0.535945, 0, 1.22737, -2.08566, -1.05672, 1.87632, 1.10418, -5.64905, 2.48896, -2.61171 )
 
 [node name="violin5" parent="TempoChanger/Violins" instance=ExtResource( 3 )]
-transform = Transform( 2.1771, 0.910725, 0.535945, 0, 1.22737, -2.08566, -1.05672, 1.87632, 1.10418, -4.63339, 1.8084, -3.1645 )
+transform = Transform( 2.1771, 0.910725, 0.535945, 0, 1.22737, -2.08566, -1.05672, 1.87632, 1.10418, -4.63339, 2.48896, -3.1645 )
 
 [node name="InstrumentCollider" type="RigidBody" parent="."]
 transform = Transform( 0.620312, 0, 0.784355, 0, 1, 0, -0.784355, 0, 0.620312, -5.74407, 3.1746, -2.17108 )

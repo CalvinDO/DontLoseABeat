@@ -20,8 +20,16 @@ axis = 2
 [node name="Pitcher" type="Node" parent="."]
 script = ExtResource( 2 )
 
-[node name="chair_sections" parent="." instance=ExtResource( 4 )]
+[node name="chairs" type="Spatial" parent="."]
+
+[node name="chair_sections" parent="chairs" instance=ExtResource( 4 )]
 transform = Transform( -0.639801, 0, -0.76854, 0, 1, 0, 0.76854, 0, -0.639801, 12.7978, 0, -5.049 )
+
+[node name="chair_sections2" parent="chairs" instance=ExtResource( 4 )]
+transform = Transform( -0.639801, 0, -0.76854, 0, 1, 0, 0.76854, 0, -0.639801, 10.8742, 0, -5.983 )
+
+[node name="chair_sections3" parent="chairs" instance=ExtResource( 4 )]
+transform = Transform( -0.639801, 0, -0.76854, 0, 1, 0, 0.76854, 0, -0.639801, 16.1451, 0, -5.23347 )
 
 [node name="TempoChanger" parent="." instance=ExtResource( 5 )]
 transform = Transform( 0.344584, 0, -0.507824, 0, 0.3, 0, 0.20313, 0, 0.861461, 13.2366, 4.21173, -4.28367 )
