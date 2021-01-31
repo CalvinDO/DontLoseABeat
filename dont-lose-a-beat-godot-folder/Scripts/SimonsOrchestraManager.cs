@@ -107,6 +107,12 @@ public class SimonsOrchestraManager : Spatial
         this.thresholdTime = this.checkingDuration;
     }
 
+    public override void _UnhandledInput(InputEvent @event) {
+        if (@event is InputEventKey eventKey)
+        if (eventKey.Pressed && eventKey.Scancode == (int)KeyList.Delete)
+            GetTree().ChangeSceneTo(GameState.transitionScene);
+    }
+
     public override void _Process(float delta)
     {
         this.delta = delta;

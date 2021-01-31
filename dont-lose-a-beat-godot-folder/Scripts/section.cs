@@ -214,19 +214,20 @@ public class Section : Spatial
     {
         if (this.mouseHoverBody)
         {
-            if (GameState.selectedSection == null)
+            if (this.OM.selectedSection == null)
             {
                 this.selected = true;
                 GameState.selectedSection = this;
             }
             else
             {
-                if (GameState.selectedSection != this)
+                if (this.OM.selectedSection != this)
                 {
                     this.ToggleRightLeftAreas(false);
                 }
             }
         }
+        GD.Print(this.OM.selectedSection);
     }
     public void CalculateRotation()
     {
