@@ -127,7 +127,9 @@ public class Section : Spatial
 
         ChairLandPlayer = new AudioStreamPlayer();
         ChairLandPlayer.Autoplay = false;
-        ChairLandPlayer.Stream = (AudioStream)GD.Load("res://Audio/effects/chair_land.tres");
+        AudioStreamOGGVorbis ch = (AudioStreamOGGVorbis)GD.Load("res://Audio/effects/chair_land.tres");
+        ch.Loop = false;
+        ChairLandPlayer.Stream = ch;
         this.AddChild(ChairLandPlayer);
 
 
