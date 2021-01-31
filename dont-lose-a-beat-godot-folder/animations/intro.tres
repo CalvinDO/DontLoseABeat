@@ -213,3 +213,17 @@ tracks/18/keys = {
 "update": 0,
 "values": [ 0.2, 0.25 ]
 }
+tracks/19/type = "method"
+tracks/19/path = NodePath(".")
+tracks/19/interp = 1
+tracks/19/loop_wrap = true
+tracks/19/imported = false
+tracks/19/enabled = true
+tracks/19/keys = {
+"times": PoolRealArray( 17.7 ),
+"transitions": PoolRealArray( 1 ),
+"values": [ {
+"args": [  ],
+"method": "LoadMainScene"
+} ]
+}

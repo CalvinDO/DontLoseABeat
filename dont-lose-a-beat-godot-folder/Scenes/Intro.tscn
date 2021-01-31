@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=2]
+[gd_scene load_steps=12 format=2]
 
 [ext_resource path="res://animations/intro.tres" type="Animation" id=1]
 [ext_resource path="res://Scenes/hall_glb.tscn" type="PackedScene" id=2]
@@ -6,6 +6,7 @@
 [ext_resource path="res://models/vorhang.material" type="Material" id=4]
 [ext_resource path="res://prefabs/OrchestraModelsAll.tscn" type="PackedScene" id=5]
 [ext_resource path="res://default_env.tres" type="Environment" id=6]
+[ext_resource path="res://Scripts/IntroSwitch.cs" type="Script" id=7]
 [ext_resource path="res://models/instruments/harp.glb" type="PackedScene" id=20]
 
 [sub_resource type="ArrayMesh" id=1]
@@ -54,6 +55,7 @@ surfaces/0 = {
 }
 
 [node name="Intro" type="Spatial"]
+script = ExtResource( 7 )
 
 [node name="Hall" type="Spatial" parent="."]
 
@@ -108,7 +110,7 @@ shadow_enabled = true
 spot_range = 43.5
 
 [node name="SpotLight2" type="SpotLight" parent="Hall/hall2"]
-transform = Transform( 0.912346, -0.35146, -0.210005, 0.377481, 0.523468, 0.763864, -0.158536, -0.776182, 0.610253, -16.2581, 23.913, 7.55687 )
+transform = Transform( 0.912346, -0.35146, -0.210005, 0.377481, 0.523468, 0.763864, -0.158536, -0.776182, 0.610252, -16.2581, 23.913, 7.55687 )
 light_color = Color( 1, 0.976471, 0.886275, 1 )
 light_energy = 2.6
 shadow_enabled = true
@@ -119,7 +121,7 @@ transform = Transform( 1.62909, 0, -2.86433, 0, 3.2952, 0, 2.86433, 0, 1.62909, 
 visible = false
 
 [node name="Camera" type="Camera" parent="."]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 8.53341, 12.0045 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 8.40565, 11.4739 )
 fov = 80.0
 near = 0.1
 far = 130.0
