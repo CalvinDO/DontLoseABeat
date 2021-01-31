@@ -134,7 +134,7 @@ public class Section : Spatial
 
     public void LoadLevel()
     {
-        string filename = $"res://Audio/lvl{OM.currentLevel}/{instrumentName}.ogg";
+        string filename = $"res://Audio/lvl{GameState.currentLevel}/{instrumentName}.ogg";
         AP.Stream = GD.Load<AudioStream>(filename);
     }
 
@@ -206,8 +206,6 @@ public class Section : Spatial
                 }
             }
         }
-
-
         GD.Print(this.OM.selectedSection);
     }
     public void CalculateRotation()
