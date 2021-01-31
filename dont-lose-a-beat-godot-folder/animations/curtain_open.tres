@@ -4,7 +4,7 @@
 resource_name = "curtain_open"
 length = 5.0
 tracks/0/type = "bezier"
-tracks/0/path = NodePath("vorhang_l:scale:x")
+tracks/0/path = NodePath("courtain_l:scale:x")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/imported = false
@@ -14,7 +14,7 @@ tracks/0/keys = {
 "times": PoolRealArray( 0, 3.5 )
 }
 tracks/1/type = "bezier"
-tracks/1/path = NodePath("vorhang_l:scale:y")
+tracks/1/path = NodePath("courtain_l:scale:y")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/imported = false
@@ -24,7 +24,7 @@ tracks/1/keys = {
 "times": PoolRealArray( 0, 3.5 )
 }
 tracks/2/type = "bezier"
-tracks/2/path = NodePath("vorhang_l:scale:z")
+tracks/2/path = NodePath("courtain_l:scale:z")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/imported = false
@@ -34,7 +34,7 @@ tracks/2/keys = {
 "times": PoolRealArray( 0, 3.5 )
 }
 tracks/3/type = "bezier"
-tracks/3/path = NodePath("Vorhang_r:scale:x")
+tracks/3/path = NodePath("courtain_r:scale:x")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/imported = false
@@ -44,7 +44,7 @@ tracks/3/keys = {
 "times": PoolRealArray( 0, 3.5 )
 }
 tracks/4/type = "bezier"
-tracks/4/path = NodePath("Vorhang_r:scale:y")
+tracks/4/path = NodePath("courtain_r:scale:y")
 tracks/4/interp = 1
 tracks/4/loop_wrap = true
 tracks/4/imported = false
@@ -54,7 +54,7 @@ tracks/4/keys = {
 "times": PoolRealArray( 0, 3.5 )
 }
 tracks/5/type = "bezier"
-tracks/5/path = NodePath("Vorhang_r:scale:z")
+tracks/5/path = NodePath("courtain_r:scale:z")
 tracks/5/interp = 1
 tracks/5/loop_wrap = true
 tracks/5/imported = false
@@ -62,4 +62,18 @@ tracks/5/enabled = true
 tracks/5/keys = {
 "points": PoolRealArray( 1.4398, -0.25, 0, 0.25, 0, 1.44, -0.25, 0, 0.25, 0 ),
 "times": PoolRealArray( 0, 3.5 )
+}
+tracks/6/type = "method"
+tracks/6/path = NodePath("..")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/keys = {
+"times": PoolRealArray( 0.1 ),
+"transitions": PoolRealArray( 1 ),
+"values": [ {
+"args": [  ],
+"method": "LoadNewScene"
+} ]
 }
