@@ -54,6 +54,6 @@ shape = SubResource( 1 )
 [node name="CollisionShape2" type="CollisionShape" parent="InstrumentCollider/Area"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.27056, 0.193231, 1.60808 )
 shape = SubResource( 1 )
-[connection signal="area_entered" from="InstrumentCollider/Area" to="." method="_on_Area_area_entered" binds= [ "Body" ]]
+[connection signal="area_entered" from="InstrumentCollider/Area" to="." method="AreaEntered" binds= [ "Body" ]]
 
 [editable path="TempoChanger"]

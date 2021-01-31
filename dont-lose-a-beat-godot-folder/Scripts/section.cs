@@ -1,5 +1,6 @@
 using Godot;
 using System;
+using System.Collections.Generic;
 
 public class Section : Spatial
 {
@@ -80,7 +81,7 @@ public class Section : Spatial
     //  PITCHCONTROLLER
     //------------------------------------------------------------------------
 
-    private SectionChair chair;
+    private Godot.Collections.Array chairs;
     #endregion
 
     //------------------------------------------------------------------------
@@ -109,12 +110,14 @@ public class Section : Spatial
 
         this.tempoChanger = (TempoChangerScriptTransmitter)GetNodeOrNull<TempoChangerScriptTransmitter>("TempoChanger");
 
-        this.areaLeft = (Area)GetNodeOrNull<Area>("AreaLeft");
-        this.areaRight = (Area)GetNodeOrNull<Area>("AreaRight");
+        this.areaLeft = (Area)GetNodeOrNull<Area>("TempoChanger/AreaLeft");
+        this.areaRight = (Area)GetNodeOrNull<Area>("TempoChanger/AreaRight");
+        this.ToggleRightLeftAreas(false);
 
-        if (GetNode<SectionChair>("chair_sections") != null)
+
+        if (GetNode<Spatial>("Chairs") != null)
         {
-            this.chair = GetNode<SectionChair>("chair_sections");
+            this.chairs = GetNode<Spatial>("Chairs").GetChildren();
         }
 
 
@@ -234,9 +237,17 @@ public class Section : Spatial
         tempoToSet = this.bpm / this.OM.originalBPM;
 
         pitcher.SetPitchAndTempo(pitchToSet, tempoToSet);
-        if (this.chair != null)
+        if (this.chairs != null)
         {
-            this.chair.SetPitchScale(pitchToSet);
+            this.SetChairsPitchScales(pitchToSet);
+        }
+    }
+
+    public void SetChairsPitchScales(float pitchToSet)
+    {
+        foreach (SectionChair chair in this.chairs)
+        {
+            chair.SetPitchScale(pitchToSet);
         }
     }
 
@@ -318,6 +329,6 @@ public class Section : Spatial
         this.areaLeft.SetProcess(setBool);
         this.areaLeft.Visible = (setBool);
         this.areaRight.SetProcess(setBool);
-        this.areaLeft.Visible = (setBool);
+        this.areaRight.Visible = (setBool);
     }
 }
