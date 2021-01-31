@@ -7,5 +7,5 @@ public static class GameState
     public static PackedScene transitionScene;
 
     public static Section selectedSection;
-    public static int currentLevel = 0;
+    public static int currentLevel = 2;
 }
