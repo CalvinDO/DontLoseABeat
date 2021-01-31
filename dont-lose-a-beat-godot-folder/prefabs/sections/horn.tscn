@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://Scripts/Section.cs" type="Script" id=1]
 [ext_resource path="res://Scripts/Pitcher.cs" type="Script" id=2]
@@ -9,8 +9,6 @@
 
 [sub_resource type="BoxShape" id=1]
 extents = Vector3( 4.19102, 1.39866, 1.90132 )
-
-[sub_resource type="CubeMesh" id=2]
 
 [node name="SectionHorn" type="Spatial"]
 script = ExtResource( 1 )
@@ -51,9 +49,11 @@ script = ExtResource( 5 )
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.270561, 0.193231, 1.60808 )
 shape = SubResource( 1 )
 
-[node name="MeshInstance" type="MeshInstance" parent="InstrumentCollider"]
-transform = Transform( 4.44103, 0, 0, 0, 1.1891, 0, 0, 0, 2.06099, 9.53674e-07, 0.146883, 1.57131 )
-mesh = SubResource( 2 )
-material/0 = null
+[node name="Area" type="Area" parent="InstrumentCollider"]
+
+[node name="CollisionShape2" type="CollisionShape" parent="InstrumentCollider/Area"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.27056, 0.193231, 1.60808 )
+shape = SubResource( 1 )
+[connection signal="area_entered" from="InstrumentCollider/Area" to="." method="_on_Area_area_entered" binds= [ "Body" ]]
 
 [editable path="TempoChanger"]
