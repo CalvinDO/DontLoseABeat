@@ -48,6 +48,8 @@ public class Section : Spatial
     private bool mouseInsideRight = false;
     private bool mouseInsideLeft = false;
 
+    private bool mouseHoverBody = false;
+
     public float delta;
 
     [Export]
@@ -61,6 +63,9 @@ public class Section : Spatial
     public float maxRotationAngle = 35f;
 
     public float t = 0;
+
+    public Area areaLeft;
+    public Area areaRight;
 
     public enum Axis
     {
@@ -104,6 +109,8 @@ public class Section : Spatial
 
         this.tempoChanger = (TempoChangerScriptTransmitter)GetNodeOrNull<TempoChangerScriptTransmitter>("TempoChanger");
 
+        this.areaLeft = (Area)GetNodeOrNull<Area>("AreaLeft");
+        this.areaRight = (Area)GetNodeOrNull<Area>("AreaRight");
 
         if (GetNode<SectionChair>("chair_sections") != null)
         {
@@ -255,6 +262,13 @@ public class Section : Spatial
             case "Right":
                 this.mouseInsideRight = true;
                 break;
+            case "Body":
+                this.mouseHoverBody = true;
+
+                this.ToggleRightLeftAreas(true);
+
+                GD.Print("Body");
+                break;
             default:
                 break;
         }
@@ -270,6 +284,10 @@ public class Section : Spatial
             case "Right":
                 this.mouseInsideRight = false;
                 break;
+            case "Body":
+                this.mouseHoverBody = false;
+                this.ToggleRightLeftAreas(false);
+                break;
             default:
                 break;
         }
@@ -281,7 +299,6 @@ public class Section : Spatial
         switch (name)
         {
             case "InstrumentCollider":
-                GD.Print("Body entered");
                 if (this.AP.Playing)
                 {
                     this.Stop();
@@ -292,8 +309,15 @@ public class Section : Spatial
                 }
                 break;
             default:
-                GD.Print("Other Body entered");
                 break;
         }
+    }
+
+    public void ToggleRightLeftAreas(bool setBool)
+    {
+        this.areaLeft.SetProcess(setBool);
+        this.areaLeft.Visible = (setBool);
+        this.areaRight.SetProcess(setBool);
+        this.areaLeft.Visible = (setBool);
     }
 }
