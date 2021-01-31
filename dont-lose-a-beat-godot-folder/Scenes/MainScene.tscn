@@ -63,17 +63,12 @@ near = 0.1
 far = 170.0
 max_speed = Vector3( 10, 10, 10 )
 
-[node name="Area" parent="MainCamera" index="0"]
-collision_layer = 2
-collision_mask = 2147483650
-
 [node name="ChairThrower" parent="MainCamera" index="1"]
 chairVelocity = 30.0
 
 [node name="OrchestraManager" parent="." instance=ExtResource( 2 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.565662, -3.80327 )
-timeBeforeStartingChecking = 50.0
-checkingDuration = 15.0
+checkingDuration = 10.0
 maxLoseIntervall = 30
 maxLoseStartIntervall = 30
 

@@ -21,22 +21,16 @@ axis = 2
 [node name="Pitcher" type="Node" parent="."]
 script = ExtResource( 2 )
 
+[node name="TempoChanger" parent="." instance=ExtResource( 4 )]
+transform = Transform( 0.700598, 0, 0.713556, 0, 1, 0, -0.713556, 0, 0.700598, -6.75721, 0, -2.40053 )
+
+[node name="harp" parent="TempoChanger" instance=ExtResource( 3 )]
+transform = Transform( -0.0217206, 0, -2.37037, 0, 2.37046, 0, 2.37036, 0, -0.0217208, 0.314285, -6.03497e-07, 0.540636 )
+
 [node name="chairs" type="Spatial" parent="."]
 
 [node name="chair_sections" parent="chairs" instance=ExtResource( 5 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -7.74806, 0, -3.40954 )
-
-[node name="TempoChanger" parent="." instance=ExtResource( 4 )]
-transform = Transform( 0.282843, 0, 0.707107, 0, 0.3, 0, -0.282843, 0, 0.707107, -6.17585, 0.0732933, -2.24079 )
-
-[node name="AreaLeft" parent="TempoChanger" index="0"]
-transform = Transform( 0.685638, 0, 0, 0, 2.25281, 0, 0, 0, 0.925288, 0, -7.29713, 0 )
-
-[node name="AreaRight" parent="TempoChanger" index="1"]
-transform = Transform( 0.685638, 0, 0, 0, 2.25283, 0, 0, 0, 0.925288, 0, -7.29713, 0 )
-
-[node name="harp" parent="TempoChanger" instance=ExtResource( 3 )]
-transform = Transform( -9.53674e-07, 0, -5.92617, 0, 7.90152, 0, 2.37046, 0, -3.57628e-07, 0.0527372, -0.244313, 0.0136929 )
 
 [node name="InstrumentCollider" type="RigidBody" parent="."]
 transform = Transform( 0.707107, 0, 0.707107, 0, 1, 0, -0.707107, 0, 0.707107, -6.17585, -4.76837e-07, -2.24079 )

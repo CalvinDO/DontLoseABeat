@@ -34,10 +34,10 @@ transform = Transform( 0.601536, 0, 0.798846, 0, 1, 0, -0.798846, 0, 0.601536, -
 transform = Transform( 0.601536, 0, 0.798846, 0, 1, 0, -0.798846, 0, 0.601536, -5.52494, 0, -4.05898 )
 
 [node name="TempoChanger" parent="." instance=ExtResource( 5 )]
-transform = Transform( 0.248125, 0, 0.784354, 0, 0.3, 0, -0.313742, 0, 0.620313, -5.74407, 3.1746, -2.17108 )
+transform = Transform( 0.56429, 0, 0.825577, 0, 1, 0, -0.825577, 0, 0.56429, -6.70323, 0, -2.21559 )
 
 [node name="Violins" type="Spatial" parent="TempoChanger"]
-transform = Transform( 1.55078, 0, -1.96089, 0, 3.33333, 0, 0.784354, 0, 0.620313, 4.65056, -10.582, 5.85214 )
+transform = Transform( 0.564289, 0, -0.825579, 0, 0.999999, 0, 0.825575, 0, 0.56429, 1.95342, -2.38419e-07, 6.78426 )
 
 [node name="violin2" parent="TempoChanger/Violins" instance=ExtResource( 3 )]
 transform = Transform( -0.0481488, 2.08525, 1.22713, 0, 1.22737, -2.08566, -2.41953, -0.0414951, -0.0244204, -6.98227, 2.48896, -0.785445 )

@@ -10,6 +10,7 @@ extents = Vector3( 0.574924, 0.937542, 0.572679 )
 
 [node name="ThrownChair" type="RigidBody"]
 transform = Transform( 0.718399, -0.614101, 0.326775, 0.403535, 0.750535, 0.523313, -0.566623, -0.244082, 0.786996, 0, 0, 0 )
+mass = 0.21
 script = ExtResource( 2 )
 
 [node name="ChairThrowSoundEffect" type="AudioStreamPlayer" parent="."]
