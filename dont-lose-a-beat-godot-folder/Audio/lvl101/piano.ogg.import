@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/piano.ogg-4384bfae3b1688bcca80bf0de26fbdce.oggstr"
+
+[deps]
+
+source_file="res://Audio/lvl101/piano.ogg"
+dest_files=[ "res://.import/piano.ogg-4384bfae3b1688bcca80bf0de26fbdce.oggstr" ]
+
+[params]
+
+loop=true
+loop_offset=0

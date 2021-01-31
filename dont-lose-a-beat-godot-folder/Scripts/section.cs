@@ -39,7 +39,7 @@ public class Section : Spatial
     //------------------------------------------------------------------------
 
     private float timeSinceStart = 0;
-    private float bpm;
+    public float bpm;
 
     private float currentAngle;
     private float angleLastFrame = 0;
@@ -50,8 +50,8 @@ public class Section : Spatial
 
     public float delta;
 
-
-    public float angleAccelleration = 10;
+    [Export]
+    public float angleAccelleration = 35;
     [Export]
     public Axis axis;
 
@@ -60,7 +60,7 @@ public class Section : Spatial
     [Export]
     public float maxRotationAngle = 35f;
 
-    public bool IsPlaying = true;
+    public float t = 0;
 
     public enum Axis
     {
@@ -128,13 +128,11 @@ public class Section : Spatial
 
     public void Play()
     {
-        this.IsPlaying = true;
-        if (AP != null) AP.Play();
+        if (AP != null) AP.Play(this.timeSinceStart);
     }
 
     public void Stop()
     {
-        this.IsPlaying = false;
 
         if (AP != null) AP.Stop();
     }
@@ -144,17 +142,65 @@ public class Section : Spatial
         this.delta = delta;
         this.timeSinceStart += delta;
 
-        if (this.IsPlaying)
+
+        if (this.AP.Playing)
         {
             CalculateRotation();
+        }
+
+        if (this.timeSinceStart > AP.Stream.GetLength())
+        {
+            this.timeSinceStart = 0;
         }
     }
 
     public void CalculateRotation()
     {
+
+        if (Input.IsActionPressed("TempoControl"))
+        {
+            if (this.mouseInsideRight)
+            {
+                if (this.currentSpeed > 0)
+                {
+                    this.bpm -= this.angleAccelleration * delta;
+                }
+                else if (this.currentSpeed < 0)
+                {
+                    this.bpm += this.angleAccelleration * delta;
+                }
+            }
+            else if (this.mouseInsideLeft)
+            {
+
+                if (this.currentSpeed > 0)
+                {
+                    this.bpm += this.angleAccelleration * delta;
+
+                }
+                else if (this.currentSpeed < 0)
+                {
+                    this.bpm -= this.angleAccelleration * delta;
+                }
+            }
+        }
+        if (this.bpm > this.OM.originalBPM * 2)
+        {
+            this.bpm = this.OM.originalBPM * 2;
+        }
+
+        if (this.bpm < this.OM.originalBPM / 2)
+        {
+            this.bpm = this.OM.originalBPM / 2;
+        }
+
+        //Mathf.Clamp(this.bpm, this.OM.originalBPM / 2, this.OM.originalBPM * 2);
+
         float bps = bpm / 60;
 
-        this.currentAngle = (float)(Math.Sin(this.timeSinceStart * Math.PI * bps) * (Mathf.Deg2Rad(maxRotationAngle)));
+        this.t += delta * bps;
+
+        this.currentAngle = (float)(Math.Sin(this.t * 1 / 2 * Math.PI) * (Mathf.Deg2Rad(maxRotationAngle)));
         this.currentSpeed = this.currentAngle - this.angleLastFrame;
         this.angleLastFrame = this.currentAngle;
 
@@ -178,32 +224,7 @@ public class Section : Spatial
             }
         }
 
-        if (this.mouseInsideLeft)
-        {
-            // GD.Print("left: " + this.mouseInsideLeft);
-            if (this.currentSpeed > 0)
-            {
-                this.bpm += this.angleAccelleration * delta;
-            }
-            else if (this.currentSpeed < 0)
-            {
-                this.bpm -= this.angleAccelleration * delta;
-            }
-        }
-        if (this.mouseInsideRight)
-        {
-            // GD.Print("right: " + this.mouseInsideRight);
-            if (this.currentSpeed > 0)
-            {
-                this.bpm -= this.angleAccelleration * delta;
-            }
-            else if (this.currentSpeed < 0)
-            {
-                this.bpm += this.angleAccelleration * delta;
-            }
-        }
-
-        //tempoToSet = this.bpm / this.OM.currentBPM;
+        tempoToSet = this.bpm / this.OM.originalBPM;
 
         pitcher.SetPitchAndTempo(pitchToSet, tempoToSet);
         if (this.chair != null)
@@ -229,12 +250,10 @@ public class Section : Spatial
         switch (name)
         {
             case "Left":
-                // GD.Print("Entered Left: " + timeSinceStart);
-                // this.mouseInsideLeft = true;
+                this.mouseInsideLeft = true;
                 break;
             case "Right":
-                //GD.Print("Entered Right: " + timeSinceStart);
-                //this.mouseInsideRight = true;
+                this.mouseInsideRight = true;
                 break;
             default:
                 break;
@@ -246,12 +265,10 @@ public class Section : Spatial
         switch (name)
         {
             case "Left":
-                // this.mouseInsideLeft = false;
-                //GD.Print("Exited Left " + timeSinceStart);
+                this.mouseInsideLeft = false;
                 break;
             case "Right":
-                //GD.Print("Exited Right " + timeSinceStart);
-                // this.mouseInsideRight = false;
+                this.mouseInsideRight = false;
                 break;
             default:
                 break;
@@ -265,7 +282,7 @@ public class Section : Spatial
         {
             case "InstrumentCollider":
                 GD.Print("Body entered");
-                if (this.IsPlaying)
+                if (this.AP.Playing)
                 {
                     this.Stop();
                 }

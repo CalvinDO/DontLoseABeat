@@ -42,7 +42,9 @@ transform = Transform( 2.1771, 0.910725, 0.535945, 0, 1.22737, -2.08566, -1.0567
 
 [node name="InstrumentCollider" type="RigidBody" parent="."]
 transform = Transform( 0.620312, 0, 0.784355, 0, 1, 0, -0.784355, 0, 0.620312, -5.74407, 3.1746, -2.17108 )
-mode = 1
+mode = 3
+contacts_reported = 20
+contact_monitor = true
 script = ExtResource( 6 )
 
 [node name="CollisionShape" type="CollisionShape" parent="InstrumentCollider"]

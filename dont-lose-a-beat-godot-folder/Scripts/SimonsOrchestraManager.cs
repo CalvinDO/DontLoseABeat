@@ -11,6 +11,7 @@ public class SimonsOrchestraManager : Spatial
     [Export]
     public int currentLevel;
 
+    public float originalBPM = 130;
     public float currentBPM = 130;
 
     Dictionary<string, PackedScene> sections;
@@ -32,7 +33,7 @@ public class SimonsOrchestraManager : Spatial
     public float checkingDuration = 30;
     float thresholdTime;
     RandomNumberGenerator randomFloatNumber = new RandomNumberGenerator();
-    private float timeIntervallForUpSetSections;
+    private float timeUntilLoseNextSection;
     public Section[] cleanSections;
     private bool isLosing;
 
@@ -46,11 +47,17 @@ public class SimonsOrchestraManager : Spatial
     [Export]
     public int maxLoseStartIntervall = 15;
 
+    [Export]
+    public bool useLoser = true;
+
+    [Export]
+    public bool useChecker = true;
+
     ///------
 
     public override void _Ready()
     {
-        timeIntervallForUpSetSections = randomFloatNumber.RandfRange(this.minLoseIntervall, this.maxLoseStartIntervall);
+        timeUntilLoseNextSection = randomFloatNumber.RandfRange(this.minLoseIntervall, this.maxLoseStartIntervall);
         LoadPrefabs();
         LoadLevel();
     }
@@ -72,6 +79,7 @@ public class SimonsOrchestraManager : Spatial
                 files.Add(fileName);
                 fileName = fileName.Remove(fileName.Length - 4);
                 Section cSection = (Section)sections[fileName].Instance();
+                cSection.bpm = this.currentBPM;
 
                 AddChild(cSection);
             }
@@ -99,17 +107,30 @@ public class SimonsOrchestraManager : Spatial
     public override void _Process(float delta)
     {
         this.delta = delta;
-        timeIntervallForUpSetSections -= delta;
-        if (timeIntervallForUpSetSections <= 0f)
-            if (!isLosing)
+
+        if (this.useLoser)
+        {
+            this.timeUntilLoseNextSection -= delta;
+        }
+
+        if (this.timeUntilLoseNextSection <= 0f)
+        {
+            if (!this.isLosing)
+            {
                 this.RandomLoseSections();
-        this.CheckThreshholdAndPitch();
+            }
+            if (this.useChecker)
+            {
+                this.CheckThreshholdAndPitch();
+            }
+        }
     }
+
     public void RandomLoseSections()
     {
 
         randomFloatNumber.Randomize();
-        timeIntervallForUpSetSections = randomFloatNumber.RandfRange(this.minLoseIntervall, this.maxLoseIntervall);
+        timeUntilLoseNextSection = randomFloatNumber.RandfRange(this.minLoseIntervall, this.maxLoseIntervall);
 
         isLosing = true;
 

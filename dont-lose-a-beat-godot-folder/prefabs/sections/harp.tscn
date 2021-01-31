@@ -11,6 +11,7 @@
 extents = Vector3( 1.37593, 2.29147, 1.08575 )
 
 [node name="SectionHarp" type="Spatial"]
+transform = Transform( 0.965926, 0, -0.258819, 0, 1, 0, 0.258819, 0, 0.965926, -1.2, 0, -8 )
 script = ExtResource( 1 )
 instrument = 11
 axis = 2
@@ -24,16 +25,26 @@ script = ExtResource( 2 )
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -7.74806, 0, -3.40954 )
 
 [node name="TempoChanger" parent="." instance=ExtResource( 4 )]
-transform = Transform( 0.282843, 0, 0.707107, 0, 0.3, 0, -0.282843, 0, 0.707107, -6.17585, 4.73478, -2.24079 )
+transform = Transform( 0.282843, 0, 0.707107, 0, 0.3, 0, -0.282843, 0, 0.707107, -6.17585, 0.0732933, -2.24079 )
+
+[node name="AreaLeft" parent="TempoChanger" index="0"]
+transform = Transform( 0.685638, 0, 0, 0, 2.25281, 0, 0, 0, 0.925288, 0, -7.29713, 0 )
+
+[node name="AreaRight" parent="TempoChanger" index="1"]
+transform = Transform( 0.685638, 0, 0, 0, 2.25283, 0, 0, 0, 0.925288, 0, -7.29713, 0 )
 
 [node name="harp" parent="TempoChanger" instance=ExtResource( 3 )]
-transform = Transform( -9.53674e-07, 0, -5.92617, 0, 7.90152, 0, 2.37046, 0, -3.57628e-07, 0.0527363, -15.7826, 0.0136938 )
+transform = Transform( -9.53674e-07, 0, -5.92617, 0, 7.90152, 0, 2.37046, 0, -3.57628e-07, 0.0527372, -0.244313, 0.0136929 )
 
 [node name="InstrumentCollider" type="RigidBody" parent="."]
 transform = Transform( 0.707107, 0, 0.707107, 0, 1, 0, -0.707107, 0, 0.707107, -6.17585, -4.76837e-07, -2.24079 )
-mode = 1
+mode = 3
+contacts_reported = 20
+contact_monitor = true
 script = ExtResource( 6 )
 
 [node name="CollisionShape" type="CollisionShape" parent="InstrumentCollider"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.44149, 2.67871, 0.737664 )
 shape = SubResource( 1 )
+
+[editable path="TempoChanger"]
