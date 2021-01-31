@@ -17,6 +17,8 @@ public class ThrownChair : RigidBody
         {
             GD.Print("time exceeded");
             this.CollisionLayer = (uint)3;
+
+            
         }
     }
 }
