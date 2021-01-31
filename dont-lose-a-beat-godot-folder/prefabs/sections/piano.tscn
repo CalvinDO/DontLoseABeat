@@ -11,6 +11,7 @@
 extents = Vector3( 1.85988, 1.86938, 2.6564 )
 
 [node name="SectionPiano" type="Spatial"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -14.4118, 0, -3.83056 )
 script = ExtResource( 1 )
 instrument = 10
 axis = 2
@@ -24,16 +25,16 @@ script = ExtResource( 2 )
 [node name="chairs" type="Spatial" parent="."]
 
 [node name="chair_sections" parent="chairs" instance=ExtResource( 4 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -17.4931, 0, 2.27235 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -1.34213, 0, 3.75411 )
 
 [node name="TempoChanger" parent="." instance=ExtResource( 5 )]
-transform = Transform( 0.282863, 0, 0.707058, 0, 0.3, 0, -0.282823, 0, 0.707156, -14.898, 0.249444, -3.7476 )
+transform = Transform( 0.136808, 0, 0.939693, 0, 0.3, 0, -0.375877, 0, 0.34202, -9.53674e-07, 0.249, -3.748 )
 
 [node name="piano" parent="TempoChanger" instance=ExtResource( 3 )]
 transform = Transform( 0.000322104, 0, -4.61827, 0, 6.15773, 0, 1.84731, 0, 0.000128746, -8.57271, -0.731515, 1.87093 )
 
 [node name="InstrumentCollider" type="RigidBody" parent="."]
-transform = Transform( 0.707107, 0, -0.707107, 0, 1, 0, 0.707107, 0, 0.707107, -15.7567, 1.59557, -0.736202 )
+transform = Transform( 0.932178, 0, -0.361999, 0, 1, 0, 0.361999, 0, 0.932178, 0.420827, 1.59557, -0.819911 )
 mode = 3
 contacts_reported = 20
 contact_monitor = true

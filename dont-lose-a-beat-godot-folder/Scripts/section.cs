@@ -264,13 +264,13 @@ public class Section : Spatial
             switch (this.axis)
             {
                 case Axis.X:
-                    this.tempoChanger.Rotation = new Vector3(currentAngle, 0, 0);
+                    this.tempoChanger.Rotation = new Vector3(currentAngle, this.tempoChanger.Rotation.y, this.tempoChanger.Rotation.z);
                     break;
                 case Axis.Y:
-                    this.tempoChanger.Rotation = new Vector3(0, currentAngle, 0);
+                    this.tempoChanger.Rotation = new Vector3(this.tempoChanger.Rotation.x, currentAngle, this.tempoChanger.Rotation.z);
                     break;
                 case Axis.Z:
-                    this.tempoChanger.Rotation = new Vector3(0, 0, currentAngle);
+                    this.tempoChanger.Rotation = new Vector3(this.tempoChanger.Rotation.x, this.tempoChanger.Rotation.y, currentAngle);
                     break;
                 default:
                     break;

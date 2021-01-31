@@ -1,38 +1,8 @@
-[gd_scene load_steps=15 format=2]
+[gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://Scenes/Camera.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Scenes/SimonsOrchestraSystem.tscn" type="PackedScene" id=2]
 [ext_resource path="res://Scenes/background.tscn" type="PackedScene" id=4]
-
-[sub_resource type="BoxShape" id=2]
-extents = Vector3( 19.3945, 2.93358, 32.4424 )
-
-[sub_resource type="BoxShape" id=3]
-extents = Vector3( 18.708, 2.11483, 32.4424 )
-
-[sub_resource type="BoxShape" id=4]
-extents = Vector3( 21.1094, 0.976525, 51.6774 )
-
-[sub_resource type="BoxShape" id=5]
-extents = Vector3( 23.6876, 3.52469, 72.9887 )
-
-[sub_resource type="BoxShape" id=6]
-extents = Vector3( 19.8217, 0.88332, 46.2385 )
-
-[sub_resource type="BoxShape" id=7]
-extents = Vector3( 17.5235, 0.88332, 46.2385 )
-
-[sub_resource type="BoxShape" id=8]
-extents = Vector3( 10.3973, 0.88332, 46.2385 )
-
-[sub_resource type="BoxShape" id=9]
-extents = Vector3( 12.847, 0.88332, 29.778 )
-
-[sub_resource type="BoxShape" id=10]
-extents = Vector3( 19.312, 0.88332, 30.9985 )
-
-[sub_resource type="BoxShape" id=11]
-extents = Vector3( 45.6771, 0.88332, 42.6585 )
 
 [sub_resource type="BoxShape" id=1]
 extents = Vector3( 29.523, 1, 50.3117 )
@@ -68,83 +38,11 @@ transform = Transform( 0.459857, 0, 0, 0, 1.81993, 0, 0, 0, 1.4398, -38.3316, -4
 [node name="Vorhang_r" parent="Hall/vorhang" index="2"]
 transform = Transform( 0.546175, 0, 0, 0, 1.81993, 0, 0, 0, 1.4398, 38.8864, -4.29318, 6.34098 )
 
-[node name="Colliders" type="Spatial" parent="."]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.558199, 1.93071, 46.9725 )
-
-[node name="StaticBody1" type="StaticBody" parent="Colliders"]
-
-[node name="CollisionShape" type="CollisionShape" parent="Colliders/StaticBody1"]
-transform = Transform( 1, 0, 0, 0, 0.984573, 0.174972, 0, -0.174972, 0.984573, -23.6934, 1.04271, -1.5189 )
-shape = SubResource( 2 )
-
-[node name="StaticBody2" type="StaticBody" parent="Colliders"]
-
-[node name="CollisionShape2" type="CollisionShape" parent="Colliders/StaticBody2"]
-transform = Transform( 1, 0, 0, 0, 0.984573, 0.174972, 0, -0.174972, 0.984573, 22.653, 1.66176, -1.5189 )
-shape = SubResource( 3 )
-
-[node name="StaticBody3" type="StaticBody" parent="Colliders"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 48.1733, 22.578, 0 )
-
-[node name="CollisionShape3" type="CollisionShape" parent="Colliders/StaticBody3"]
-transform = Transform( -1.62921e-07, -1, 0, 1, -1.62921e-07, 0, 0, 0, 1, -5.05916, -3.00392, 8.97081 )
-shape = SubResource( 4 )
-
-[node name="StaticBody4" type="StaticBody" parent="Colliders"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -87.6813, -1.93071, -46.9725 )
-
-[node name="CollisionShape4" type="CollisionShape" parent="Colliders/StaticBody4"]
-transform = Transform( -1.62921e-07, -1, 0, 1, -1.62921e-07, 0, 0, 0, 1, 43.6724, 20.0149, 38.3367 )
-shape = SubResource( 5 )
-
-[node name="StaticBody5" type="StaticBody" parent="Colliders"]
-transform = Transform( 0.00746978, 0, 0.999972, 0, 1, 0, -0.999972, 0, 0.00746978, -40.2755, -1.93071, 5.42399 )
-
-[node name="CollisionShape5" type="CollisionShape" parent="Colliders/StaticBody5"]
-transform = Transform( -1.62921e-07, -1, 0, 1, -1.62921e-07, 0, 2.22045e-16, 0, 1, -43.4737, 23.0962, 40.841 )
-shape = SubResource( 6 )
-
-[node name="StaticBody6" type="StaticBody" parent="Colliders"]
-transform = Transform( 0.00746978, 0, 0.999972, 0, 1, 0, -0.999972, 0, 0.00746978, -40.2755, -1.93071, 5.42399 )
-
-[node name="CollisionShape6" type="CollisionShape" parent="Colliders/StaticBody6"]
-transform = Transform( -0.999971, -0.00131209, 0.00746019, 0.00125636, -0.999971, -0.00746977, 0.00746977, -0.00746019, 0.999944, -43.4737, 25.0221, 40.841 )
-shape = SubResource( 7 )
-
-[node name="StaticBody7" type="StaticBody" parent="Colliders"]
-transform = Transform( 0.00746978, 0, 0.999972, 0, 1, 0, -0.999972, 0, 0.00746978, -40.2755, -1.93071, 5.42399 )
-
-[node name="CollisionShape6" type="CollisionShape" parent="Colliders/StaticBody7"]
-transform = Transform( 0.00886575, -0.999961, 2.93832e-07, 0.999961, 0.00886576, 6.6226e-05, -6.62266e-05, -2.98489e-07, 1, -27.2973, 14.8152, 40.7201 )
-shape = SubResource( 8 )
-
-[node name="StaticBody8" type="StaticBody" parent="Colliders"]
-transform = Transform( 0.00746978, 0, 0.999972, 0, 1, 0, -0.999972, 0, 0.00746978, -40.2755, -1.93071, -106.332 )
-
-[node name="CollisionShape6" type="CollisionShape" parent="Colliders/StaticBody8"]
-transform = Transform( 0.00886575, -0.999961, 2.93832e-07, 0.999961, 0.00886576, 6.6226e-05, -6.62266e-05, -3.00352e-07, 1, -27.2973, 15.5347, 40.7202 )
-shape = SubResource( 9 )
-
-[node name="StaticBody9" type="StaticBody" parent="Colliders"]
-transform = Transform( 0.00746978, 0, 0.999972, 0, 1, 0, -0.999972, 0, 0.00746978, -40.2755, -1.93071, -106.332 )
-
-[node name="CollisionShape6" type="CollisionShape" parent="Colliders/StaticBody9"]
-transform = Transform( -0.999969, 0.00228496, 0.00748672, -0.00226897, -0.999995, 0.00214693, 0.00749158, 0.00212987, 0.99997, -43.5676, 29.9016, 40.8417 )
-shape = SubResource( 10 )
-
-[node name="StaticBody10" type="StaticBody" parent="Colliders"]
-transform = Transform( 0.00746978, 0, 0.999972, 0, 1, 0, -0.999972, 0, 0.00746978, -40.2755, 12.634, -37.3687 )
-
-[node name="CollisionShape6" type="CollisionShape" parent="Colliders/StaticBody10"]
-transform = Transform( -0.999969, 0.00228496, 0.00748672, -0.00226897, -0.999995, 0.00214693, 0.00749158, 0.00212987, 0.99997, -40.301, 29.9016, 39.8544 )
-shape = SubResource( 11 )
-
-[node name="StaticBody11" type="StaticBody" parent="Colliders"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.558199, -1.93071, -46.9725 )
+[node name="StaticBody" type="StaticBody" parent="."]
 collision_layer = 5
 collision_mask = 5
 
-[node name="CollisionShape" type="CollisionShape" parent="Colliders/StaticBody11"]
+[node name="CollisionShape" type="CollisionShape" parent="StaticBody"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.329439, -11.4276 )
 shape = SubResource( 1 )
 
