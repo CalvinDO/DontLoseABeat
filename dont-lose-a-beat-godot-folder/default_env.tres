@@ -8,7 +8,8 @@ panorama = ExtResource( 1 )
 [resource]
 background_mode = 2
 background_sky = SubResource( 1 )
-background_energy = 0.25
+background_energy = 0.2
+ambient_light_energy = 0.0
 fog_color = Color( 0.74902, 0.74902, 0.74902, 1 )
 fog_depth_end = 238.9
 fog_depth_curve = 1.23114
