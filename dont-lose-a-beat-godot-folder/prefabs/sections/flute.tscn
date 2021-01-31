@@ -32,10 +32,10 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -1.83302, 0, -9.00783 )
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 4.73208, 0, -7.99008 )
 
 [node name="TempoChanger" parent="." instance=ExtResource( 5 )]
-transform = Transform( 0.399036, 0, -0.0693734, 0, 0.3, 0, 0.0277494, 0, 0.997591, 1.59628, 3.12654, -7.61231 )
+transform = Transform( 0.985336, 0, -0.170622, 0, 1, 0, 0.170622, 0, 0.985336, 1.25196, 0, -8.34644 )
 
 [node name="Flutes" type="Spatial" parent="TempoChanger"]
-transform = Transform( 2.49398, 0, 0.173434, 0, 3.33333, 0, -0.0693734, 0, 0.997591, -2.66086, -10.4218, 7.70471 )
+transform = Transform( 0.985337, 0, 0.170622, 0, 0.999999, 0, -0.170622, 0, 0.985337, 0.190491, 0, 8.43767 )
 
 [node name="flute" parent="TempoChanger/Flutes" instance=ExtResource( 4 )]
 transform = Transform( 1.37482, 0, -0.638725, 0, 1.51595, 0, 0.638725, 0, 1.37482, 0.947943, 2.60029, -7.21195 )

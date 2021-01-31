@@ -32,18 +32,6 @@ transform = Transform( 0.604919, 0, -0.796287, 0, 1, 0, 0.796287, 0, 0.604919, -
 [node name="chair_sections3" parent="chairs" instance=ExtResource( 4 )]
 transform = Transform( 0.604919, 0, -0.796287, 0, 1, 0, 0.796287, 0, 0.604919, -9.83008, 4.01837, -16.3485 )
 
-[node name="Trumpets" type="Spatial" parent="."]
-transform = Transform( 1, 0, -2.98023e-08, 0, 0.999999, 0, -1.43051e-06, 0, 1, 2.00272e-05, 9.81241e-06, 7.62939e-06 )
-
-[node name="trumpet" parent="Trumpets" instance=ExtResource( 3 )]
-transform = Transform( -3.00447, -0.173118, -2.27584, -1.25096e-08, 3.76223, -0.286184, 2.28242, -0.227884, -2.99581, -10.6532, 6.47419, -13.8318 )
-
-[node name="trumpet2" parent="Trumpets" instance=ExtResource( 3 )]
-transform = Transform( -2.16055, -0.23462, -3.08436, -1.25096e-08, 3.76223, -0.286184, 3.09327, -0.163874, -2.15432, -12.2856, 4.78653, -12.5986 )
-
-[node name="trumpet3" parent="Trumpets" instance=ExtResource( 3 )]
-transform = Transform( -3.4433, -0.117012, -1.53827, -1.25096e-08, 3.76223, -0.286184, 1.54271, -0.261169, -3.43338, -8.9065, 5.98348, -15.1656 )
-
 [node name="InstrumentCollider" type="RigidBody" parent="."]
 transform = Transform( 0.685615, 0, 0.727965, 0, 1, 0, -0.727965, 0, 0.685615, -11.1791, 5.4586, -14.2119 )
 mode = 3
@@ -65,5 +53,17 @@ shape = SubResource( 1 )
 
 [node name="TempoChanger" parent="." instance=ExtResource( 6 )]
 transform = Transform( 0.617338, 0, 0.786698, 0, 1, 0, -0.786698, 0, 0.617338, -11.5733, 3.77284, -14.6693 )
+
+[node name="Trumpets" type="Spatial" parent="TempoChanger"]
+transform = Transform( 0.617339, 0, -0.786698, 0, 0.999999, 0, 0.786697, 0, 0.617338, -4.39566, -3.77283, 18.1607 )
+
+[node name="trumpet" parent="TempoChanger/Trumpets" instance=ExtResource( 3 )]
+transform = Transform( -3.00447, -0.173118, -2.27584, -1.25096e-08, 3.76223, -0.286184, 2.28242, -0.227884, -2.99581, -10.6532, 6.47419, -13.8318 )
+
+[node name="trumpet2" parent="TempoChanger/Trumpets" instance=ExtResource( 3 )]
+transform = Transform( -2.16055, -0.23462, -3.08436, -1.25096e-08, 3.76223, -0.286184, 3.09327, -0.163874, -2.15432, -12.2856, 4.78653, -12.5986 )
+
+[node name="trumpet3" parent="TempoChanger/Trumpets" instance=ExtResource( 3 )]
+transform = Transform( -3.4433, -0.117012, -1.53827, -1.25096e-08, 3.76223, -0.286184, 1.54271, -0.261169, -3.43338, -8.9065, 5.98348, -15.1656 )
 [connection signal="area_entered" from="InstrumentCollider/Area" to="." method="AreaEntered" binds= [ "Body" ]]
 [connection signal="area_exited" from="InstrumentCollider/Area" to="." method="AreaExited" binds= [ "Body" ]]
