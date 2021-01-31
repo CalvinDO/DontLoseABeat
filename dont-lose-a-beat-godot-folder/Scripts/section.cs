@@ -125,9 +125,13 @@ public class Section : Spatial
         this.areaRight = (Area)GetNodeOrNull<Area>("TempoChanger/AreaRight");
         this.ToggleRightLeftAreas(false);
 
+
+        AudioStreamOGGVorbis vorbis = (AudioStreamOGGVorbis)GD.Load("res://Audio/effects/chair_land.tres");
+        vorbis.Loop = false;
         ChairLandPlayer = new AudioStreamPlayer();
+        ChairLandPlayer.Stream = vorbis;
         ChairLandPlayer.Autoplay = false;
-        ChairLandPlayer.Stream = (AudioStream)GD.Load("res://Audio/effects/chair_land.tres");
+
         this.AddChild(ChairLandPlayer);
 
 

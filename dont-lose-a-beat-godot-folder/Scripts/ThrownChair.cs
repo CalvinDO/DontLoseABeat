@@ -12,6 +12,7 @@ public class ThrownChair : RigidBody
     {
         this.OM = GetNode<SimonsOrchestraManager>("/root/Root/OrchestraManager");
         this.player = (AudioStreamPlayer)GetChild(0);
+        this.player.Autoplay = false;
         this.player.Play();
     }
 
