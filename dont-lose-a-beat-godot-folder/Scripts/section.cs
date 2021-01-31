@@ -180,10 +180,12 @@ public class Section : Spatial
         {
             CalculateRotation();
         }
+        if (AP.Stream != null) {
 
         if (this.timeSinceStart > AP.Stream.GetLength())
         {
             this.timeSinceStart = 0;
+        }
         }
     }
 

@@ -73,7 +73,7 @@ public class SimonsOrchestraManager : Spatial
         //Get Intruments
         List<string> files = new List<string>();
         Directory dir = new Directory();
-        dir.Open($"res://Audio/lvl{currentLevel}");
+        dir.Open($"res://Audio/lvl{GameState.currentLevel}");
         dir.ListDirBegin();
 
         while (true)
