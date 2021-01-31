@@ -72,10 +72,10 @@ chairVelocity = 30.0
 
 [node name="OrchestraManager" parent="." instance=ExtResource( 2 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.565662, -3.80327 )
-timeBeforeStartingChecking = 100.0
+timeBeforeStartingChecking = 20.0
 checkingDuration = 5.0
 maxLoseIntervall = 30
-useLoser = false
+maxLoseStartIntervall = 30
 
 [node name="Hall" parent="." instance=ExtResource( 4 )]
 
