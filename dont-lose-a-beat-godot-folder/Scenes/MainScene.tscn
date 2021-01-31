@@ -30,6 +30,12 @@ useChecker = false
 
 [node name="Hall" parent="." instance=ExtResource( 4 )]
 
+[node name="vorhang_l" parent="Hall/vorhang" index="1"]
+transform = Transform( 0.459857, 0, 0, 0, 1.81993, 0, 0, 0, 1.4398, -38.3316, -4.29318, 5.08113 )
+
+[node name="Vorhang_r" parent="Hall/vorhang" index="2"]
+transform = Transform( 0.546175, 0, 0, 0, 1.81993, 0, 0, 0, 1.4398, 38.8864, -4.29318, 6.34098 )
+
 [node name="StaticBody" type="StaticBody" parent="."]
 
 [node name="CollisionShape" type="CollisionShape" parent="StaticBody"]
@@ -41,3 +47,7 @@ shape = SubResource( 1 )
 [editable path="MainCamera/ChairThrower"]
 
 [editable path="OrchestraManager"]
+
+[editable path="Hall"]
+
+[editable path="Hall/vorhang"]
