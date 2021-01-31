@@ -77,8 +77,11 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -15.4874, 1.00961 )
 shape = SubResource( 3 )
 
 [node name="Area" type="Area" parent="TempoChanger/InstrumentCollider"]
+collision_layer = 2
+collision_mask = 2
 
 [node name="CollisionShape2" type="CollisionShape" parent="TempoChanger/InstrumentCollider/Area"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -15.4874, 1.00961 )
 shape = SubResource( 3 )
 [connection signal="area_entered" from="TempoChanger/InstrumentCollider/Area" to="." method="AreaEntered" binds= [ "Body" ]]
+[connection signal="area_exited" from="TempoChanger/InstrumentCollider/Area" to="." method="AreaExited" binds= [ "Body" ]]

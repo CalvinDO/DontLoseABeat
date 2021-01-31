@@ -51,6 +51,8 @@ public class Section : Spatial
 
     private bool mouseHoverBody = false;
 
+    private bool selected = false;
+
     public float delta;
 
     [Export]
@@ -115,9 +117,9 @@ public class Section : Spatial
         this.ToggleRightLeftAreas(false);
 
 
-        if (GetNode<Spatial>("Chairs") != null)
+        if (GetNode<Spatial>("chairs") != null)
         {
-            this.chairs = GetNode<Spatial>("Chairs").GetChildren();
+            this.chairs = GetNode<Spatial>("chairs").GetChildren();
         }
 
 
@@ -152,6 +154,27 @@ public class Section : Spatial
         this.delta = delta;
         this.timeSinceStart += delta;
 
+        if (Input.IsActionPressed("InstrumentSelect"))
+        {
+            this.ManageSelection();
+        }
+        else
+        {
+            this.selected = false;
+            this.OM.selectedSection = null;
+        }
+
+        if (this.selected)
+        {
+            this.ToggleRightLeftAreas(true);
+        }
+        else
+        {
+            if (!this.mouseHoverBody)
+            {
+                this.ToggleRightLeftAreas(false);
+            }
+        }
 
         if (this.AP.Playing)
         {
@@ -164,6 +187,27 @@ public class Section : Spatial
         }
     }
 
+    public void ManageSelection()
+    {
+        if (this.mouseHoverBody)
+        {
+            if (this.OM.selectedSection == null)
+            {
+                this.selected = true;
+                this.OM.selectedSection = this;
+            }
+            else
+            {
+                if (this.OM.selectedSection != this)
+                {
+                    this.ToggleRightLeftAreas(false);
+                }
+            }
+        }
+
+
+        GD.Print(this.OM.selectedSection);
+    }
     public void CalculateRotation()
     {
 
@@ -182,7 +226,6 @@ public class Section : Spatial
             }
             else if (this.mouseInsideLeft)
             {
-
                 if (this.currentSpeed > 0)
                 {
                     this.bpm += this.angleAccelleration * delta;
@@ -275,10 +318,7 @@ public class Section : Spatial
                 break;
             case "Body":
                 this.mouseHoverBody = true;
-
                 this.ToggleRightLeftAreas(true);
-
-                GD.Print("Body");
                 break;
             default:
                 break;
@@ -306,7 +346,6 @@ public class Section : Spatial
 
     public void BodyEntered(Node body, string name)
     {
-        GD.Print(name);
         switch (name)
         {
             case "InstrumentCollider":
