@@ -22,6 +22,7 @@ axis = 2
 script = ExtResource( 2 )
 
 [node name="chairs" type="Spatial" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0 )
 
 [node name="chair_sections" parent="chairs" instance=ExtResource( 5 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -7.74806, 0, -3.40954 )
@@ -50,13 +51,10 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.44149, 2.67871, 0.737664 )
 shape = SubResource( 1 )
 
 [node name="Area" type="Area" parent="InstrumentCollider"]
-collision_layer = 2
-collision_mask = 2147483650
 
 [node name="CollisionShape2" type="CollisionShape" parent="InstrumentCollider/Area"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.44149, 2.67871, 0.737664 )
 shape = SubResource( 1 )
 [connection signal="area_entered" from="InstrumentCollider/Area" to="." method="AreaEntered" binds= [ "Body" ]]
-[connection signal="area_exited" from="InstrumentCollider/Area" to="." method="AreaExited" binds= [ "Body" ]]
 
 [editable path="TempoChanger"]

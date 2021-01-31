@@ -1,2 +1,7 @@
+<<<<<<< HEAD
 ﻿57310
 C:\Users\calvi\Desktop\Godot_v3.2.3-stable_mono_win64\Godot_v3.2.3-stable_mono_win64.exe
+=======
+﻿58642
+D:\home\Software\Godot_v3.2.3-stable_mono_win64\Godot_v3.2.3-stable_mono_win64.exe
+>>>>>>> d76f01d5c650ac5b8dc93ec4eb5964e73c1b402b
