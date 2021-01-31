@@ -7,7 +7,7 @@ public class ThrownChair : RigidBody
     public SimonsOrchestraManager OM;
     public override void _Ready()
     {
-        this.OM = GetParent<SimonsOrchestraManager>();
+        this.OM = GetNode<SimonsOrchestraManager>("/root/Root/OrchestraManager");
     }
 
     public override void _Process(float delta)
@@ -15,7 +15,8 @@ public class ThrownChair : RigidBody
         this.timeSinceThrow += delta;
         if (this.timeSinceThrow > this.OM.chairActiveTime)
         {
-
+            GD.Print("time exceeded");
+            this.CollisionLayer = (uint)3;
         }
     }
 }
