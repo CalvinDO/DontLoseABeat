@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/flute.ogg-c05edc62151fbdacb6a03ba12a18b77e.oggstr"
+
+[deps]
+
+source_file="res://Audio/lvl0/flute.ogg"
+dest_files=[ "res://.import/flute.ogg-c05edc62151fbdacb6a03ba12a18b77e.oggstr" ]
+
+[params]
+
+loop=true
+loop_offset=0
