@@ -87,6 +87,10 @@ public class Section : Spatial
     //------------------------------------------------------------------------
 
     private Godot.Collections.Array chairs;
+
+    public bool IsWheelUp = false;
+    public bool IsWheelDown = false;
+
     #endregion
 
     //------------------------------------------------------------------------
@@ -163,6 +167,7 @@ public class Section : Spatial
 
             this.ManagePitchControl();
         }
+
         if (Input.IsActionPressed("InstrumentSelect"))
         {
             this.ManageSelection();
@@ -201,15 +206,46 @@ public class Section : Spatial
 
     public void ManagePitchControl()
     {
-        if (Input.IsActionPressed("IncreasePitch"))
-        {
-            this.pitchToSet += this.pitchIncrement;
-        }
-        if (Input.IsActionPressed("DecreasePitch"))
+        if (this.IsWheelDown)
         {
             this.pitchToSet -= this.pitchIncrement;
+
+            if (this.pitchToSet < 0.5f)
+            {
+                this.pitchToSet = 0.5f;
+            }
+        }
+        if (this.IsWheelUp)
+        {
+
+            this.pitchToSet += this.pitchIncrement;
+
+            if (this.pitchToSet > 2f)
+            {
+                this.pitchToSet = 2;
+            }
         }
     }
+
+    public override void _UnhandledInput(InputEvent @event)
+    {
+        if (@event is InputEventMouseButton)
+        {
+            InputEventMouseButton emb = (InputEventMouseButton)@event;
+            if (emb.IsPressed())
+            {
+                if (emb.ButtonIndex == (int)ButtonList.WheelUp)
+                {
+                    this.IsWheelDown = true;
+                }
+                if (emb.ButtonIndex == (int)ButtonList.WheelDown)
+                {
+                    this.IsWheelUp = true;
+                }
+            }
+        }
+    }
+
     public void ManageSelection()
     {
         if (this.mouseHoverBody)
