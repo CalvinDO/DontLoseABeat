@@ -24,10 +24,10 @@ script = ExtResource( 2 )
 transform = Transform( 0.795516, 0, 0.605933, 0, 1, 0, -0.605933, 0, 0.795516, 9.47589, -0.608495, -11.6347 )
 
 [node name="TempoChanger" parent="." instance=ExtResource( 6 )]
-transform = Transform( 0.362662, 0, -0.421875, 0, 0.3, 0, 0.16875, 0, 0.906654, 9.02727, 0.72894, -10.8899 )
+transform = Transform( 0.927334, 0, -0.374234, 0, 1, 0, 0.374234, 0, 0.927334, 9.16427, 0, -11.2003 )
 
 [node name="Horns" type="Spatial" parent="TempoChanger"]
-transform = Transform( 2.26664, 0, 1.05468, 0, 3.33333, 0, -0.421874, 0, 0.906653, -8.97609, -2.42981, 13.6817 )
+transform = Transform( 0.927337, 0, 0.374232, 0, 0.999999, 0, -0.374234, 0, 0.927333, -4.3068, -3.03984e-06, 13.816 )
 
 [node name="horn" parent="TempoChanger/Horns" instance=ExtResource( 3 )]
 transform = Transform( 0.608868, 2.46981, -0.401366, -1.7836, 0.138671, -1.85238, -1.75494, 0.715954, 1.74337, 8.54472, 1.66167, -10.2153 )

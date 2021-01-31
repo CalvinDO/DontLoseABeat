@@ -33,10 +33,10 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.00975513, 0, 0.403272 )
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0418329, 0, 1.80941 )
 
 [node name="TempoChanger" parent="." instance=ExtResource( 6 )]
-transform = Transform( 0.6616, 0, 0.749857, 0, 1, 0, -0.749857, 0, 0.6616, -8.76305, 0, -8.20305 )
+transform = Transform( 0.6616, 0, 0.749857, 0, 1, 0, -0.749857, 0, 0.6616, -9.25849, 0, -7.64152 )
 
 [node name="Clarinets" type="Spatial" parent="TempoChanger"]
-transform = Transform( 0.661598, 0, -0.749859, 0, 0.999999, 0, 0.749858, 0, 0.661598, -0.353493, 5.72205e-06, 11.9982 )
+transform = Transform( 0.661598, 0, -0.749859, 0, 0.999999, 0, 0.749858, 0, 0.661598, 0.395359, 5.72205e-06, 11.9982 )
 
 [node name="clarinet" parent="TempoChanger/Clarinets" instance=ExtResource( 3 )]
 transform = Transform( -1.31046, -0.782897, 2.27348, -1.40444, 2.35085, -1.22781e-07, -1.95171, -1.16599, -1.52651, -7.57563, 0.348843, -6.32728 )
