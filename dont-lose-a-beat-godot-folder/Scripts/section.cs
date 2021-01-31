@@ -161,7 +161,7 @@ public class Section : Spatial
         else
         {
             this.selected = false;
-            this.OM.selectedSection = null;
+            GameState.selectedSection= null;
         }
 
         if (this.selected)
@@ -193,22 +193,19 @@ public class Section : Spatial
     {
         if (this.mouseHoverBody)
         {
-            if (this.OM.selectedSection == null)
+            if (GameState.selectedSection == null)
             {
                 this.selected = true;
-                this.OM.selectedSection = this;
+               GameState.selectedSection= null; = this;
             }
             else
             {
-                if (this.OM.selectedSection != this)
+                if (GameState.selectedSection != this)
                 {
                     this.ToggleRightLeftAreas(false);
                 }
             }
         }
-
-
-        GD.Print(this.OM.selectedSection);
     }
     public void CalculateRotation()
     {
