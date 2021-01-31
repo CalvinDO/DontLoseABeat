@@ -1,26 +1,19 @@
-[gd_scene load_steps=13 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://Scripts/Section.cs" type="Script" id=1]
 [ext_resource path="res://Scripts/Pitcher.cs" type="Script" id=2]
 [ext_resource path="res://prefabs/chair_sections.tscn" type="PackedScene" id=3]
 [ext_resource path="res://models/instruments/percussion.glb" type="PackedScene" id=4]
-[ext_resource path="res://Scripts/TempoChangerScriptTransmitter.cs" type="Script" id=5]
-[ext_resource path="res://Scripts/CollisionConnector.cs" type="Script" id=6]
-[ext_resource path="res://materials/red.tres" type="Material" id=7]
-[ext_resource path="res://Scripts/InstrumentCollider.cs" type="Script" id=8]
-[ext_resource path="res://materials/blue.tres" type="Material" id=9]
+[ext_resource path="res://Scenes/TempoChanger.tscn" type="PackedScene" id=5]
+[ext_resource path="res://Scripts/InstrumentCollider.cs" type="Script" id=6]
 
 [sub_resource type="BoxShape" id=1]
-extents = Vector3( 28.6031, 12.281, 0.0629573 )
-
-[sub_resource type="PlaneMesh" id=2]
-
-[sub_resource type="BoxShape" id=3]
-extents = Vector3( 15.0577, 10.7986, 2.05138 )
+extents = Vector3( 4.76999, 2.94106, 1.25222 )
 
 [node name="SectionPercussion" type="Spatial"]
 script = ExtResource( 1 )
-instrument = 8
+instrument = 12
+axis = 2
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 
@@ -28,60 +21,33 @@ instrument = 8
 script = ExtResource( 2 )
 
 [node name="chairs" type="Spatial" parent="."]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -16.6078, 0, -27.2187 )
 
 [node name="chair_sections" parent="chairs" instance=ExtResource( 3 )]
+transform = Transform( 0.98045, 0, -0.196768, 0, 1, 0, 0.196768, 0, 0.98045, 4.56389, 1.50054, -24.6035 )
 
-[node name="TempoChanger" type="Spatial" parent="."]
-transform = Transform( 0.4, 0, 0, 0, 0.3, 0, 0, 0, 1, -15.2658, 7.39753, -31.7574 )
-script = ExtResource( 5 )
-
-[node name="AreaLeft" type="Area" parent="TempoChanger"]
-collision_layer = 2
-collision_mask = 2
-script = ExtResource( 6 )
-side = 1
-
-[node name="CollisionShapeLeft" type="CollisionShape" parent="TempoChanger/AreaLeft"]
-transform = Transform( 0.286, 0, 0, 0, 0.531, 0, 0, 0, 1, -8.18384, 6.55298, 0 )
-shape = SubResource( 1 )
-
-[node name="PlaneMesh" type="MeshInstance" parent="TempoChanger/AreaLeft/CollisionShapeLeft"]
-transform = Transform( 28.5, 0, 0, 0, -4.37114e-08, -12.277, 0, 1, -5.36645e-07, 0.00481033, 0, 0 )
-mesh = SubResource( 2 )
-material/0 = ExtResource( 9 )
-
-[node name="AreaRight" type="Area" parent="TempoChanger"]
-collision_layer = 2
-collision_mask = 2
-script = ExtResource( 6 )
-
-[node name="CollisionShapeRight" type="CollisionShape" parent="TempoChanger/AreaRight"]
-transform = Transform( 0.286, 0, 0, 0, 0.531, 0, 0, 0, 1, 8.184, 6.545, 0 )
-shape = SubResource( 1 )
-
-[node name="PlaneMeshRed" type="MeshInstance" parent="TempoChanger/AreaRight/CollisionShapeRight"]
-transform = Transform( 28.5, 0, 0, 0, -4.37114e-08, -12.277, 0, 1, -5.36645e-07, 0.0412769, 9.53674e-07, 0 )
-mesh = SubResource( 2 )
-material/0 = ExtResource( 7 )
+[node name="TempoChanger" parent="." instance=ExtResource( 5 )]
+transform = Transform( 0.397144, 0, -0.11927, 0, 0.3, 0, 0.0477082, 0, 0.992862, 7.26684, 3.74742, -23.6326 )
 
 [node name="percussion" parent="TempoChanger" instance=ExtResource( 4 )]
-transform = Transform( -0.225653, 0, -10.7457, 0, 14.3307, 0, 4.29826, 0, -0.0902613, -4.41278, -21.5603, 0.887011 )
+transform = Transform( -0.652238, 0, -10.5462, 0, 14.0884, 0, 4.21846, 0, -0.260894, -8.05403, -3.02476, 2.32475 )
 
-[node name="InstrumentCollider" type="RigidBody" parent="TempoChanger"]
-mode = 1
-script = ExtResource( 8 )
+[node name="InstrumentCollider" type="RigidBody" parent="."]
+transform = Transform( 0.993996, 0, -0.109422, 0, 1, 0, 0.109422, 0, 0.993996, 5.64118, 4.39744, -22.5086 )
+mode = 3
+contacts_reported = 20
+contact_monitor = true
+script = ExtResource( 6 )
 
-[node name="CollisionShape" type="CollisionShape" parent="TempoChanger/InstrumentCollider"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -15.4874, 1.00961 )
-shape = SubResource( 3 )
+[node name="CollisionShape" type="CollisionShape" parent="InstrumentCollider"]
+transform = Transform( 0.996681, 0, -0.0814167, 0, 1, 0, 0.0814167, 0, 0.996681, -0.902978, -1.02681, 0.673634 )
+shape = SubResource( 1 )
 
-[node name="Area" type="Area" parent="TempoChanger/InstrumentCollider"]
+[node name="Area" type="Area" parent="InstrumentCollider"]
 collision_layer = 2
 collision_mask = 2
 
-[node name="CollisionShape2" type="CollisionShape" parent="TempoChanger/InstrumentCollider/Area"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -15.4874, 1.00961 )
-shape = SubResource( 3 )
-[connection signal="area_entered" from="TempoChanger/InstrumentCollider/Area" to="." method="AreaEntered" binds= [ "Body" ]]
-[connection signal="area_exited" from="TempoChanger/InstrumentCollider/Area" to="." method="AreaExited" binds= [ "Body" ]]
+[node name="CollisionShape2" type="CollisionShape" parent="InstrumentCollider/Area"]
+transform = Transform( 0.996681, 0, -0.0814167, 0, 1, 0, 0.0814167, 0, 0.996681, -0.861721, -0.562201, 0.208185 )
+shape = SubResource( 1 )
+[connection signal="area_entered" from="InstrumentCollider/Area" to="." method="AreaEntered" binds= [ "Body" ]]
+[connection signal="area_exited" from="InstrumentCollider/Area" to="." method="AreaExited" binds= [ "Body" ]]
