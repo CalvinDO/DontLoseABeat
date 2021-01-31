@@ -13,7 +13,7 @@ extents = Vector3( 1.85988, 1.86938, 2.6564 )
 [node name="SectionPiano" type="Spatial"]
 script = ExtResource( 1 )
 instrument = 10
-axis = 1
+axis = 2
 maxRotationAngle = 4.0
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
@@ -27,10 +27,10 @@ script = ExtResource( 2 )
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -17.4931, 0, 2.27235 )
 
 [node name="TempoChanger" parent="." instance=ExtResource( 5 )]
-transform = Transform( 0.282843, 0, -0.707107, 0, 0.3, 0, 0.282843, 0, 0.707107, -15.7567, 4.05539, -0.736202 )
+transform = Transform( 0.282863, 0, 0.707058, 0, 0.3, 0, -0.282823, 0, 0.707156, -14.898, 0.249444, -3.7476 )
 
 [node name="piano" parent="TempoChanger" instance=ExtResource( 3 )]
-transform = Transform( 4.61828, 0, 0, 0, 6.15773, 0, 0, 0, 1.84731, 0.871347, -13.418, 0.692608 )
+transform = Transform( 0.000322104, 0, -4.61827, 0, 6.15773, 0, 1.84731, 0, 0.000128746, -8.57271, -0.731515, 1.87093 )
 
 [node name="InstrumentCollider" type="RigidBody" parent="."]
 transform = Transform( 0.707107, 0, -0.707107, 0, 1, 0, 0.707107, 0, 0.707107, -15.7567, 1.59557, -0.736202 )
