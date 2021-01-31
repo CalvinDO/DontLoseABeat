@@ -118,17 +118,17 @@ public class SimonsOrchestraManager : Spatial
         {
             this.timeUntilLoseNextSection -= delta;
         }
-
+        if (this.useChecker)
+        {
+            this.CheckThreshholdAndPitch();
+        }
         if (this.timeUntilLoseNextSection <= 0f)
         {
             if (!this.isLosing)
             {
                 this.RandomLoseSections();
             }
-            if (this.useChecker)
-            {
-                this.CheckThreshholdAndPitch();
-            }
+
         }
     }
 
@@ -199,6 +199,7 @@ public class SimonsOrchestraManager : Spatial
 
             if (thresholdTime <= 0f)
                 GD.Print("-----------WIN-Placeholder-----------");
+                GetTree().ChangeSceneTo(GameState.transitionScene);
         }
     }
 

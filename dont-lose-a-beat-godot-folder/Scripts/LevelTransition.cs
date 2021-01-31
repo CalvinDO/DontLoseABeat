@@ -13,6 +13,7 @@ public class LevelTransition : Spatial
         audio = GetNode<AudioStreamPlayer>("AudioStreamPlayer");
         an = GetNode<AnimationPlayer>("courtain/AnimationPlayer");
         PlayTrack();
+        Input.SetMouseMode(Input.MouseMode.Visible);
     }
 
     public void PlayTrack() 

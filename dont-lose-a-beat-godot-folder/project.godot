@@ -16,7 +16,7 @@ _global_script_class_icons={
 [application]
 
 config/name="dont-lose-a-beat-godot"
-run/main_scene="res://Scenes/MainScene.tscn"
+run/main_scene="res://Scenes/Intro.tscn"
 config/icon="res://icon.png"
 
 [input]
