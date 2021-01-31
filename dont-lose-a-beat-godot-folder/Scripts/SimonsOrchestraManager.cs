@@ -17,8 +17,14 @@ public class SimonsOrchestraManager : Spatial
     Dictionary<string, PackedScene> sections;
 
 
+    public Section selectedSection;
+
     private float delta;
 
+
+    [Export]
+    public float chairActiveTime = 2;
+    
     //Valentins
     //------
     [Export]

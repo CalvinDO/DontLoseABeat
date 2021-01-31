@@ -6,6 +6,8 @@ public class OrchestraManager : Node
     public float difficulty;
     private bool isThresholdChecking;
     private int levelProgress;
+
+
     public override void _Ready()
     {
         levelProgress = 0;
@@ -18,7 +20,7 @@ public class OrchestraManager : Node
             Node currentlevel = Levels[i];
             currentlevel = this.GetChild(0).GetChild(i);
         }
-        
+
         difficulty = levelProgress;
 
         switch (levelProgress)

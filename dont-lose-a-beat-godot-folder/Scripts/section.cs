@@ -1,5 +1,6 @@
 using Godot;
 using System;
+using System.Collections.Generic;
 
 public class Section : Spatial
 {
@@ -48,6 +49,10 @@ public class Section : Spatial
     private bool mouseInsideRight = false;
     private bool mouseInsideLeft = false;
 
+    private bool mouseHoverBody = false;
+
+    private bool selected = false;
+
     public float delta;
 
     [Export]
@@ -62,6 +67,9 @@ public class Section : Spatial
 
     public float t = 0;
 
+    public Area areaLeft;
+    public Area areaRight;
+
     public enum Axis
     {
         X, Y, Z
@@ -75,7 +83,7 @@ public class Section : Spatial
     //  PITCHCONTROLLER
     //------------------------------------------------------------------------
 
-    private SectionChair chair;
+    private Godot.Collections.Array chairs;
     #endregion
 
     //------------------------------------------------------------------------
@@ -104,10 +112,14 @@ public class Section : Spatial
 
         this.tempoChanger = (TempoChangerScriptTransmitter)GetNodeOrNull<TempoChangerScriptTransmitter>("TempoChanger");
 
+        this.areaLeft = (Area)GetNodeOrNull<Area>("TempoChanger/AreaLeft");
+        this.areaRight = (Area)GetNodeOrNull<Area>("TempoChanger/AreaRight");
+        this.ToggleRightLeftAreas(false);
 
-        if (GetNode<SectionChair>("chair_sections") != null)
+
+        if (GetNode<Spatial>("chairs") != null)
         {
-            this.chair = GetNode<SectionChair>("chair_sections");
+            this.chairs = GetNode<Spatial>("chairs").GetChildren();
         }
 
 
@@ -142,6 +154,27 @@ public class Section : Spatial
         this.delta = delta;
         this.timeSinceStart += delta;
 
+        if (Input.IsActionPressed("InstrumentSelect"))
+        {
+            this.ManageSelection();
+        }
+        else
+        {
+            this.selected = false;
+            this.OM.selectedSection = null;
+        }
+
+        if (this.selected)
+        {
+            this.ToggleRightLeftAreas(true);
+        }
+        else
+        {
+            if (!this.mouseHoverBody)
+            {
+                this.ToggleRightLeftAreas(false);
+            }
+        }
 
         if (this.AP.Playing)
         {
@@ -154,6 +187,27 @@ public class Section : Spatial
         }
     }
 
+    public void ManageSelection()
+    {
+        if (this.mouseHoverBody)
+        {
+            if (this.OM.selectedSection == null)
+            {
+                this.selected = true;
+                this.OM.selectedSection = this;
+            }
+            else
+            {
+                if (this.OM.selectedSection != this)
+                {
+                    this.ToggleRightLeftAreas(false);
+                }
+            }
+        }
+
+
+        GD.Print(this.OM.selectedSection);
+    }
     public void CalculateRotation()
     {
 
@@ -172,7 +226,6 @@ public class Section : Spatial
             }
             else if (this.mouseInsideLeft)
             {
-
                 if (this.currentSpeed > 0)
                 {
                     this.bpm += this.angleAccelleration * delta;
@@ -227,9 +280,17 @@ public class Section : Spatial
         tempoToSet = this.bpm / this.OM.originalBPM;
 
         pitcher.SetPitchAndTempo(pitchToSet, tempoToSet);
-        if (this.chair != null)
+        if (this.chairs != null)
         {
-            this.chair.SetPitchScale(pitchToSet);
+            this.SetChairsPitchScales(pitchToSet);
+        }
+    }
+
+    public void SetChairsPitchScales(float pitchToSet)
+    {
+        foreach (SectionChair chair in this.chairs)
+        {
+            chair.SetPitchScale(pitchToSet);
         }
     }
 
@@ -255,6 +316,10 @@ public class Section : Spatial
             case "Right":
                 this.mouseInsideRight = true;
                 break;
+            case "Body":
+                this.mouseHoverBody = true;
+                this.ToggleRightLeftAreas(true);
+                break;
             default:
                 break;
         }
@@ -270,6 +335,10 @@ public class Section : Spatial
             case "Right":
                 this.mouseInsideRight = false;
                 break;
+            case "Body":
+                this.mouseHoverBody = false;
+                this.ToggleRightLeftAreas(false);
+                break;
             default:
                 break;
         }
@@ -277,11 +346,9 @@ public class Section : Spatial
 
     public void BodyEntered(Node body, string name)
     {
-        GD.Print(name);
         switch (name)
         {
             case "InstrumentCollider":
-                GD.Print("Body entered");
                 if (this.AP.Playing)
                 {
                     this.Stop();
@@ -292,8 +359,15 @@ public class Section : Spatial
                 }
                 break;
             default:
-                GD.Print("Other Body entered");
                 break;
         }
+    }
+
+    public void ToggleRightLeftAreas(bool setBool)
+    {
+        this.areaLeft.SetProcess(setBool);
+        this.areaLeft.Visible = (setBool);
+        this.areaRight.SetProcess(setBool);
+        this.areaRight.Visible = (setBool);
     }
 }
