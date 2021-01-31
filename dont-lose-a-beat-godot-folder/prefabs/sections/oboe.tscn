@@ -45,3 +45,10 @@ script = ExtResource( 5 )
 [node name="CollisionShape" type="CollisionShape" parent="InstrumentCollider"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.032464, -1.31209, 0.881997 )
 shape = SubResource( 1 )
+
+[node name="Area" type="Area" parent="InstrumentCollider"]
+
+[node name="CollisionShape2" type="CollisionShape" parent="InstrumentCollider/Area"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.032464, -1.31209, 0.881997 )
+shape = SubResource( 1 )
+[connection signal="area_entered" from="InstrumentCollider/Area" to="." method="AreaEntered" binds= [ "Body" ]]

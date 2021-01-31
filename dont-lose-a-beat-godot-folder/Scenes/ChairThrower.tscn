@@ -2,6 +2,5 @@
 
 [ext_resource path="res://Scripts/ChairThrower.cs" type="Script" id=1]
 
-
 [node name="ChairThrower" type="Spatial"]
 script = ExtResource( 1 )
