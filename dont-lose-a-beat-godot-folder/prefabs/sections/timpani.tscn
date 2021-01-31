@@ -25,10 +25,10 @@ script = ExtResource( 2 )
 [node name="chair_sections" parent="chairs" instance=ExtResource( 3 )]
 
 [node name="TempoChanger" parent="." instance=ExtResource( 5 )]
-transform = Transform( 0.4, 0, 0, 0, 0.3, 0, 0, 0, 1, 0, 2.9661, 1.78541 )
+transform = Transform( 0.4, 0, 0, 0, 0.3, 0, 0, 0, 1, 0, 0.319564, 1.78541 )
 
 [node name="Timpanis" type="Spatial" parent="TempoChanger"]
-transform = Transform( 2.5, 0, 0, 0, 3.33333, 0, 0, 0, 1, 0, -9.88701, -1.78541 )
+transform = Transform( 2.5, 0, 0, 0, 3.33333, 0, 0, 0, 1, 0, -1.06522, -1.78541 )
 
 [node name="timpani" parent="TempoChanger/Timpanis" instance=ExtResource( 4 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.955322, 0, 2.12878 )
@@ -37,7 +37,7 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.955322, 0, 2.12878 )
 transform = Transform( 1.14295, 0, 0, 0, 1.14295, 0, 0, 0, 1.14295, -1.14587, 0, 2.12878 )
 
 [node name="InstrumentCollider" type="RigidBody" parent="."]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.9661, 1.78541 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.07018, 1.78541 )
 mode = 3
 contacts_reported = 20
 contact_monitor = true

@@ -107,7 +107,7 @@ omni_range = 45.0
 omni_attenuation = 1.18921
 
 [node name="SpotLight" type="SpotLight" parent="Hall/hall2"]
-transform = Transform( -0.394315, -0.761204, -0.514863, -0.562341, -0.243253, 0.790317, -0.726834, 0.601162, -0.332138, 16.5349, 23.913, 9.99171 )
+transform = Transform( -0.394315, -0.761204, -0.514864, -0.562341, -0.243253, 0.790317, -0.726834, 0.601162, -0.332138, 16.5349, 23.913, 9.99171 )
 light_color = Color( 1, 0.858824, 0.745098, 1 )
 light_energy = 0.0
 shadow_enabled = true

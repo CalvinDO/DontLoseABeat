@@ -33,10 +33,11 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -16.6078, 0, -27.2187 )
 [node name="chair_sections" parent="chairs" instance=ExtResource( 3 )]
 
 [node name="TempoChanger" type="Spatial" parent="."]
-transform = Transform( 0.4, 0, 0, 0, 0.3, 0, 0, 0, 1, -15.2658, 7.39753, -31.7574 )
+transform = Transform( -0.4, 0, -3.25841e-07, 0, 0.3, 0, 1.30337e-07, 0, -1, -15.2658, -0.0712066, -29.3002 )
 script = ExtResource( 5 )
 
 [node name="AreaLeft" type="Area" parent="TempoChanger"]
+transform = Transform( 1, 0, 0, 0, 1.60818, 0, 0, 0, 1, 0, 0, 0 )
 collision_layer = 2
 collision_mask = 2
 script = ExtResource( 6 )
@@ -52,6 +53,7 @@ mesh = SubResource( 2 )
 material/0 = ExtResource( 9 )
 
 [node name="AreaRight" type="Area" parent="TempoChanger"]
+transform = Transform( 1, 0, 0, 0, 1.60818, 0, 0, 0, 1, 0, 0, 0 )
 collision_layer = 2
 collision_mask = 2
 script = ExtResource( 6 )
@@ -66,22 +68,23 @@ mesh = SubResource( 2 )
 material/0 = ExtResource( 7 )
 
 [node name="percussion" parent="TempoChanger" instance=ExtResource( 4 )]
-transform = Transform( -0.225653, 0, -10.7457, 0, 14.3307, 0, 4.29826, 0, -0.0902613, -4.41278, -21.5603, 0.887011 )
+transform = Transform( 0.225656, 0, 10.7457, 0, 14.3307, 0, -4.29826, 0, 0.0902627, 4.41278, 3.33549, 1.57015 )
 
-[node name="InstrumentCollider" type="RigidBody" parent="TempoChanger"]
+[node name="InstrumentCollider" type="RigidBody" parent="."]
+transform = Transform( 0.4, 0, 0, 0, 0.3, 0, 0, 0, 1, -15.2658, 7.39753, -31.7574 )
 mode = 1
 script = ExtResource( 8 )
 
-[node name="CollisionShape" type="CollisionShape" parent="TempoChanger/InstrumentCollider"]
+[node name="CollisionShape" type="CollisionShape" parent="InstrumentCollider"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -15.4874, 1.00961 )
 shape = SubResource( 3 )
 
-[node name="Area" type="Area" parent="TempoChanger/InstrumentCollider"]
+[node name="Area" type="Area" parent="InstrumentCollider"]
 collision_layer = 2
 collision_mask = 2
 
-[node name="CollisionShape2" type="CollisionShape" parent="TempoChanger/InstrumentCollider/Area"]
+[node name="CollisionShape2" type="CollisionShape" parent="InstrumentCollider/Area"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -15.4874, 1.00961 )
 shape = SubResource( 3 )
-[connection signal="area_entered" from="TempoChanger/InstrumentCollider/Area" to="." method="AreaEntered" binds= [ "Body" ]]
-[connection signal="area_exited" from="TempoChanger/InstrumentCollider/Area" to="." method="AreaExited" binds= [ "Body" ]]
+[connection signal="area_entered" from="InstrumentCollider/Area" to="." method="AreaEntered" binds= [ "Body" ]]
+[connection signal="area_exited" from="InstrumentCollider/Area" to="." method="AreaExited" binds= [ "Body" ]]

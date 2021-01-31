@@ -8,9 +8,6 @@ public class SimonsOrchestraManager : Spatial
     [Export]
     bool loadDynamically = true;
 
-    [Export]
-    public int currentLevel;
-
     public float originalBPM = 130;
     public float currentBPM = 130;
 
@@ -24,7 +21,7 @@ public class SimonsOrchestraManager : Spatial
 
     [Export]
     public float chairActiveTime = 2;
-    
+
     //Valentins
     //------
     [Export]
@@ -91,7 +88,7 @@ public class SimonsOrchestraManager : Spatial
             }
             else if (!fileName.EndsWith(".ogg.import"))
             {
-                GD.PrintErr($"Folder res://Audio/lvl{currentLevel} contains wrongly named file {fileName}. SHAME!");
+                GD.PrintErr($"Folder res://Audio/lvl{GameState.currentLevel} contains wrongly named file {fileName}. SHAME!");
             }
         }
         dir.ListDirEnd();
@@ -199,7 +196,7 @@ public class SimonsOrchestraManager : Spatial
 
             if (thresholdTime <= 0f)
                 GD.Print("-----------WIN-Placeholder-----------");
-                GetTree().ChangeSceneTo(GameState.transitionScene);
+            GetTree().ChangeSceneTo(GameState.transitionScene);
         }
     }
 

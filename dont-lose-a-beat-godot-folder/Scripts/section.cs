@@ -70,6 +70,9 @@ public class Section : Spatial
     public Area areaLeft;
     public Area areaRight;
 
+
+    public float pitchIncrement = 0.01f;
+
     public enum Axis
     {
         X, Y, Z
@@ -134,7 +137,7 @@ public class Section : Spatial
 
     public void LoadLevel()
     {
-        string filename = $"res://Audio/lvl{OM.currentLevel}/{instrumentName}.ogg";
+        string filename = $"res://Audio/lvl{GameState.currentLevel}/{instrumentName}.ogg";
         AP.Stream = GD.Load<AudioStream>(filename);
     }
 
@@ -154,6 +157,12 @@ public class Section : Spatial
         this.delta = delta;
         this.timeSinceStart += delta;
 
+
+        if (this.mouseHoverBody)
+        {
+
+            this.ManagePitchControl();
+        }
         if (Input.IsActionPressed("InstrumentSelect"))
         {
             this.ManageSelection();
@@ -161,7 +170,7 @@ public class Section : Spatial
         else
         {
             this.selected = false;
-            GameState.selectedSection= null;
+            GameState.selectedSection = null;
         }
 
         if (this.selected)
@@ -180,15 +189,27 @@ public class Section : Spatial
         {
             CalculateRotation();
         }
-        if (AP.Stream != null) {
-
-        if (this.timeSinceStart > AP.Stream.GetLength())
+        if (AP.Stream != null)
         {
-            this.timeSinceStart = 0;
-        }
+
+            if (this.timeSinceStart > AP.Stream.GetLength())
+            {
+                this.timeSinceStart = 0;
+            }
         }
     }
 
+    public void ManagePitchControl()
+    {
+        if (Input.IsActionPressed("IncreasePitch"))
+        {
+            this.pitchToSet += this.pitchIncrement;
+        }
+        if (Input.IsActionPressed("DecreasePitch"))
+        {
+            this.pitchToSet -= this.pitchIncrement;
+        }
+    }
     public void ManageSelection()
     {
         if (this.mouseHoverBody)
@@ -196,7 +217,7 @@ public class Section : Spatial
             if (GameState.selectedSection == null)
             {
                 this.selected = true;
-               GameState.selectedSection= null; = this;
+                GameState.selectedSection = this;
             }
             else
             {

@@ -15,10 +15,7 @@ public class ThrownChair : RigidBody
         this.timeSinceThrow += delta;
         if (this.timeSinceThrow > this.OM.chairActiveTime)
         {
-            GD.Print("time exceeded");
-            this.CollisionLayer = (uint)3;
-
-            
+            this.QueueFree();
         }
     }
 }
