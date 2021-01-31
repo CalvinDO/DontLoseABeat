@@ -100,6 +100,8 @@ public class Section : Spatial
     //  MUTECONTROLLER
     //------------------------------------------------------------------------
 
+    public AudioStreamPlayer ChairLandPlayer;
+
     public bool IsChairInCollider = false;
 
     //------------------------------------------------------------------------
@@ -122,6 +124,11 @@ public class Section : Spatial
         this.areaLeft = (Area)GetNodeOrNull<Area>("TempoChanger/AreaLeft");
         this.areaRight = (Area)GetNodeOrNull<Area>("TempoChanger/AreaRight");
         this.ToggleRightLeftAreas(false);
+
+        ChairLandPlayer = new AudioStreamPlayer();
+        ChairLandPlayer.Autoplay = false;
+        ChairLandPlayer.Stream = (AudioStream)GD.Load("res://Audio/effects/chair_land.tres");
+        this.AddChild(ChairLandPlayer);
 
 
         if (GetNode<Spatial>("chairs") != null)
@@ -162,11 +169,7 @@ public class Section : Spatial
         this.timeSinceStart += delta;
 
 
-        if (this.mouseHoverBody)
-        {
 
-            this.ManagePitchControl();
-        }
 
         if (Input.IsActionPressed("InstrumentSelect"))
         {
@@ -208,22 +211,12 @@ public class Section : Spatial
     {
         if (this.IsWheelDown)
         {
-            this.pitchToSet -= this.pitchIncrement;
 
-            if (this.pitchToSet < 0.5f)
-            {
-                this.pitchToSet = 0.5f;
-            }
         }
         if (this.IsWheelUp)
         {
 
-            this.pitchToSet += this.pitchIncrement;
 
-            if (this.pitchToSet > 2f)
-            {
-                this.pitchToSet = 2;
-            }
         }
     }
 
@@ -232,15 +225,27 @@ public class Section : Spatial
         if (@event is InputEventMouseButton)
         {
             InputEventMouseButton emb = (InputEventMouseButton)@event;
-            if (emb.IsPressed())
+            if (this.mouseHoverBody)
             {
-                if (emb.ButtonIndex == (int)ButtonList.WheelUp)
+                if (emb.IsPressed())
                 {
-                    this.IsWheelDown = true;
+                    // this.IsWheelDown = true;
+                    this.pitchToSet -= this.pitchIncrement;
+
+                    if (this.pitchToSet < 0.5f)
+                    {
+                        this.pitchToSet = 0.5f;
+                    }
+
                 }
                 if (emb.ButtonIndex == (int)ButtonList.WheelDown)
                 {
-                    this.IsWheelUp = true;
+                    this.pitchToSet += this.pitchIncrement;
+
+                    if (this.pitchToSet > 2f)
+                    {
+                        this.pitchToSet = 2;
+                    }
                 }
             }
         }
@@ -409,10 +414,12 @@ public class Section : Spatial
                 if (this.AP.Playing)
                 {
                     this.Stop();
+                    this.ChairLandPlayer.Play();
                 }
                 else
                 {
                     this.Play();
+                    this.ChairLandPlayer.Play();
                 }
                 break;
             default:
