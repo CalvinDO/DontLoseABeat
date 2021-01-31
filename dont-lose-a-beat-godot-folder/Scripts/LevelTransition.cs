@@ -4,10 +4,12 @@ public class LevelTransition : Spatial
 {
     AnimationPlayer an;
     AudioStreamPlayer audio;
+    PackedScene mainScene;
 
     // Called when the node enters the scene tree for the first time.
     public override void _Ready()
     {
+        mainScene = GD.Load<PackedScene>("res://Scenes/MainScene.tscn");
         audio = GetNode<AudioStreamPlayer>("AudioStreamPlayer");
         an = GetNode<AnimationPlayer>("courtain/AnimationPlayer");
         PlayTrack();
@@ -27,7 +29,7 @@ public class LevelTransition : Spatial
     public void LoadNewScene() {
         GameState.currentLevel += 1;
         GD.Print("LOAD Level " + GameState.currentLevel);
-        GetTree().ChangeScene("res://Scenes/MainScene.tscn");
+        GetTree().ChangeSceneTo(mainScene);
     }
 
 }
