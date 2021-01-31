@@ -33,18 +33,18 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.00975513, 0, 0.403272 )
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0418329, 0, 1.80941 )
 
 [node name="TempoChanger" parent="." instance=ExtResource( 6 )]
-transform = Transform( 0.6616, 0, 0.749857, 0, 1, 0, -0.749857, 0, 0.6616, -9.25849, 0, -7.64152 )
+transform = Transform( 0.6616, 0, 0.749857, 0, 1, 0, -0.749857, 0, 0.6616, -8.76305, 0, -8.20305 )
 
-[node name="Clarinets" type="Spatial" parent="TempoChanger"]
-transform = Transform( 0.661598, 0, -0.749859, 0, 0.999999, 0, 0.749858, 0, 0.661598, 0.395359, 5.72205e-06, 11.9982 )
+[node name="Clarinets" type="Spatial" parent="."]
+transform = Transform( 1, 0, -2.41399e-06, 0, 0.999999, 0, 1.99676e-06, 0, 1, -9.53674e-07, 5.72205e-06, 1.52588e-05 )
 
-[node name="clarinet" parent="TempoChanger/Clarinets" instance=ExtResource( 3 )]
+[node name="clarinet" parent="Clarinets" instance=ExtResource( 3 )]
 transform = Transform( -1.31046, -0.782897, 2.27348, -1.40444, 2.35085, -1.22781e-07, -1.95171, -1.16599, -1.52651, -7.57563, 0.348843, -6.32728 )
 
-[node name="clarinet2" parent="TempoChanger/Clarinets" instance=ExtResource( 3 )]
+[node name="clarinet2" parent="Clarinets" instance=ExtResource( 3 )]
 transform = Transform( -1.32029, -0.788763, 2.26575, -1.40444, 2.35085, -1.22781e-07, -1.94508, -1.16203, -1.53795, -6.64491, 0.348843, -7.68572 )
 
-[node name="clarinet3" parent="TempoChanger/Clarinets" instance=ExtResource( 3 )]
+[node name="clarinet3" parent="Clarinets" instance=ExtResource( 3 )]
 transform = Transform( -0.601187, -0.359158, 2.64735, -1.40444, 2.35085, -1.22781e-07, -2.27268, -1.35774, -0.700302, -8.3516, 0.348843, -5.10305 )
 
 [node name="InstrumentCollider" type="RigidBody" parent="."]
