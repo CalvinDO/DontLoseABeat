@@ -6,7 +6,7 @@
 [ext_resource path="res://materials/blue.tres" type="Material" id=4]
 
 [sub_resource type="BoxShape" id=1]
-extents = Vector3( 28.6031, 12.281, 0.0629573 )
+extents = Vector3( 7.83064, 6.53806, 0.063 )
 
 [sub_resource type="PlaneMesh" id=2]
 
@@ -20,11 +20,11 @@ script = ExtResource( 1 )
 side = 1
 
 [node name="CollisionShapeLeft" type="CollisionShape" parent="AreaLeft"]
-transform = Transform( 0.286, 0, 0, 0, 0.531, 0, 0, 0, 1, -8.18384, 6.55298, 0 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -8.18384, 6.55298, 0 )
 shape = SubResource( 1 )
 
 [node name="PlaneMesh" type="MeshInstance" parent="AreaLeft/CollisionShapeLeft"]
-transform = Transform( 28.5, 0, 0, 0, -4.37114e-08, -12.277, 0, 1, -5.36645e-07, 0.00481033, 0, 0 )
+transform = Transform( 8.151, 0, 0, 0, -2.32108e-08, -6.51909, 0, 1, -5.36645e-07, 0.00137615, 0, 0 )
 mesh = SubResource( 2 )
 material/0 = ExtResource( 4 )
 
@@ -33,11 +33,11 @@ collision_layer = 2
 collision_mask = 2
 script = ExtResource( 1 )
 
-[node name="CollisionShapeRight" type="CollisionShape" parent="AreaRight"]
-transform = Transform( 0.286, 0, 0, 0, 0.531, 0, 0, 0, 1, 8.184, 6.545, 0 )
-shape = SubResource( 1 )
-
-[node name="PlaneMeshRed" type="MeshInstance" parent="AreaRight/CollisionShapeRight"]
-transform = Transform( 28.5, 0, 0, 0, -4.37114e-08, -12.277, 0, 1, -5.36645e-07, 0.0412769, 9.53674e-07, 0 )
+[node name="PlaneMeshRed" type="MeshInstance" parent="AreaRight"]
+transform = Transform( 8.151, 0, 0, 0, -2.32108e-08, -6.51909, 0, 1, -5.36645e-07, 8.19581, 6.545, 0 )
 mesh = SubResource( 2 )
 material/0 = ExtResource( 3 )
+
+[node name="CollisionShapeRight" type="CollisionShape" parent="AreaRight"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 8.184, 6.545, 0 )
+shape = SubResource( 1 )
