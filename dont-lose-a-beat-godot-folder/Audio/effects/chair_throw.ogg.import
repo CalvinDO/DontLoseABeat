@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/chair_throw.ogg-66b9bca7e0d85a59ac7fb833ac849a39.oggstr"
+
+[deps]
+
+source_file="res://Audio/effects/chair_throw.ogg"
+dest_files=[ "res://.import/chair_throw.ogg-66b9bca7e0d85a59ac7fb833ac849a39.oggstr" ]
+
+[params]
+
+loop=true
+loop_offset=0
