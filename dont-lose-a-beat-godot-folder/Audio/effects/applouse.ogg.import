@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/applouse.ogg-3f1f6e0f135cdb0baeb46d0b14218355.oggstr"
+
+[deps]
+
+source_file="res://Audio/effects/applouse.ogg"
+dest_files=[ "res://.import/applouse.ogg-3f1f6e0f135cdb0baeb46d0b14218355.oggstr" ]
+
+[params]
+
+loop=true
+loop_offset=0
