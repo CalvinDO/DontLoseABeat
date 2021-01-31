@@ -1,0 +1,171 @@
+[gd_scene load_steps=13 format=2]
+
+[ext_resource path="res://models/instruments/trombone.glb" type="PackedScene" id=1]
+[ext_resource path="res://models/instruments/trumpet.glb" type="PackedScene" id=2]
+[ext_resource path="res://models/instruments/clarinet.glb" type="PackedScene" id=3]
+[ext_resource path="res://models/instruments/flute.glb" type="PackedScene" id=4]
+[ext_resource path="res://models/instruments/harp.glb" type="PackedScene" id=5]
+[ext_resource path="res://models/instruments/oboe.glb" type="PackedScene" id=6]
+[ext_resource path="res://models/instruments/violin.glb" type="PackedScene" id=7]
+[ext_resource path="res://models/instruments/horn.glb" type="PackedScene" id=8]
+[ext_resource path="res://models/instruments/timpani.glb" type="PackedScene" id=9]
+[ext_resource path="res://prefabs/chair_sections.tscn" type="PackedScene" id=10]
+[ext_resource path="res://models/instruments/cello.glb" type="PackedScene" id=11]
+[ext_resource path="res://models/instruments/piano.glb" type="PackedScene" id=12]
+
+[node name="OrchestraModelsAll" type="Spatial"]
+
+[node name="SectionClarinet" type="Spatial" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.566, -3.803 )
+
+[node name="clarinet" type="Spatial" parent="SectionClarinet" instance=ExtResource( 3 )]
+transform = Transform( -1.31046, -0.782897, 2.27348, -1.40444, 2.35085, -1.22781e-07, -1.95171, -1.16599, -1.52651, -7.57563, 0.348843, -6.32728 )
+
+[node name="clarinet2" type="Spatial" parent="SectionClarinet" instance=ExtResource( 3 )]
+transform = Transform( -1.32029, -0.788763, 2.26575, -1.40444, 2.35085, -1.22781e-07, -1.94508, -1.16203, -1.53795, -6.85888, 0.348843, -7.4812 )
+
+[node name="clarinet3" type="Spatial" parent="SectionClarinet" instance=ExtResource( 3 )]
+transform = Transform( -0.601187, -0.359158, 2.64735, -1.40444, 2.35085, -1.22781e-07, -2.27268, -1.35774, -0.700302, -8.16051, 0.348843, -5.38565 )
+
+[node name="chair_sections" type="Spatial" parent="SectionClarinet" instance=ExtResource( 10 )]
+transform = Transform( 0.849469, 0, -0.527638, 0, 1, 0, 0.527638, 0, 0.849469, -8.48915, -0.677467, -7.56772 )
+
+[node name="SectionDeepstrings" type="Spatial" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.566, -3.803 )
+
+[node name="cello" type="Spatial" parent="SectionDeepstrings" instance=ExtResource( 11 )]
+transform = Transform( 0.725925, -0.172621, -0.0493641, 0, 0.205606, -0.718977, 0.179541, 0.697947, 0.199592, 10.2555, 1.83361, -4.74858 )
+
+[node name="cello2" type="Spatial" parent="SectionDeepstrings" instance=ExtResource( 11 )]
+transform = Transform( 0.616332, -0.407161, -0.116436, 0, 0.205606, -0.718977, 0.423482, 0.592578, 0.16946, 11.8099, 1.83361, -3.93467 )
+
+[node name="cello3" type="Spatial" parent="SectionDeepstrings" instance=ExtResource( 11 )]
+transform = Transform( 0.54399, -0.834061, -0.23852, -1.73916e-06, 0.253819, -0.887562, 0.867496, 0.523024, 0.149569, 15.6648, 1.83349, -4.01637 )
+
+[node name="chair_sections" type="Spatial" parent="SectionDeepstrings" instance=ExtResource( 10 )]
+transform = Transform( -0.639801, 0, -0.76854, 0, 1, 0, 0.76854, 0, -0.639801, 12.7978, 0, -5.049 )
+
+[node name="SectionFlute" type="Spatial" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.566, -3.803 )
+
+[node name="chair_sections" type="Spatial" parent="SectionFlute" instance=ExtResource( 10 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.947943, 0, -8.32533 )
+
+[node name="flute" type="Spatial" parent="SectionFlute" instance=ExtResource( 4 )]
+transform = Transform( 1.37482, 0, -0.638725, 0, 1.51595, 0, 0.638725, 0, 1.37482, 0.947943, 2.60029, -7.21195 )
+
+[node name="flute2" type="Spatial" parent="SectionFlute" instance=ExtResource( 4 )]
+transform = Transform( 1.34574, 0, -0.69792, 0, 1.51595, 0, 0.69792, 0, 1.34574, 3.41832, 2.60029, -7.23441 )
+
+[node name="flute3" type="Spatial" parent="SectionFlute" instance=ExtResource( 4 )]
+transform = Transform( 1.42783, 0, -0.509325, 0, 1.51595, 0, 0.509325, 0, 1.42783, -1.67761, 2.60029, -7.71125 )
+
+[node name="SectionHarp" type="Spatial" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.566, -3.803 )
+
+[node name="harp" type="Spatial" parent="SectionHarp" instance=ExtResource( 5 )]
+transform = Transform( 0.52642, 0, -2.69015, 0, 2.74116, 0, 2.69015, 0, 0.526421, -15.0453, 0, -7.53816 )
+
+[node name="chair_sections" type="Spatial" parent="SectionHarp" instance=ExtResource( 10 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -7.74806, 0, -3.40954 )
+
+[node name="SectionHorn" type="Spatial" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.566, -3.803 )
+
+[node name="horn" type="Spatial" parent="SectionHorn" instance=ExtResource( 8 )]
+transform = Transform( 0.608868, 2.46981, -0.401366, -1.7836, 0.138671, -1.85238, -1.75494, 0.715954, 1.74337, 8.54472, 1.66167, -10.2153 )
+
+[node name="horn2" type="Spatial" parent="SectionHorn" instance=ExtResource( 8 )]
+transform = Transform( 0.771759, 2.39122, -0.564094, -1.7836, 0.138671, -1.85238, -1.68965, 0.945825, 1.69772, 10.4887, 1.66167, -8.64997 )
+
+[node name="horn3" type="Spatial" parent="SectionHorn" instance=ExtResource( 8 )]
+transform = Transform( 0.259194, 2.56149, -0.0578142, -1.7836, 0.138671, -1.85238, -1.83939, 0.226483, 1.78805, 5.96756, 1.66167, -11.1386 )
+
+[node name="chair_sections" type="Spatial" parent="SectionHorn" instance=ExtResource( 10 )]
+transform = Transform( 0.795516, 0, 0.605933, 0, 1, 0, -0.605933, 0, 0.795516, 9.47589, 0.0937002, -11.6347 )
+
+[node name="chair_sections2" type="Spatial" parent="SectionHorn" instance=ExtResource( 10 )]
+transform = Transform( 0.795516, 0, 0.605933, 0, 1, 0, -0.605933, 0, 0.795516, 11.2369, 2.1673, -19.1444 )
+
+[node name="SectionOboe" type="Spatial" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.566, -3.803 )
+
+[node name="chair_sections" type="Spatial" parent="SectionOboe" instance=ExtResource( 10 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -4.41104, -9.53674e-07, -10.0309 )
+
+[node name="oboe" type="Spatial" parent="SectionOboe" instance=ExtResource( 6 )]
+transform = Transform( -0.0243215, 0, 2.50173, -1.30596, 2.13391, -0.0126964, -2.13381, -1.30602, -0.0207446, -3.34683, 1.55528, -8.50298 )
+
+[node name="oboe2" type="Spatial" parent="SectionOboe" instance=ExtResource( 6 )]
+transform = Transform( 0.515177, 0.32928, 2.42599, -1.30752, 2.13295, -0.0118443, -2.06984, -1.26544, 0.611304, -4.87097, 1.55528, -8.50298 )
+
+[node name="SectionPercussion" type="Spatial" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.566, -3.803 )
+
+[node name="chair_sections" type="Spatial" parent="SectionPercussion" instance=ExtResource( 10 )]
+
+[node name="SectionPiano" type="Spatial" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.566, -3.803 )
+
+[node name="chair_sections" type="Spatial" parent="SectionPiano" instance=ExtResource( 10 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -17.4931, 0, 2.27235 )
+
+[node name="piano" type="Spatial" parent="SectionPiano" instance=ExtResource( 12 )]
+transform = Transform( 1.30625, 0, -1.30625, 0, 1.84732, 0, 1.30625, 0, 1.30625, -16, 0.03, 0 )
+
+[node name="SectionStrings" type="Spatial" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.566, -3.803 )
+
+[node name="violin2" type="Spatial" parent="SectionStrings" instance=ExtResource( 7 )]
+transform = Transform( -0.0481488, 2.08525, 1.22713, 0, 1.22737, -2.08566, -2.41953, -0.0414951, -0.0244204, -6.98227, 1.8084, -0.785445 )
+
+[node name="violin4" type="Spatial" parent="SectionStrings" instance=ExtResource( 7 )]
+transform = Transform( -0.0481488, 2.08525, 1.22713, 0, 1.22737, -2.08566, -2.41953, -0.0414951, -0.0244204, -7.12992, 1.8084, 0.469572 )
+
+[node name="violin3" type="Spatial" parent="SectionStrings" instance=ExtResource( 7 )]
+transform = Transform( 2.1771, 0.910725, 0.535945, 0, 1.22737, -2.08566, -1.05672, 1.87632, 1.10418, -5.64905, 1.8084, -2.61171 )
+
+[node name="violin5" type="Spatial" parent="SectionStrings" instance=ExtResource( 7 )]
+transform = Transform( 2.1771, 0.910725, 0.535945, 0, 1.22737, -2.08566, -1.05672, 1.87632, 1.10418, -4.63339, 1.8084, -3.1645 )
+
+[node name="chair_sections" type="Spatial" parent="SectionStrings" instance=ExtResource( 10 )]
+transform = Transform( 0.601536, 0, 0.798846, 0, 1, 0, -0.798846, 0, 0.601536, -7.1335, 0, -2.25506 )
+
+[node name="SectionTimpani" type="Spatial" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.566, -3.803 )
+
+[node name="timpani" type="Spatial" parent="SectionTimpani" instance=ExtResource( 9 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 12.4175, 2.17247, -16.1394 )
+
+[node name="timpani2" type="Spatial" parent="SectionTimpani" instance=ExtResource( 9 )]
+transform = Transform( 1.14295, 0, 0, 0, 1.14295, 0, 0, 0, 1.14295, 10.3163, 2.17247, -16.1394 )
+
+[node name="SectionTrombone" type="Spatial" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.566, -3.803 )
+
+[node name="chair_sections" type="Spatial" parent="SectionTrombone" instance=ExtResource( 10 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.17367, -16.3601 )
+
+[node name="trombone" type="Spatial" parent="SectionTrombone" instance=ExtResource( 1 )]
+transform = Transform( -1.23851, 0.00345546, 0.0499921, 0.00583437, 1.2381, 0.0589632, -0.0497705, 0.0591503, -1.23711, 0, 4.573, -15.1452 )
+
+[node name="trombone2" type="Spatial" parent="SectionTrombone" instance=ExtResource( 1 )]
+transform = Transform( -1.22373, 0.0151318, -0.196648, 0.00583437, 1.2381, 0.0589632, 0.197143, 0.0572864, -1.2224, -3.13058, 4.573, -15.0311 )
+
+[node name="trombone3" type="Spatial" parent="SectionTrombone" instance=ExtResource( 1 )]
+transform = Transform( -1.2239, -0.00357352, 0.19614, 0.00583437, 1.2381, 0.0589632, -0.196086, 0.0591433, -1.22248, 2.63334, 4.573, -14.9187 )
+
+[node name="SectionTrumpet" type="Spatial" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.566, -3.803 )
+
+[node name="trumpet" type="Spatial" parent="SectionTrumpet" instance=ExtResource( 2 )]
+transform = Transform( -3.00447, -0.173118, -2.27584, -1.25096e-08, 3.76223, -0.286184, 2.28242, -0.227884, -2.99581, -10.6532, 5.03742, -13.8318 )
+
+[node name="trumpet2" type="Spatial" parent="SectionTrumpet" instance=ExtResource( 2 )]
+transform = Transform( -2.16055, -0.23462, -3.08436, -1.25096e-08, 3.76223, -0.286184, 3.09327, -0.163874, -2.15432, -12.2856, 3.34976, -12.5986 )
+
+[node name="trumpet3" type="Spatial" parent="SectionTrumpet" instance=ExtResource( 2 )]
+transform = Transform( -3.4433, -0.117012, -1.53827, -1.25096e-08, 3.76223, -0.286184, 1.54271, -0.261169, -3.43338, -8.9065, 4.54671, -15.1656 )
+
+[node name="chair_sections" type="Spatial" parent="SectionTrumpet" instance=ExtResource( 10 )]
+transform = Transform( 0.604919, 0, -0.796287, 0, 1, 0, 0.796287, 0, 0.604919, -11.603, 2.174, -15.0821 )
