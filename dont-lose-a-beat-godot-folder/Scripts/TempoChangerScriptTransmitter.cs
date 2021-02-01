@@ -3,10 +3,10 @@ using System;
 
 public class TempoChangerScriptTransmitter : Spatial
 {
-    public Section section;
+    public PlayerSection section;
     public override void _Ready()
     {
-        this.section = GetParent<Section>();
+        this.section = GetParent<PlayerSection>();
 
         CollisionConnector left = (CollisionConnector)this.GetChild(0);
         CollisionConnector right = (CollisionConnector)this.GetChild(1);

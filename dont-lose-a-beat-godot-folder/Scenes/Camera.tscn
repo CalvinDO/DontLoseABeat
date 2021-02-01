@@ -4,8 +4,7 @@
 [ext_resource path="res://Scenes/ChairThrower.tscn" type="PackedScene" id=2]
 [ext_resource path="res://materials/Crosshair.png" type="Texture" id=3]
 
-[sub_resource type="BoxShape" id=1]
-extents = Vector3( 0.001, 0.001, 1000 )
+[sub_resource type="CylinderShape" id=1]
 
 [sub_resource type="SpatialMaterial" id=2]
 albedo_color = Color( 0.00784314, 0.862745, 0, 1 )

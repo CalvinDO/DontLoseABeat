@@ -3,12 +3,12 @@ using System;
 
 public class InstrumentCollider : RigidBody
 {
-    public Section section;
+    public PlayerSection section;
     public override void _Ready()
     {
         if (GetParent() != null)
         {
-            this.section = GetParent<Section>();
+            this.section = GetParent<PlayerSection>();
         }
 
         Connect("body_entered", section, "BodyEntered", new Godot.Collections.Array() { "InstrumentCollider" });

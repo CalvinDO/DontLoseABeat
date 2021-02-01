@@ -14,7 +14,7 @@ public class SimonsOrchestraManager : Spatial
     Dictionary<string, PackedScene> sections;
 
 
-    public Section selectedSection;
+    public PlayerSection selectedSection;
 
     private float delta;
 
@@ -37,7 +37,7 @@ public class SimonsOrchestraManager : Spatial
     float thresholdTime;
     RandomNumberGenerator randomFloatNumber = new RandomNumberGenerator();
     private float timeUntilLoseNextSection;
-    public Section[] cleanSections;
+    public PlayerSection[] cleanSections;
     private bool isLosing;
 
     [Export]
@@ -75,28 +75,30 @@ public class SimonsOrchestraManager : Spatial
 
         while (true)
         {
+            GD.Print("Looping!");
             string fileName = dir.GetNext();
-            if (fileName == "") break;
-            else if (fileName.EndsWith(".ogg") && loadDynamically)
+            GD.Print("Filename:" + fileName);
+            if (fileName == "") {
+                GD.Print("brreak!");
+                break;
+            }
+            else if (fileName.EndsWith(".ogg.import") && loadDynamically)
             {
+                GD.Print("Found" + fileName);
                 files.Add(fileName);
-                fileName = fileName.Remove(fileName.Length - 4);
-                Section cSection = (Section)sections[fileName].Instance();
+                fileName = fileName.Remove(fileName.Length - 11);
+                PlayerSection cSection = (PlayerSection)sections[fileName].Instance();
                 cSection.bpm = this.currentBPM;
 
                 AddChild(cSection);
-            }
-            else if (!fileName.EndsWith(".ogg.import"))
-            {
-                GD.PrintErr($"Folder res://Audio/lvl{GameState.currentLevel} contains wrongly named file {fileName}. SHAME!");
             }
         }
         dir.ListDirEnd();
 
 
         int index = 0;
-        this.cleanSections = new Section[this.GetChildCount()];
-        foreach (Section cSection in this.GetChildren())
+        this.cleanSections = new PlayerSection[this.GetChildCount()];
+        foreach (PlayerSection cSection in this.GetChildren())
         {
             cSection.Play();
 
@@ -208,7 +210,7 @@ public class SimonsOrchestraManager : Spatial
 
     public bool IsInThreshold()
     {
-        foreach (Section cSection in this.cleanSections)
+        foreach (PlayerSection cSection in this.cleanSections)
         {
             Pitcher pitcher = cSection.GetNode<Pitcher>("Pitcher");
             if (!(pitcher.currentTempo >= minPitchOrTempo && pitcher.currentPitch >= minPitchOrTempo && pitcher.currentTempo <= maxPitchOrTempo && pitcher.currentPitch <= maxPitchOrTempo))
@@ -227,7 +229,6 @@ public class SimonsOrchestraManager : Spatial
         sections.Add("horn", ResourceLoader.Load<PackedScene>("res://prefabs/sections/horn.tscn"));
         sections.Add("trombone", ResourceLoader.Load<PackedScene>("res://prefabs/sections/trombone.tscn"));
         sections.Add("trumpet", ResourceLoader.Load<PackedScene>("res://prefabs/sections/trumpet.tscn"));
-        sections.Add("tuba", ResourceLoader.Load<PackedScene>("res://prefabs/sections/tuba.tscn"));
         sections.Add("oboe", ResourceLoader.Load<PackedScene>("res://prefabs/sections/oboe.tscn"));
         sections.Add("clarinet", ResourceLoader.Load<PackedScene>("res://prefabs/sections/clarinet.tscn"));
         sections.Add("percussion", ResourceLoader.Load<PackedScene>("res://prefabs/sections/percussion.tscn"));

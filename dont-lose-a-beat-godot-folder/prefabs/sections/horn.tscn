@@ -1,6 +1,6 @@
 [gd_scene load_steps=8 format=2]
 
-[ext_resource path="res://Scripts/Section.cs" type="Script" id=1]
+[ext_resource path="res://Scripts/PlayerSection.cs" type="Script" id=1]
 [ext_resource path="res://Scripts/Pitcher.cs" type="Script" id=2]
 [ext_resource path="res://models/instruments/horn.glb" type="PackedScene" id=3]
 [ext_resource path="res://prefabs/chair_sections.tscn" type="PackedScene" id=4]
