@@ -28,9 +28,6 @@ public class MusicianAudioStreamController : AudioStreamPlayer
         this.index = index;
         AudioServer.AddBus(this.index);
         AudioServer.AddBusEffect(this.index, pitchShift);
-        //this.pitchShift = (AudioEffectPitchShift)AudioServer.GetBusEffect(this.index, 0);
-        // GD.Print(this.pitchShift);
-        GD.Print("pitchscale: " + this.pitchShift.PitchScale);
     }
 
     private void SetTempo(float tempo)
@@ -38,18 +35,12 @@ public class MusicianAudioStreamController : AudioStreamPlayer
         this.pitchShift.PitchScale = this.currentPitch / tempo;
         this.PitchScale = tempo;
         this.currentTempo = tempo;
-        //GD.Print("WHY T");
-
     }
 
     private void SetPitch(float pitch)
-    {
-        //GD.Print("pitch:" + pitch);
-        
+    {        
         this.pitchShift.PitchScale = pitch / this.currentTempo;
-        //this.PitchScale = pitch;
         this.currentTempo = pitch;
-        //GD.Print("WHY P");
 
     }
 
@@ -59,7 +50,6 @@ public class MusicianAudioStreamController : AudioStreamPlayer
 	    this.PitchScale = tempo;
 	    currentTempo = tempo;
 	    currentPitch = pitch;
-        //GD.Print("WHY");
     }
 
 

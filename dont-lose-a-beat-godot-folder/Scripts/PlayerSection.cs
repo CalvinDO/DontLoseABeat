@@ -175,27 +175,7 @@ public class PlayerSection : Spatial
 
 
 
-        if (Input.IsActionPressed("InstrumentSelect"))
-        {
-            this.ManageSelection();
-        }
-        else
-        {
-            this.selected = false;
-            GameState.selectedSection = null;
-        }
-
-        if (this.selected)
-        {
-            this.ToggleRightLeftAreas(true);
-        }
-        else
-        {
-            if (!this.mouseHoverBody)
-            {
-                this.ToggleRightLeftAreas(false);
-            }
-        }
+        //Input.IsActionPressed("InstrumentSelect")
 
         if (this.AP.Playing)
         {
@@ -255,25 +235,6 @@ public class PlayerSection : Spatial
         }
     }
 
-    public void ManageSelection()
-    {
-        if (this.mouseHoverBody)
-        {
-            if (this.OM.selectedSection == null)
-            {
-                this.selected = true;
-                GameState.selectedSection = this;
-            }
-            else
-            {
-                if (this.OM.selectedSection != this)
-                {
-                    this.ToggleRightLeftAreas(false);
-                }
-            }
-        }
-        GD.Print(this.OM.selectedSection);
-    }
     public void CalculateRotation()
     {
 
@@ -370,44 +331,6 @@ public class PlayerSection : Spatial
         this.tempoToSet = tempo;
 
         this.bpm = this.OM.currentBPM * tempo;
-    }
-
-    public void AreaEntered(Area area, string name)
-    {
-        switch (name)
-        {
-            case "Left":
-                this.mouseInsideLeft = true;
-                break;
-            case "Right":
-                this.mouseInsideRight = true;
-                break;
-            case "Body":
-                this.mouseHoverBody = true;
-                this.ToggleRightLeftAreas(true);
-                break;
-            default:
-                break;
-        }
-    }
-
-    public void AreaExited(Area area, string name)
-    {
-        switch (name)
-        {
-            case "Left":
-                this.mouseInsideLeft = false;
-                break;
-            case "Right":
-                this.mouseInsideRight = false;
-                break;
-            case "Body":
-                this.mouseHoverBody = false;
-                this.ToggleRightLeftAreas(false);
-                break;
-            default:
-                break;
-        }
     }
 
     public void BodyEntered(Node body, string name)

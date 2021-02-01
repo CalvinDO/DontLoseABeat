@@ -20,7 +20,6 @@ public class Pitcher : Node
     //Equivalent zu Awake() in Unity
     public void Init(int BusID) {
         pitchEffect = (AudioEffectPitchShift)AudioServer.GetBusEffect(BusID, 0);
-        GD.Print(pitchEffect);
         AP = GetNode<AudioStreamPlayer>("../AudioStreamPlayer");
     }
 

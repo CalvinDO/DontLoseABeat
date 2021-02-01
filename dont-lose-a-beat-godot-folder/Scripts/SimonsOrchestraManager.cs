@@ -13,9 +13,6 @@ public class SimonsOrchestraManager : Spatial
 
     Dictionary<string, PackedScene> sections;
 
-
-    public PlayerSection selectedSection;
-
     private float delta;
 
 
@@ -75,16 +72,11 @@ public class SimonsOrchestraManager : Spatial
 
         while (true)
         {
-            GD.Print("Looping!");
             string fileName = dir.GetNext();
-            GD.Print("Filename:" + fileName);
-            if (fileName == "") {
-                GD.Print("brreak!");
-                break;
-            }
+            if (fileName == "") break;
+            
             else if (fileName.EndsWith(".ogg.import") && loadDynamically)
             {
-                GD.Print("Found" + fileName);
                 files.Add(fileName);
                 fileName = fileName.Remove(fileName.Length - 11);
                 PlayerSection cSection = (PlayerSection)sections[fileName].Instance();

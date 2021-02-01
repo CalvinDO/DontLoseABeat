@@ -7,7 +7,6 @@
 [ext_resource path="res://Scripts/InstrumentCollider.cs" type="Script" id=5]
 [ext_resource path="res://Scenes/TempoChanger.tscn" type="PackedScene" id=6]
 
-
 [sub_resource type="BoxShape" id=1]
 extents = Vector3( 1.75929, 1.5251, 0.831249 )
 
