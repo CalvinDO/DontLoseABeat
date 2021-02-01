@@ -7,7 +7,6 @@
 [ext_resource path="res://prefabs/chair_sections.tscn" type="PackedScene" id=5]
 [ext_resource path="res://Scripts/InstrumentCollider.cs" type="Script" id=6]
 
-
 [sub_resource type="BoxShape" id=1]
 extents = Vector3( 1.37593, 2.29147, 1.08575 )
 
@@ -22,16 +21,17 @@ axis = 2
 [node name="Pitcher" type="Node" parent="."]
 script = ExtResource( 2 )
 
+[node name="chairs" type="Spatial" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0 )
+
+[node name="chair_sections" parent="chairs" instance=ExtResource( 5 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -7.74806, 0, -3.40954 )
+
 [node name="TempoChanger" parent="." instance=ExtResource( 4 )]
 transform = Transform( 0.700598, 0, 0.713556, 0, 1, 0, -0.713556, 0, 0.700598, -6.75721, 0, -2.40053 )
 
 [node name="harp" parent="TempoChanger" instance=ExtResource( 3 )]
 transform = Transform( -0.0217206, 0, -2.37037, 0, 2.37046, 0, 2.37036, 0, -0.0217208, 0.314285, -6.03497e-07, 0.540636 )
-
-[node name="chairs" type="Spatial" parent="."]
-
-[node name="chair_sections" parent="chairs" instance=ExtResource( 5 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -7.74806, 0, -3.40954 )
 
 [node name="InstrumentCollider" type="RigidBody" parent="."]
 transform = Transform( 0.707107, 0, 0.707107, 0, 1, 0, -0.707107, 0, 0.707107, -6.17585, -4.76837e-07, -2.24079 )
