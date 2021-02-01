@@ -24,9 +24,9 @@ var panel
 var mouse_over = false
 var mouse_pressed = false
 
-func _init(camera, shortcut):
-	self.camera = camera
-	self.shortcut = shortcut
+func _init(_camera, _shortcut):
+	self.camera = _camera
+	self.shortcut = _shortcut
 
 func _ready():
 	if camera.enabled:

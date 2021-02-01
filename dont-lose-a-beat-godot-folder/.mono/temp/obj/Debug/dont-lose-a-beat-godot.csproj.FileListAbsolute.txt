@@ -1,11 +1,3 @@
-D:\DontLoseABeat\dont-lose-a-beat-godot-folder\.mono\temp\bin\Debug\dont-lose-a-beat-godot.dll
-D:\DontLoseABeat\dont-lose-a-beat-godot-folder\.mono\temp\bin\Debug\dont-lose-a-beat-godot.pdb
-D:\DontLoseABeat\dont-lose-a-beat-godot-folder\.mono\temp\obj\Debug\dont-lose-a-beat-godot.csprojAssemblyReference.cache
-D:\DontLoseABeat\dont-lose-a-beat-godot-folder\.mono\temp\obj\Debug\dont-lose-a-beat-godot.AssemblyInfoInputs.cache
-D:\DontLoseABeat\dont-lose-a-beat-godot-folder\.mono\temp\obj\Debug\dont-lose-a-beat-godot.AssemblyInfo.cs
-D:\DontLoseABeat\dont-lose-a-beat-godot-folder\.mono\temp\obj\Debug\dont-lose-a-beat-godot.csproj.CoreCompileInputs.cache
-D:\DontLoseABeat\dont-lose-a-beat-godot-folder\.mono\temp\obj\Debug\dont-lose-a-beat-godot.dll
-D:\DontLoseABeat\dont-lose-a-beat-godot-folder\.mono\temp\obj\Debug\dont-lose-a-beat-godot.pdb
 D:\home\HFU\dontloseabeat\dont-lose-a-beat-godot-folder\.mono\temp\bin\Debug\dont-lose-a-beat-godot.dll
 D:\home\HFU\dontloseabeat\dont-lose-a-beat-godot-folder\.mono\temp\bin\Debug\dont-lose-a-beat-godot.pdb
 D:\home\HFU\dontloseabeat\dont-lose-a-beat-godot-folder\.mono\temp\obj\Debug\dont-lose-a-beat-godot.csprojAssemblyReference.cache

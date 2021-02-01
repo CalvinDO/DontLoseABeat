@@ -3,13 +3,11 @@ using System;
 
 public class CollisionConnector : Area
 {
+    public enum Side {Right, Left }
+    
     [Export]
     public Side side;
 
-    public enum Side
-    {
-        Right, Left
-    }
 
     public void SetSignals(PlayerSection section)
     {
