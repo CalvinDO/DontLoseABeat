@@ -6,20 +6,19 @@ public class Selector : RayCast {
     public override void _Input(InputEvent eInput) {
 
         if (eInput.IsActionPressed("InstrumentSelect") && IsColliding()) {
-            //try {
+            if (GameState.selectedSection != null) GameState.selectedSection.ToggleRightLeftAreas(false);
 
-                //todo add exceptionhandling
-                if (GameState.selectedSection != null) GameState.selectedSection.ToggleRightLeftAreas(false);
+            Area viewedArea = (Area)GetCollider();
+            GD.Print(viewedArea);
 
-                Area viewedArea = (Area)GetCollider();
-                GD.Print($"ar {viewedArea}");
-                PlayerSection viewedSection = (PlayerSection)viewedArea.GetParent().GetParent();
-                GD.Print($"se {viewedSection}");
+            PlayerSection viewedSection;
+            try {
+                viewedSection = (PlayerSection)viewedArea.GetParent().GetParent();
                 GameState.selectedSection = viewedSection;
                 GameState.selectedSection.ToggleRightLeftAreas(true);
-            //} catch {
-               // GD.Print($"input {eInput}");
-           // }
+            } catch {
+                GD.Print($"Cannot cast {viewedArea.GetParent().GetParent().GetType()} to type PlayerSection. Is a PlayerSection Scene setup wrongly?");
+            }
         }
     }
 }
